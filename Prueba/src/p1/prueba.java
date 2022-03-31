@@ -7,6 +7,7 @@ public class prueba {
 		System.out.println("Prueba2");
 		System.out.println("Prueba Johann");
 		System.out.println("prueba Pablo");
+		System.out.println("Otra prueba Johann");
 		}
 
 }
