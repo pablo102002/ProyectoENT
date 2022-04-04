@@ -1,4 +1,4 @@
-package p1;
+package Productos;
 
 public class Producto {
 	
@@ -10,7 +10,6 @@ public class Producto {
 	private double azucar;
 	private double proteinas;
 	private double sal;
-	private double prueba;
 	
 	//Constructor
 	//No se podran crear constructores vacios
@@ -73,6 +72,7 @@ public class Producto {
 	public void setSal(double sal) {
 		this.sal = sal;
 	}
+	
 	
 	
 	
