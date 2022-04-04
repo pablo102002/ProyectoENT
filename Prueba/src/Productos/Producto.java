@@ -4,7 +4,7 @@ public class Producto {
 
 	//Atributos
 	//Estos cantidades se basan en 100 gramos
-	private double nombre;
+	private String nombre;
 	private double grasas;
 	private double grasas_saturadas;
 	private double hidratos_carbono;
@@ -14,7 +14,7 @@ public class Producto {
 	
 	//Constructor
 	//No se podran crear constructores vacios
-	public Producto(double nombre, double grasas, double grasas_saturadas, double hidratos_carbono, double azucar,
+	public Producto(String nombre, double grasas, double grasas_saturadas, double hidratos_carbono, double azucar,
 			double proteinas, double sal) {
 		super();
 		this.nombre = nombre;
@@ -29,12 +29,12 @@ public class Producto {
 	
 	//Getter y Setters
 	
-	public double getNombre() {
+	public String getNombre() {
 		return nombre;
 	}
 
 
-	public void setNombre(double nombre) {
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	
