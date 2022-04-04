@@ -1,7 +1,7 @@
 package Productos;
 
 public class Producto {
-	
+
 	//Atributos
 	//Estos cantidades se basan en 100 gramos
 	private double nombre;
@@ -14,8 +14,10 @@ public class Producto {
 	
 	//Constructor
 	//No se podran crear constructores vacios
-	public Producto(double grasas, double grasas_saturadas, double hidratos_carbono, double azucar, double proteinas,
-			double sal) {
+	public Producto(double nombre, double grasas, double grasas_saturadas, double hidratos_carbono, double azucar,
+			double proteinas, double sal) {
+		super();
+		this.nombre = nombre;
 		this.grasas = grasas;
 		this.grasas_saturadas = grasas_saturadas;
 		this.hidratos_carbono = hidratos_carbono;
@@ -26,6 +28,17 @@ public class Producto {
 	
 	
 	//Getter y Setters
+	
+	public double getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(double nombre) {
+		this.nombre = nombre;
+	}
+	
+	
 	public double getGrasas() {
 		return grasas;
 	}
@@ -73,11 +86,6 @@ public class Producto {
 	public void setSal(double sal) {
 		this.sal = sal;
 	}
-	
-	
-	
-	
-	
 	
 	
 
