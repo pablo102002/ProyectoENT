@@ -4,6 +4,7 @@ public class Producto {
 	
 	//Atributos
 	//Estos cantidades se basan en 100 gramos
+	private double nombre;
 	private double grasas;
 	private double grasas_saturadas;
 	private double hidratos_carbono;
