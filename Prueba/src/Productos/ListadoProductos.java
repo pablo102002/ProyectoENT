@@ -15,7 +15,7 @@ public class ListadoProductos {
 	
 	//Metodos
 	
-	public void añadirProducto(Producto pr) {
+	public void insertarProducto(Producto pr) {
 		ListaProductos.add(pr);
 	}
 	
