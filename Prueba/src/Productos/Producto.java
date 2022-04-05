@@ -11,11 +11,12 @@ public class Producto {
 	private double azucar;
 	private double proteinas;
 	private double sal;
+	private double calorias;
 	
 	//Constructor
 	//No se podran crear constructores vacios
 	public Producto(String nombre, double grasas, double grasas_saturadas, double hidratos_carbono, double azucar,
-			double proteinas, double sal) {
+			double proteinas, double sal, double calorias) {
 		super();
 		this.nombre = nombre;
 		this.grasas = grasas;
@@ -24,6 +25,7 @@ public class Producto {
 		this.azucar = azucar;
 		this.proteinas = proteinas;
 		this.sal = sal;
+		this.calorias = calorias;
 	}
 	
 	
@@ -85,6 +87,16 @@ public class Producto {
 
 	public void setSal(double sal) {
 		this.sal = sal;
+	}
+
+
+	public double getCalorias() {
+		return calorias;
+	}
+
+
+	public void setCalorias(double calorias) {
+		this.calorias = calorias;
 	}
 	
 	
