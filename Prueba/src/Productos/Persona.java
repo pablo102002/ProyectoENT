@@ -11,6 +11,7 @@ public class Persona {
 	private double total_azucar=0;
 	private double total_proteinas=0;
 	private double total_sal=0;
+	private double total_calorias=0;
 	
 	//ArrayList con los productos de la dieta de la persona
 	private ArrayList <Producto> dieta;
@@ -23,15 +24,16 @@ public class Persona {
 	public void insertarProducto(Producto prod, double gramos) {
 		
 		//Calculamos la cantidad de nutrientes
-		double grasas = prod.getGrasas() * gramos / 100;						//grasas
+		double grasas = prod.getGrasas() * gramos / 100;						//grasas 
 		double grasas_saturadas = prod.getGrasas_saturadas() * gramos / 100;	//grasas_saturadas
 		double hidratos_carbono = prod.getHidratos_carbono() * gramos / 100;	//hidratos_carbono
 		double azucar = prod.getAzucar() * gramos / 100;						//azucar
 		double proteinas = prod.getProteinas() * gramos / 100;					//proteinas
 		double sal = prod.getSal() * gramos / 100;								//sal
+		double calorias = prod.getCalorias() * gramos / 100;					//calorias
 		
 		//Añadimos el producto ya calculado a la dieta
-		Producto producto_dieta = new Producto(prod.getNombre(), grasas, grasas_saturadas, hidratos_carbono, azucar, proteinas, sal);
+		Producto producto_dieta = new Producto(prod.getNombre(), grasas, grasas_saturadas, hidratos_carbono, azucar, proteinas, sal, calorias);
 		
 		dieta.add(producto_dieta);
 		
@@ -42,6 +44,7 @@ public class Persona {
 		total_azucar += azucar;
 		total_proteinas += proteinas;
 		total_sal += sal;
+		total_calorias += calorias;
 		
 	}
 	
@@ -56,6 +59,7 @@ public class Persona {
 		total_azucar -= prod.getAzucar();
 		total_proteinas -= prod.getProteinas();
 		total_sal -= prod.getSal();
+		total_calorias -= prod.getCalorias();
 	}
 	
 	
