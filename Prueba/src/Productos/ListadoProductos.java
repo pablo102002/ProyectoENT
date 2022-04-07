@@ -6,7 +6,7 @@ public class ListadoProductos {
 
 	//Atributo
 	//Aqui se guardaran los productos a mostrar
-	private ArrayList <Producto> ListaProductos;
+	protected ArrayList <Producto> ListaProductos;
 
 	//Constructor para crear el Array
 	public ListadoProductos() {

@@ -31,6 +31,7 @@ public class Ventana {
 
 	private JFrame frame;
 	private JTextField Cantidad_Gramos_ListaProductos;
+	
 
 	/**
 	 * Launch the application.
@@ -59,6 +60,7 @@ public class Ventana {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(153, 255, 204));
 		frame.setBounds(100, 100, 1400, 1000);
@@ -305,15 +307,18 @@ public class Ventana {
 		//OBJETOS LOS CUALES TIENEN FUNCIONES
 		
 		//Lista de productos referenciados a la ArrayList de la clase Productos
-				ArrayList<String> ArrayListaProductos = new ArrayList<String>();
-				ArrayListaProductos.add("Actimel");
-				ArrayListaProductos.add("Kit-Kat");
-				ArrayListaProductos.add("Pollo");
-				ArrayListaProductos.add("Arroz");
-				ArrayListaProductos.add("Avena");
-				//Bucle el cual recorre toda la ArrayList y la añade a la lista de la interfaz
-				for(int i=0;i<ArrayListaProductos.size();i++) {
-					Lista_Productos.addItem(ArrayListaProductos.get(i));
+				//ArrayList<String> ArrayListaProductos = new ArrayList<String>();
+				ListadoProductos ArrayListaProductos=new ListadoProductos();
+		//Para crear cada alimento este es el esquema "Producto(nombre, grasas, grasas_saturadas, hidratos_carbono,  azucar, proteinas, sal, calorias)"
+				
+				ArrayListaProductos.insertarProducto(new Producto("Actimel", 0.4, 0.8, 0, 10.6, 1.5, 0.05,84));
+				ArrayListaProductos.insertarProducto(new Producto("Kit-Kat", 11.8, 15, 13.3, 45.7, 7.8, 0.14,518));
+				ArrayListaProductos.insertarProducto(new Producto("Arroz", 4, 0.9, 13.3, 0.6, 8.5, 0.72,456));
+				ArrayListaProductos.insertarProducto(new Producto("Pollo",7.72,2.17,0,0,29.55,0.98,195));
+				ArrayListaProductos.insertarProducto(new Producto("Avena",6.9,1.21,66.27,0,16.89,0,389));
+				//Bucle el cual recorre toda la ArrayList y la agrega a la lista de la interfaz poniendo solo el nombre
+				for(int i=0;i<ArrayListaProductos.ListaProductos.size();i++) {
+					Lista_Productos.addItem(ArrayListaProductos.ListaProductos.get(i).getNombre());
 					};
 				
 		
@@ -384,6 +389,12 @@ public class Ventana {
 		Total_Calorias_100gr_1.setBounds(385, 486, 124, 29);
 		panel_2.add(Total_Calorias_100gr_1);
 		
+		JLabel Etiqueta_Exception_Gramos_Lista = new JLabel("");
+		Etiqueta_Exception_Gramos_Lista.setFont(new Font("Dialog", Font.BOLD, 12));
+		Etiqueta_Exception_Gramos_Lista.setForeground(Color.RED);
+		Etiqueta_Exception_Gramos_Lista.setBounds(131, 0, 338, 22);
+		panel_2.add(Etiqueta_Exception_Gramos_Lista);
+		
 		JPanel panel_Titulo = new JPanel();
 		panel_Titulo.setBackground(new Color(153, 255, 255));
 		panel_Titulo.setBounds(368, 11, 670, 73);
@@ -394,10 +405,20 @@ public class Ventana {
 		Etiqueta_Titulo.setFont(new Font("Gabriola", Font.BOLD, 64));
 		Etiqueta_Titulo.setBounds(153, 11, 419, 100);
 		panel_Titulo.add(Etiqueta_Titulo);
-		// Si se agrega el prodcuto el texto Gramos se borrara y tambien todas sus referencias en los macros
 		Boton_Agregar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				//Esta excetion sirve para mostrar al usuario si ha introducido los datos bien
+				Etiqueta_Exception_Gramos_Lista.setText("");
+				double valor;
+				String texto = Cantidad_Gramos_ListaProductos.getText();
+				try {
+					valor=Double.parseDouble(texto);
+				}
+				catch(NumberFormatException es){
+					Etiqueta_Exception_Gramos_Lista.setText("datos erroneos, tienes que introducir un numero");
+				}
+				// Si se agrega el producto el texto Gramos se borrara y tambien todas sus referencias en los macros
 				Cantidad_Gramos_ListaProductos.setText(null);
 				Gramos_Grasas.setText(null);
 				Gramos_Grasas_Saturadas.setText(null);
@@ -421,4 +442,6 @@ public class Ventana {
 		
 		
 	}
+ 
 }
+

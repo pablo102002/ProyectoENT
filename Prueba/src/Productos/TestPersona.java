@@ -35,6 +35,7 @@ public class TestPersona {
 		dieta.eliminarProducto(0);
 		//Arreglar error al eliminar resta las calorias del producto con 100 gramos, no con la cantidad correcta
 		System.out.println(dieta.getTotal_calorias());
+		
 	}
 
 }
