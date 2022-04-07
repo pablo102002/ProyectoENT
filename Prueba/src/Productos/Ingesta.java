@@ -156,6 +156,7 @@ public class Ingesta {
 		total_proteinas -= prod.getProteinas();
 		total_sal -= prod.getSal();
 		total_calorias -= prod.getCalorias();
+	
 	}
 	
 	//Calcular si la dieta es saludable
