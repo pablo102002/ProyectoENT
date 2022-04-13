@@ -2,6 +2,14 @@ package Productos;
 
 public class TestPersona {
 
+	static void listarProducto(Producto p) {
+		System.out.println("Grasas: "+p.getGrasas() + "Grasas saturadas: "+p.getGrasas_saturadas()+"Hidratos Carbono: "+p.getHidratos_carbono()+"Azucar: "+p.getAzucar()+"Proteinas: "+p.getProteinas()+"Sal: "+p.getSal()+"Calorias: "+p.getCalorias());
+	}
+	
+	static void listarTotal(Ingesta d) {
+		System.out.println("Grasas: "+d.getTotal_grasas() + "Grasas saturadas: "+d.getTotal_grasas_saturadas()+"Hidratos Carbono: "+d.getTotal_hidratos_carbono()+"Azucar: "+d.getTotal_azucar()+"Proteinas: "+d.getTotal_proteinas()+"Sal: "+d.getTotal_sal()+"Calorias: "+d.getTotal_calorias());
+	}
+	
 	public static void main(String[] args) {
 		
 		//Productos
@@ -9,32 +17,27 @@ public class TestPersona {
 		Producto pr2 = new Producto("Kit-Kat", 11.8, 15, 13.3, 45.7, 7.8, 0.14,518);
 		Producto pr3 = new Producto("Arroz_curry", 4, 0.9, 13.3, 0.6, 8.5, 0.72,456);
 		
+		Producto pr4 = new Producto("Uno", 5, 6, 7, 8, 9, 10, 500);
+		Producto pr5 = new Producto("Dos", 10, 12, 14, 16, 18, 20, 1000);
+		
 		//Persona
 		Ingesta dieta = new Ingesta();
 		
-		dieta.insertarProducto(pr1, 50);
-		dieta.insertarProducto(pr2, 60);
-		dieta.insertarProducto(pr3, 300);
+		//dieta.insertarProducto(pr1, 50);
+		//dieta.insertarProducto(pr2, 60);
+		//dieta.insertarProducto(pr3, 300);
 		
-		System.out.println(pr1.getCalorias());
-		System.out.println(pr2.getCalorias());
-		System.out.println(pr3.getCalorias());
+		dieta.insertarProducto(pr4, 100);
+		dieta.insertarProducto(pr5, 100);
+		
+		listarProducto(pr4);
+		listarProducto(pr5);
 		System.out.println("----------------------------------------");
-		System.out.println(dieta.dieta.get(0).getCalorias());
-		System.out.println(dieta.dieta.get(1).getCalorias());
-		System.out.println(dieta.dieta.get(2).getCalorias());
+		listarTotal(dieta);
 		System.out.println("----------------------------------------");
-		System.out.println(dieta.getTotal_grasas());
-		System.out.println(dieta.getTotal_grasas_saturadas());
-		System.out.println(dieta.getTotal_hidratos_carbono());
-		System.out.println(dieta.getTotal_azucar());
-		System.out.println(dieta.getTotal_proteinas());
-		System.out.println(dieta.getTotal_sal());
-		System.out.println(dieta.getTotal_calorias());
-		System.out.println("----------------------------------------");
-		dieta.eliminarProducto(0);
-		//Arreglar error al eliminar resta las calorias del producto con 100 gramos, no con la cantidad correcta
-		System.out.println(dieta.getTotal_calorias());
+		System.out.println("Datos:");
+		System.out.println(dieta.total());
+		
 		
 	}
 

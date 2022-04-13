@@ -114,12 +114,13 @@ public class Ingesta {
 	}
 	
 	
+	//Metodos
 	
 	//Metodos insertar y eliminar productos a la dieta
 
 	public void insertarProducto(Producto prod, double gramos) {
 
-		//Calculamos la cantidad de nutrientes
+		//Calculamos la cantidad de nutrientes y lo guardamos en variables
 		double grasas = prod.getGrasas() * gramos / 100;						//grasas 
 		double grasas_saturadas = prod.getGrasas_saturadas() * gramos / 100;	//grasas_saturadas
 		double hidratos_carbono = prod.getHidratos_carbono() * gramos / 100;	//hidratos_carbono
@@ -145,7 +146,6 @@ public class Ingesta {
 	}
 
 	public void eliminarProducto(int index) {
-		dieta.remove(index);
 
 		Producto prod = dieta.get(index);
 
@@ -156,6 +156,8 @@ public class Ingesta {
 		total_proteinas -= prod.getProteinas();
 		total_sal -= prod.getSal();
 		total_calorias -= prod.getCalorias();
+		
+		dieta.remove(index);
 	
 	}
 	
