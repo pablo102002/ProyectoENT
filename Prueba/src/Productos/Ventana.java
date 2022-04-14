@@ -42,6 +42,7 @@ public class Ventana {
 	private JTextField textField_ProteinasAgregarProducto;
 	private JTextField textField_SalAgregarProducto;
 	private JTextField textField_TotalCaloriasAgregarProducto;
+	boolean isDigit=true;
 
 	/**
 	 * Launch the application.
@@ -109,12 +110,12 @@ public class Ventana {
 		
 		JLabel Etiqueta_agregarProducto = new JLabel("Agregar Producto");
 		Etiqueta_agregarProducto.setFont(new Font("Dialog", Font.BOLD, 17));
-		Etiqueta_agregarProducto.setBounds(76, 31, 171, 17);
+		Etiqueta_agregarProducto.setBounds(76, 27, 171, 21);
 		panel_4.add(Etiqueta_agregarProducto);
 		
 		JLabel Etiqueta_GramosAgregarProducto = new JLabel("Gramos alimento:");
 		Etiqueta_GramosAgregarProducto.setFont(new Font("Dialog", Font.PLAIN, 12));
-		Etiqueta_GramosAgregarProducto.setBounds(12, 102, 121, 17);
+		Etiqueta_GramosAgregarProducto.setBounds(12, 116, 121, 17);
 		panel_4.add(Etiqueta_GramosAgregarProducto);
 		
 		JLabel Etiqueta_NombreAgregarProducto = new JLabel("Nombre del Alimento:");
@@ -128,7 +129,7 @@ public class Ventana {
 		textField_NombreAgregarProducto.setColumns(10);
 		
 		textField_GramosAgregarProducto = new JTextField();
-		textField_GramosAgregarProducto.setBounds(178, 100, 60, 21);
+		textField_GramosAgregarProducto.setBounds(178, 114, 60, 21);
 		panel_4.add(textField_GramosAgregarProducto);
 		textField_GramosAgregarProducto.setColumns(10);
 		
@@ -139,27 +140,27 @@ public class Ventana {
 		
 		JLabel Etiqueta_GrasasSaturadasAgregarProducto = new JLabel("Grasas Saturadas:");
 		Etiqueta_GrasasSaturadasAgregarProducto.setFont(new Font("Dialog", Font.PLAIN, 13));
-		Etiqueta_GrasasSaturadasAgregarProducto.setBounds(12, 221, 137, 17);
+		Etiqueta_GrasasSaturadasAgregarProducto.setBounds(12, 204, 137, 17);
 		panel_4.add(Etiqueta_GrasasSaturadasAgregarProducto);
 		
 		JLabel Etiqeuta_AzucarAgregarProducto = new JLabel("Azucar:");
 		Etiqeuta_AzucarAgregarProducto.setFont(new Font("Dialog", Font.PLAIN, 13));
-		Etiqeuta_AzucarAgregarProducto.setBounds(12, 351, 60, 17);
+		Etiqeuta_AzucarAgregarProducto.setBounds(12, 315, 60, 17);
 		panel_4.add(Etiqeuta_AzucarAgregarProducto);
 		
 		JLabel Etiqueta_ProteinasAgregarProducto = new JLabel("Proteinas:");
 		Etiqueta_ProteinasAgregarProducto.setFont(new Font("Dialog", Font.PLAIN, 13));
-		Etiqueta_ProteinasAgregarProducto.setBounds(12, 406, 60, 17);
+		Etiqueta_ProteinasAgregarProducto.setBounds(12, 370, 60, 17);
 		panel_4.add(Etiqueta_ProteinasAgregarProducto);
 		
 		JLabel Etiqueta_Sal_Usuario_1 = new JLabel("Sal:");
 		Etiqueta_Sal_Usuario_1.setFont(new Font("Dialog", Font.PLAIN, 13));
-		Etiqueta_Sal_Usuario_1.setBounds(14, 449, 60, 17);
+		Etiqueta_Sal_Usuario_1.setBounds(14, 413, 60, 17);
 		panel_4.add(Etiqueta_Sal_Usuario_1);
 		
 		JLabel Etiqueta_HidratosCarbonoAgregarProducto = new JLabel("Hidratos de Carbono:");
 		Etiqueta_HidratosCarbonoAgregarProducto.setFont(new Font("Dialog", Font.PLAIN, 13));
-		Etiqueta_HidratosCarbonoAgregarProducto.setBounds(12, 288, 137, 17);
+		Etiqueta_HidratosCarbonoAgregarProducto.setBounds(12, 259, 137, 17);
 		panel_4.add(Etiqueta_HidratosCarbonoAgregarProducto);
 		
 		textField_GrasasAgregarProducto = new JTextField();
@@ -168,48 +169,44 @@ public class Ventana {
 		textField_GrasasAgregarProducto.setColumns(10);
 		
 		textField_GrasasSaturadasAgregarProducto = new JTextField();
-		textField_GrasasSaturadasAgregarProducto.setBounds(178, 218, 60, 20);
+		textField_GrasasSaturadasAgregarProducto.setBounds(178, 201, 60, 20);
 		panel_4.add(textField_GrasasSaturadasAgregarProducto);
 		textField_GrasasSaturadasAgregarProducto.setColumns(10);
 		
 		textField_HidratosAgregarProducto = new JTextField();
-		textField_HidratosAgregarProducto.setBounds(178, 287, 60, 20);
+		textField_HidratosAgregarProducto.setBounds(178, 258, 60, 20);
 		panel_4.add(textField_HidratosAgregarProducto);
 		textField_HidratosAgregarProducto.setColumns(10);
 		
 		textField_AzucarAgregarProducto = new JTextField();
-		textField_AzucarAgregarProducto.setBounds(178, 350, 60, 20);
+		textField_AzucarAgregarProducto.setBounds(178, 314, 60, 20);
 		panel_4.add(textField_AzucarAgregarProducto);
 		textField_AzucarAgregarProducto.setColumns(10);
 		
 		textField_ProteinasAgregarProducto = new JTextField();
-		textField_ProteinasAgregarProducto.setBounds(178, 405, 60, 20);
+		textField_ProteinasAgregarProducto.setBounds(178, 369, 60, 20);
 		panel_4.add(textField_ProteinasAgregarProducto);
 		textField_ProteinasAgregarProducto.setColumns(10);
 		
 		textField_SalAgregarProducto = new JTextField();
-		textField_SalAgregarProducto.setBounds(180, 448, 60, 20);
+		textField_SalAgregarProducto.setBounds(178, 412, 62, 20);
 		panel_4.add(textField_SalAgregarProducto);
 		textField_SalAgregarProducto.setColumns(10);
 		
 		textField_TotalCaloriasAgregarProducto = new JTextField();
-		textField_TotalCaloriasAgregarProducto.setBounds(180, 493, 60, 20);
+		textField_TotalCaloriasAgregarProducto.setBounds(178, 457, 62, 20);
 		panel_4.add(textField_TotalCaloriasAgregarProducto);
 		textField_TotalCaloriasAgregarProducto.setColumns(10);
 		
 		JLabel Etiqueta_CaloriasTotalAgregarProducto = new JLabel("Total Calorias:");
 		Etiqueta_CaloriasTotalAgregarProducto.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Etiqueta_CaloriasTotalAgregarProducto.setBounds(12, 495, 108, 14);
+		Etiqueta_CaloriasTotalAgregarProducto.setBounds(12, 459, 108, 14);
 		panel_4.add(Etiqueta_CaloriasTotalAgregarProducto);
-		
-		JButton botonAgregarProductoUsuario = new JButton("Agregar Producto");
-		botonAgregarProductoUsuario.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		botonAgregarProductoUsuario.setBounds(90, 537, 129, 32);
-		panel_4.add(botonAgregarProductoUsuario);
+	
 		
 		JLabel Etiqueta_Gramos_1_2 = new JLabel("gr");
 		Etiqueta_Gramos_1_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Etiqueta_Gramos_1_2.setBounds(243, 104, 20, 17);
+		Etiqueta_Gramos_1_2.setBounds(243, 118, 20, 17);
 		panel_4.add(Etiqueta_Gramos_1_2);
 		
 		JLabel Etiqueta_Gramos_1_3 = new JLabel("gr");
@@ -219,32 +216,32 @@ public class Ventana {
 		
 		JLabel Etiqueta_Gramos_1_4 = new JLabel("gr");
 		Etiqueta_Gramos_1_4.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Etiqueta_Gramos_1_4.setBounds(243, 223, 20, 17);
+		Etiqueta_Gramos_1_4.setBounds(243, 206, 20, 17);
 		panel_4.add(Etiqueta_Gramos_1_4);
 		
 		JLabel Etiqueta_Gramos_1_5 = new JLabel("gr");
 		Etiqueta_Gramos_1_5.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Etiqueta_Gramos_1_5.setBounds(243, 290, 20, 17);
+		Etiqueta_Gramos_1_5.setBounds(243, 261, 20, 17);
 		panel_4.add(Etiqueta_Gramos_1_5);
 		
 		JLabel Etiqueta_Gramos_1_6 = new JLabel("gr");
 		Etiqueta_Gramos_1_6.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Etiqueta_Gramos_1_6.setBounds(243, 353, 20, 17);
+		Etiqueta_Gramos_1_6.setBounds(243, 317, 20, 17);
 		panel_4.add(Etiqueta_Gramos_1_6);
 		
 		JLabel Etiqueta_Gramos_1_7 = new JLabel("gr");
 		Etiqueta_Gramos_1_7.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Etiqueta_Gramos_1_7.setBounds(243, 408, 20, 17);
+		Etiqueta_Gramos_1_7.setBounds(243, 372, 20, 17);
 		panel_4.add(Etiqueta_Gramos_1_7);
 		
 		JLabel Etiqueta_Gramos_1_8 = new JLabel("gr");
 		Etiqueta_Gramos_1_8.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Etiqueta_Gramos_1_8.setBounds(245, 451, 20, 17);
+		Etiqueta_Gramos_1_8.setBounds(245, 415, 20, 17);
 		panel_4.add(Etiqueta_Gramos_1_8);
 		
 		JLabel Etiqueta_Gramos_1_9 = new JLabel("gr");
 		Etiqueta_Gramos_1_9.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Etiqueta_Gramos_1_9.setBounds(245, 496, 20, 17);
+		Etiqueta_Gramos_1_9.setBounds(245, 460, 20, 17);
 		panel_4.add(Etiqueta_Gramos_1_9);
 		
 			
@@ -462,7 +459,7 @@ public class Ventana {
 		Etiqueta_Calorias.setBounds(92, 11, 74, 24);
 		panel_Calorias_100gr.add(Etiqueta_Calorias);
 		
-		JLabel Etiqueta_Total_Calorias_100gr = new JLabel("");
+		JLabel Etiqueta_Total_Calorias_100gr = new JLabel("0");
 		Etiqueta_Total_Calorias_100gr.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Etiqueta_Total_Calorias_100gr.setBounds(27, 12, 55, 20);
 		panel_Calorias_100gr.add(Etiqueta_Total_Calorias_100gr);
@@ -478,7 +475,7 @@ public class Ventana {
 		Etiqueta_Calorias_1.setBounds(106, 10, 74, 24);
 		panel_Calorias_100gr_Usuario.add(Etiqueta_Calorias_1);
 		
-		JLabel Etiqueta_Total_Calorias_Usuario = new JLabel("");
+		JLabel Etiqueta_Total_Calorias_Usuario = new JLabel("0");
 		Etiqueta_Total_Calorias_Usuario.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Etiqueta_Total_Calorias_Usuario.setBounds(30, 11, 55, 20);
 		panel_Calorias_100gr_Usuario.add(Etiqueta_Total_Calorias_Usuario);
@@ -567,6 +564,18 @@ public class Ventana {
 		CalculosGrUsuario.add(Gramos_Azucar_Usuario);
 		CalculosGrUsuario.add(Gramos_Proteinas_Usuario);
 		CalculosGrUsuario.add(Gramos_Sal_Usuario);
+		CalculosGrUsuario.add(Etiqueta_Total_Calorias_Usuario);
+		
+		ArrayList<Double> Macros100=new ArrayList<Double>();
+		Macros100.add(Double.parseDouble(Gramos_Grasas.getText()));
+		Macros100.add(Double.parseDouble(Gramos_Grasas_Saturadas.getText()));
+		Macros100.add(Double.parseDouble(Gramos_Hidratos.getText()));
+		Macros100.add(Double.parseDouble(Gramos_Azucar.getText()));
+		Macros100.add(Double.parseDouble(Gramos_Proteinas.getText()));
+		Macros100.add(Double.parseDouble(Gramos_Sal.getText()));
+		Macros100.add(Double.parseDouble(Etiqueta_Total_Calorias_100gr.getText()));
+		
+		
 		
 		//Cantidad de Gramos de el producto seleccionado
 		Cantidad_Gramos_ListaProductos = new JTextField();
@@ -576,8 +585,38 @@ public class Ventana {
 		//Sirve para acutalizar la candidad de gramos que pone le usuario
 		Cantidad_Gramos_ListaProductos.addCaretListener(new CaretListener() {
 			public void caretUpdate(CaretEvent e) {
-				String gramos=Cantidad_Gramos_ListaProductos.getText();
-				Etiqueta_NumerodeGramosSeleccionados.setText(gramos);
+				if(!Cantidad_Gramos_ListaProductos.getText().isEmpty()) {
+					String gramos=Cantidad_Gramos_ListaProductos.getText();
+					Etiqueta_NumerodeGramosSeleccionados.setText(gramos);
+					//Sirve para que el numero añadido no tenga ni letras ni caracteres
+					isDigit=true;
+					String texto = Cantidad_Gramos_ListaProductos.getText();
+					char[] v=texto.toCharArray();
+					int i=0;
+					while(isDigit && i<v.length) {
+						if(!Character.isDigit(v[i])) {
+							Etiqueta_Exception_Gramos_Lista.setText("datos erroneos, tienes que introducir un numero positivo");
+							isDigit=false;
+						}
+						else
+							Etiqueta_Exception_Gramos_Lista.setText(null);
+						i++;
+					}
+					if(isDigit) {
+						//convertimos el JTextField en un Double para hacer los calculos 
+						double numeroMacros=Double.parseDouble(texto);
+						double calculoMacro;
+						String pasarcalculoMacro;
+
+						for(int j=0;j<Macros100.size();j++) {
+							calculoMacro=numeroMacros*Macros100.get(j)/100;
+							pasarcalculoMacro=String.valueOf(calculoMacro);
+							CalculosGrUsuario.get(j).setText(pasarcalculoMacro);
+
+						}
+					}	
+				}
+				
 				
 			}
 		});
@@ -593,6 +632,7 @@ public class Ventana {
 		etiquetaUsuario.add(Gramos_Azucar_Usuario);
 		etiquetaUsuario.add(Gramos_Proteinas_Usuario);
 		etiquetaUsuario.add(Gramos_Sal_Usuario);
+		etiquetaUsuario.add(Etiqueta_Total_Calorias_Usuario);
 		
 		//Etiqueta Gramos
 		JLabel Etiqueta_Gramos = new JLabel("Gr");
@@ -622,17 +662,6 @@ public class Ventana {
 		
 				//Esta exception sirve para mostrar al usuario si ha introducido los datos bien
 				Etiqueta_Exception_Gramos_Lista.setText("");
-				String texto = Cantidad_Gramos_ListaProductos.getText();
-				char[] v=texto.toCharArray();
-				boolean isDigit=true;
-				int i=0;
-				while(isDigit && i<v.length) {
-					if(!Character.isDigit(v[i])) {
-					Etiqueta_Exception_Gramos_Lista.setText("datos erroneos, tienes que introducir un numero positivo");
-					isDigit=false;
-					}
-					i++;
-				}
 				
 				if(isDigit) {
 				// Creamos un objeto ing de Ingesta para poder calcular los Macros dependiendo las calorias que pone el usuario
@@ -641,27 +670,33 @@ public class Ventana {
 				int gramos=Integer.parseInt(Cantidad_Gramos_ListaProductos.getText());
 				//Llamamos la metodo insertarProducto
 				ing.insertarProducto(ArrayListaProductos.ListaProductos.get(NumeroLista), gramos);
-				int size=ing.dieta.size()-1; // tamaÃ±o de la ArrayList dieta
-				// Hacemos que las etiquetas tengan el valor de los calculos especificos gracias al metodo insertarProducto
-				String MacroEspecificaUsuario=Double.toString(ing.dieta.get(size).getGrasas());
-				Gramos_Grasas_Usuario.setText(MacroEspecificaUsuario);
-				MacroEspecificaUsuario=Double.toString(ing.dieta.get(size).getGrasas_saturadas());
-				Gramos_Grasas_Saturadas_Usuario.setText(MacroEspecificaUsuario);
-				MacroEspecificaUsuario=Double.toString(ing.dieta.get(size).getHidratos_carbono());
-				Gramos_Hidratos_Usuario.setText(MacroEspecificaUsuario);
-				MacroEspecificaUsuario=Double.toString(ing.dieta.get(size).getAzucar());
-				Gramos_Azucar_Usuario.setText(MacroEspecificaUsuario);
-				MacroEspecificaUsuario=Double.toString(ing.dieta.get(size).getProteinas());
-				Gramos_Proteinas_Usuario.setText(MacroEspecificaUsuario);
-				MacroEspecificaUsuario=Double.toString(ing.dieta.get(size).getSal());
-				Gramos_Sal_Usuario.setText(MacroEspecificaUsuario);
-				MacroEspecificaUsuario=Double.toString(ing.dieta.get(size).getCalorias());
-				Etiqueta_Total_Calorias_Usuario.setText(MacroEspecificaUsuario);
 				}	
 			}
 		});
+		ArrayList<JTextField> AgregarProd=new ArrayList<JTextField>();
+		AgregarProd.add(textField_NombreAgregarProducto);
+		AgregarProd.add(textField_GramosAgregarProducto);
+		AgregarProd.add(textField_GrasasAgregarProducto);
+		AgregarProd.add(textField_GrasasSaturadasAgregarProducto);
+		AgregarProd.add(textField_HidratosAgregarProducto);
+		AgregarProd.add(textField_AzucarAgregarProducto);
+		AgregarProd.add(textField_ProteinasAgregarProducto);
+		AgregarProd.add(textField_SalAgregarProducto);
+		AgregarProd.add(textField_TotalCaloriasAgregarProducto);
 		
+		//Boton para añadir un nuevo producto
 		
+		JButton botonAgregarProductoUsuario = new JButton("Agregar Producto");
+		botonAgregarProductoUsuario.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				
+			}
+		});
+		botonAgregarProductoUsuario.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		botonAgregarProductoUsuario.setBounds(90, 537, 129, 32);
+		panel_4.add(botonAgregarProductoUsuario);
 		
 		
 		
