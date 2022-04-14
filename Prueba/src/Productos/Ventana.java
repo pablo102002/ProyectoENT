@@ -507,6 +507,68 @@ public class Ventana {
 		Etiqueta_Titulo.setBounds(44, -27, 670, 100);
 		panel_Titulo.add(Etiqueta_Titulo);
 		
+		JLabel Etiqueta_Exception_AgregarProducto = new JLabel("");
+		Etiqueta_Exception_AgregarProducto.setForeground(Color.RED);
+		Etiqueta_Exception_AgregarProducto.setFont(new Font("Dialog", Font.BOLD, 12));
+		Etiqueta_Exception_AgregarProducto.setBounds(0, 504, 324, 22);
+		panel_4.add(Etiqueta_Exception_AgregarProducto);
+		
+		JLabel ErrorGrAlimento = new JLabel("");
+		ErrorGrAlimento.setFont(new Font("Tahoma", Font.BOLD, 11));
+		ErrorGrAlimento.setForeground(Color.RED);
+		ErrorGrAlimento.setBounds(278, 118, 46, 14);
+		panel_4.add(ErrorGrAlimento);
+		
+		JLabel ErrorGrasas = new JLabel("");
+		ErrorGrasas.setFont(new Font("Tahoma", Font.BOLD, 11));
+		ErrorGrasas.setForeground(Color.RED);
+		ErrorGrasas.setBounds(273, 157, 46, 14);
+		panel_4.add(ErrorGrasas);
+		
+		JLabel ErrorGrasasSaturadas = new JLabel("");
+		ErrorGrasasSaturadas.setFont(new Font("Tahoma", Font.BOLD, 11));
+		ErrorGrasasSaturadas.setForeground(Color.RED);
+		ErrorGrasasSaturadas.setBounds(273, 206, 46, 14);
+		panel_4.add(ErrorGrasasSaturadas);
+		
+		JLabel ErrorHidratos = new JLabel("");
+		ErrorHidratos.setFont(new Font("Tahoma", Font.BOLD, 11));
+		ErrorHidratos.setForeground(Color.RED);
+		ErrorHidratos.setBounds(273, 261, 46, 14);
+		panel_4.add(ErrorHidratos);
+		
+		JLabel ErrorAzucar = new JLabel("");
+		ErrorAzucar.setFont(new Font("Tahoma", Font.BOLD, 11));
+		ErrorAzucar.setForeground(Color.RED);
+		ErrorAzucar.setBounds(273, 317, 46, 14);
+		panel_4.add(ErrorAzucar);
+		
+		JLabel ErrorProteinas = new JLabel("");
+		ErrorProteinas.setFont(new Font("Tahoma", Font.BOLD, 11));
+		ErrorProteinas.setForeground(Color.RED);
+		ErrorProteinas.setBounds(273, 372, 46, 14);
+		panel_4.add(ErrorProteinas);
+		
+		JLabel ErrorSal = new JLabel("");
+		ErrorSal.setFont(new Font("Tahoma", Font.BOLD, 11));
+		ErrorSal.setForeground(Color.RED);
+		ErrorSal.setBounds(273, 415, 46, 14);
+		panel_4.add(ErrorSal);
+		
+		JLabel ErrorTotalCalorias = new JLabel("");
+		ErrorTotalCalorias.setFont(new Font("Tahoma", Font.BOLD, 11));
+		ErrorTotalCalorias.setForeground(Color.RED);
+		ErrorTotalCalorias.setBounds(273, 460, 46, 14);
+		panel_4.add(ErrorTotalCalorias);
+		
+		JLabel ErrorNombreAlimento = new JLabel("");
+		ErrorNombreAlimento.setForeground(Color.RED);
+		ErrorNombreAlimento.setFont(new Font("Tahoma", Font.BOLD, 11));
+		ErrorNombreAlimento.setBounds(288, 64, 46, 14);
+		panel_4.add(ErrorNombreAlimento);
+		
+		
+		
 		//OBJETOS LOS CUALES TIENEN FUNCIONES
 
 		//Lista de productos referenciados a la ArrayList de la clase Productos
@@ -673,8 +735,9 @@ public class Ventana {
 				}	
 			}
 		});
+		
+		//Array de Etiquetas añadir Productos 
 		ArrayList<JTextField> AgregarProd=new ArrayList<JTextField>();
-		AgregarProd.add(textField_NombreAgregarProducto);
 		AgregarProd.add(textField_GramosAgregarProducto);
 		AgregarProd.add(textField_GrasasAgregarProducto);
 		AgregarProd.add(textField_GrasasSaturadasAgregarProducto);
@@ -684,6 +747,17 @@ public class Ventana {
 		AgregarProd.add(textField_SalAgregarProducto);
 		AgregarProd.add(textField_TotalCaloriasAgregarProducto);
 		
+		ArrayList<JLabel> EtiquetaErrores=new ArrayList<JLabel>();
+		EtiquetaErrores.add(ErrorGrAlimento);
+		EtiquetaErrores.add(ErrorGrasas);
+		EtiquetaErrores.add(ErrorGrasasSaturadas);
+		EtiquetaErrores.add(ErrorHidratos);
+		EtiquetaErrores.add(ErrorAzucar);
+		EtiquetaErrores.add(ErrorProteinas);
+		EtiquetaErrores.add(ErrorSal);
+		EtiquetaErrores.add(ErrorTotalCalorias);
+		
+		
 		//Boton para añadir un nuevo producto
 		
 		JButton botonAgregarProductoUsuario = new JButton("Agregar Producto");
@@ -691,12 +765,25 @@ public class Ventana {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
+				Etiqueta_Exception_AgregarProducto.setText("");
 				
+				int size = AgregarProd.size();
+				
+				Metodos.ComprobarCeldaVaciaString(textField_NombreAgregarProducto, ErrorNombreAlimento);
+				
+				for(int i=0;i<size;i++) {
+				Metodos.ComprobarCeldaValidaDouble(AgregarProd.get(i),EtiquetaErrores.get(i) );
+				}
+			
 			}
 		});
 		botonAgregarProductoUsuario.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		botonAgregarProductoUsuario.setBounds(90, 537, 129, 32);
 		panel_4.add(botonAgregarProductoUsuario);
+		
+		
+		
+		
 		
 		
 		
