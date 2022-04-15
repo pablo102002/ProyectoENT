@@ -32,7 +32,7 @@ import java.awt.event.ItemEvent;
 public class Ventana {
 
 	private JFrame frame;
-	private JTextField Cantidad_Gramos_ListaProductos;
+	private JTextField Cantidad_Gramos_Introducido;
 	private JTextField textField_NombreAgregarProducto;
 	private JTextField textField_GramosAgregarProducto;
 	private JTextField textField_GrasasAgregarProducto;
@@ -582,6 +582,16 @@ public class Ventana {
 		ArrayListaProductos.insertarProducto(new Producto("Pollo",7.72,2.17,0,0,29.55,0.98,195));
 		ArrayListaProductos.insertarProducto(new Producto("Avena",6.9,1.21,66.27,0,16.89,0,389));
 
+		//Array de Label para realizar los calculos //								JOHANN 14/04/2000
+		ArrayList <JLabel> ResultadosCalculados = new ArrayList <JLabel>();
+		ResultadosCalculados.add(Gramos_Grasas);
+		ResultadosCalculados.add(Gramos_Grasas_Saturadas);
+		ResultadosCalculados.add(Gramos_Hidratos);
+		ResultadosCalculados.add(Gramos_Azucar);
+		ResultadosCalculados.add(Gramos_Proteinas);
+		ResultadosCalculados.add(Gramos_Sal);
+		ResultadosCalculados.add(Etiqueta_Total_Calorias_100gr);
+		
 		JComboBox Lista_Productos = new JComboBox();
 		//Este argumento sirve para cuando el usuario seleccione un producto de la lista de productos
 		//mire todos los macros
@@ -591,30 +601,33 @@ public class Ventana {
 				Integer NumeroLista=Lista_Productos.getSelectedIndex();
 				String MacroEspecifica=Double.toString(ArrayListaProductos.ListaProductos.get(NumeroLista).getGrasas());
 				Gramos_Grasas.setText(MacroEspecifica);
+				
 				MacroEspecifica=Double.toString(ArrayListaProductos.ListaProductos.get(NumeroLista).getGrasas_saturadas());
 				Gramos_Grasas_Saturadas.setText(MacroEspecifica);
+				
 				MacroEspecifica=Double.toString(ArrayListaProductos.ListaProductos.get(NumeroLista).getHidratos_carbono());
 				Gramos_Hidratos.setText(MacroEspecifica);
+				
 				MacroEspecifica=Double.toString(ArrayListaProductos.ListaProductos.get(NumeroLista).getAzucar());
 				Gramos_Azucar.setText(MacroEspecifica);
+				
 				MacroEspecifica=Double.toString(ArrayListaProductos.ListaProductos.get(NumeroLista).getProteinas());
 				Gramos_Proteinas.setText(MacroEspecifica);
+				
 				MacroEspecifica=Double.toString(ArrayListaProductos.ListaProductos.get(NumeroLista).getSal());
 				Gramos_Sal.setText(MacroEspecifica);
+				
 				MacroEspecifica=Double.toString(ArrayListaProductos.ListaProductos.get(NumeroLista).getCalorias());
 				Etiqueta_Total_Calorias_100gr.setText(MacroEspecifica);
 				//Sirve para que cuando el usuario seleccione otro producto le la list ano se gurden los resultados del anterior producto
-				Gramos_Grasas_Usuario.setText(null);
-				Gramos_Grasas_Saturadas_Usuario.setText(null);
-				Gramos_Hidratos_Usuario.setText(null);
-				Gramos_Azucar_Usuario.setText(null);
-				Gramos_Proteinas_Usuario.setText(null);
-				Gramos_Sal_Usuario.setText(null);
+				
 
 			}
 		});
 		Lista_Productos.setBounds(76, 32, 124, 26);
 		panel_2.add(Lista_Productos);
+		
+		
 		//Bucle el cual recorre toda la ArrayList y agrega a la lista de la interfaz el nombre de cada objeto Producto
 		for(int i=0;i<ArrayListaProductos.ListaProductos.size();i++) {
 			Lista_Productos.addItem(ArrayListaProductos.ListaProductos.get(i).getNombre());
@@ -628,31 +641,31 @@ public class Ventana {
 		CalculosGrUsuario.add(Gramos_Sal_Usuario);
 		CalculosGrUsuario.add(Etiqueta_Total_Calorias_Usuario);
 		
-		ArrayList<Double> Macros100=new ArrayList<Double>();
-		Macros100.add(Double.parseDouble(Gramos_Grasas.getText()));
-		Macros100.add(Double.parseDouble(Gramos_Grasas_Saturadas.getText()));
-		Macros100.add(Double.parseDouble(Gramos_Hidratos.getText()));
-		Macros100.add(Double.parseDouble(Gramos_Azucar.getText()));
-		Macros100.add(Double.parseDouble(Gramos_Proteinas.getText()));
-		Macros100.add(Double.parseDouble(Gramos_Sal.getText()));
-		Macros100.add(Double.parseDouble(Etiqueta_Total_Calorias_100gr.getText()));
+		ArrayList<JLabel> Macros100=new ArrayList<JLabel>();
+		Macros100.add(Gramos_Grasas);
+		Macros100.add(Gramos_Grasas_Saturadas);
+		Macros100.add(Gramos_Hidratos);
+		Macros100.add(Gramos_Azucar);
+		Macros100.add(Gramos_Proteinas);
+		Macros100.add(Gramos_Sal);
+		Macros100.add(Etiqueta_Total_Calorias_100gr);
 		
 		
 		
 		//Cantidad de Gramos de el producto seleccionado
-		Cantidad_Gramos_ListaProductos = new JTextField();
-		Cantidad_Gramos_ListaProductos.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		Cantidad_Gramos_ListaProductos.setBounds(255, 34, 70, 23);
-		panel_2.add(Cantidad_Gramos_ListaProductos);
+		Cantidad_Gramos_Introducido = new JTextField();
+		Cantidad_Gramos_Introducido.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		Cantidad_Gramos_Introducido.setBounds(255, 34, 70, 23);
+		panel_2.add(Cantidad_Gramos_Introducido);
 		//Sirve para acutalizar la candidad de gramos que pone le usuario
-		Cantidad_Gramos_ListaProductos.addCaretListener(new CaretListener() {
+		Cantidad_Gramos_Introducido.addCaretListener(new CaretListener() {
 			public void caretUpdate(CaretEvent e) {
-				if(!Cantidad_Gramos_ListaProductos.getText().isEmpty()) {
-					String gramos=Cantidad_Gramos_ListaProductos.getText();
-					Etiqueta_NumerodeGramosSeleccionados.setText(gramos);
+				if(!Cantidad_Gramos_Introducido.getText().isEmpty()) {
+					
+					
 					//Sirve para que el numero añadido no tenga ni letras ni caracteres
 					isDigit=true;
-					String texto = Cantidad_Gramos_ListaProductos.getText();
+					String texto = Cantidad_Gramos_Introducido.getText();
 					char[] v=texto.toCharArray();
 					int i=0;
 					while(isDigit && i<v.length) {
@@ -665,15 +678,16 @@ public class Ventana {
 						i++;
 					}
 					if(isDigit) {
-						//convertimos el JTextField en un Double para hacer los calculos 
+						 
+						Etiqueta_NumerodeGramosSeleccionados.setText(texto);
+						
+						//convertimos el JTextField en un Double para hacer los calculos
 						double numeroMacros=Double.parseDouble(texto);
 						double calculoMacro;
 						String pasarcalculoMacro;
 
 						for(int j=0;j<Macros100.size();j++) {
-							calculoMacro=numeroMacros*Macros100.get(j)/100;
-							pasarcalculoMacro=String.valueOf(calculoMacro);
-							CalculosGrUsuario.get(j).setText(pasarcalculoMacro);
+							Metodos.mostrarCalculoEnLabel(Macros100.get(j),CalculosGrUsuario.get(j), numeroMacros);
 
 						}
 					}	
@@ -729,7 +743,7 @@ public class Ventana {
 				// Creamos un objeto ing de Ingesta para poder calcular los Macros dependiendo las calorias que pone el usuario
 				//gracias a un metodo el cual hace todos los calculos
 				Integer NumeroLista=Lista_Productos.getSelectedIndex();
-				int gramos=Integer.parseInt(Cantidad_Gramos_ListaProductos.getText());
+				int gramos=Integer.parseInt(Cantidad_Gramos_Introducido.getText());
 				//Llamamos la metodo insertarProducto
 				ing.insertarProducto(ArrayListaProductos.ListaProductos.get(NumeroLista), gramos);
 				}	
