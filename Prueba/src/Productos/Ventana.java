@@ -632,15 +632,8 @@ public class Ventana {
 		for(int i=0;i<ArrayListaProductos.ListaProductos.size();i++) {
 			Lista_Productos.addItem(ArrayListaProductos.ListaProductos.get(i).getNombre());
 		};
-		ArrayList<JLabel> CalculosGrUsuario=new ArrayList<JLabel>();
-		CalculosGrUsuario.add(Gramos_Grasas_Usuario);
-		CalculosGrUsuario.add(Gramos_Grasas_Saturadas_Usuario);
-		CalculosGrUsuario.add(Gramos_Hidratos_Usuario);
-		CalculosGrUsuario.add(Gramos_Azucar_Usuario);
-		CalculosGrUsuario.add(Gramos_Proteinas_Usuario);
-		CalculosGrUsuario.add(Gramos_Sal_Usuario);
-		CalculosGrUsuario.add(Etiqueta_Total_Calorias_Usuario);
 		
+		//Array que guarda los JLabel de los que hace referencia a 100g
 		ArrayList<JLabel> Macros100=new ArrayList<JLabel>();
 		Macros100.add(Gramos_Grasas);
 		Macros100.add(Gramos_Grasas_Saturadas);
@@ -650,6 +643,15 @@ public class Ventana {
 		Macros100.add(Gramos_Sal);
 		Macros100.add(Etiqueta_Total_Calorias_100gr);
 		
+		//Array que guarda los JLabel de los que hace referencia a los gramos consumidos por el usuario
+		ArrayList<JLabel> CalculosGrUsuario=new ArrayList<JLabel>();
+		CalculosGrUsuario.add(Gramos_Grasas_Usuario);
+		CalculosGrUsuario.add(Gramos_Grasas_Saturadas_Usuario);
+		CalculosGrUsuario.add(Gramos_Hidratos_Usuario);
+		CalculosGrUsuario.add(Gramos_Azucar_Usuario);
+		CalculosGrUsuario.add(Gramos_Proteinas_Usuario);
+		CalculosGrUsuario.add(Gramos_Sal_Usuario);
+		CalculosGrUsuario.add(Etiqueta_Total_Calorias_Usuario);
 		
 		
 		//Cantidad de Gramos de el producto seleccionado
@@ -660,14 +662,18 @@ public class Ventana {
 		//Sirve para acutalizar la candidad de gramos que pone le usuario
 		Cantidad_Gramos_Introducido.addCaretListener(new CaretListener() {
 			public void caretUpdate(CaretEvent e) {
+				
 				if(!Cantidad_Gramos_Introducido.getText().isEmpty()) {
 					
-					
-					//Sirve para que el numero añadido no tenga ni letras ni caracteres
+					//Sirve para que el numero añadido no tenga letras ni numeros inferiores a 0
 					isDigit=true;
+						//Convierto el texto de Cantidad_Gramos_Introducido a un array de Chars
 					String texto = Cantidad_Gramos_Introducido.getText();
 					char[] v=texto.toCharArray();
 					int i=0;
+					
+					//Mientras el valor que encuentre sea un digito continuara hasta el final
+					//Sino parará y mostrará un error
 					while(isDigit && i<v.length) {
 						if(!Character.isDigit(v[i])) {
 							Etiqueta_Exception_Gramos_Lista.setText("datos erroneos, tienes que introducir un numero positivo");
@@ -677,14 +683,13 @@ public class Ventana {
 							Etiqueta_Exception_Gramos_Lista.setText(null);
 						i++;
 					}
+					
+					
+					//Una vez a terminado el bucle While si el boolean isDigit no ha cambiado, se ejecutara
 					if(isDigit) {
-						 
 						Etiqueta_NumerodeGramosSeleccionados.setText(texto);
-						
 						//convertimos el JTextField en un Double para hacer los calculos
 						double numeroMacros=Double.parseDouble(texto);
-						double calculoMacro;
-						String pasarcalculoMacro;
 
 						for(int j=0;j<Macros100.size();j++) {
 							Metodos.mostrarCalculoEnLabel(Macros100.get(j),CalculosGrUsuario.get(j), numeroMacros);
