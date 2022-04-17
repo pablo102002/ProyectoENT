@@ -7,40 +7,97 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class Metodos {
-	public static void ComprobarCeldaVaciaString(JTextField celda,JLabel textoError) {
-		if(celda.getText().equals("")) {
-			textoError.setForeground(Color.RED);
-			textoError.setText("!");
-		}
-		else {
-			textoError.setForeground(Color.BLUE);
-			textoError.setText("OK");
+	public static void VaciarAlertas(ArrayList<JLabel> labelsAlertaAgregarProducto) {
+		//Le pasas un array de labels que vaciara los mensajes de alerta
+		int size = labelsAlertaAgregarProducto.size();
+		for(int i = 0; i<size;i++)
+		{
+			labelsAlertaAgregarProducto.get(i).setText("");
 		}
 	}
 	
-	public static void ComprobarCeldaValidaDouble(JTextField texto,JLabel textoError) {
-		boolean isDigit=true;
+	public static boolean ComprobarCeldasValidas(ArrayList<JTextField> fieldsAgregarProducto, ArrayList<JLabel> labelsAlertaAgregarProducto, JLabel AlertaPersonalizada) {
+		//Lo primero es vaciar las alertas
+		AlertaPersonalizada.setText("");
+		VaciarAlertas(labelsAlertaAgregarProducto);
+		
+		
+		int size = fieldsAgregarProducto.size();
+		int i=0;
+		while (i<size)
+		{
+			
+			//Si el campo esta vacio saldra una alerta y se saldra del metodo
+			if(fieldsAgregarProducto.get(i).getText().equals("")) {
+				labelsAlertaAgregarProducto.get(i).setForeground(Color.RED);
+				labelsAlertaAgregarProducto.get(i).setText("!");
 
-		if(texto.getText().equals("")){
-			textoError.setForeground(Color.RED);
-			textoError.setText("!");
+				AlertaPersonalizada.setForeground(Color.RED);
+				AlertaPersonalizada.setText("El campo puede estar vacio");
+				return false;
+			}
+			else {
+				//En caso contrario saldra un OK y...
+				labelsAlertaAgregarProducto.get(i).setForeground(Color.BLUE);
+				labelsAlertaAgregarProducto.get(i).setText("OK");
+
+				//Mientras no sea indice 0 (el 0 necesitamos que sea un String, no un Double)
+				if(i!=0)
+				{
+					//Realizara un comprobacion caracter a caracter para comprobar que solo tenga numeros
+					char[] v=fieldsAgregarProducto.get(i).getText().toCharArray();
+					int j=0;
+					while( j<v.length) {
+						if(!Character.isDigit(v[j])) {
+							labelsAlertaAgregarProducto.get(i).setForeground(Color.RED);
+							labelsAlertaAgregarProducto.get(i).setText("!");
+
+							AlertaPersonalizada.setForeground(Color.RED);
+							AlertaPersonalizada.setText("Valor no valido");
+							return false;
+						}
+						j++;
+					}
+
+				}
+			}
+			i++;
 		}
-		else {
-			char[] v=texto.getText().toCharArray();
-			int i=0;
-			while(isDigit && i<v.length) {
-				if(!Character.isDigit(v[i])) {
-					textoError.setForeground(Color.RED);
-					textoError.setText("!");
-					isDigit=false;
-				}
-				else {
-					textoError.setForeground(Color.BLUE);
-					textoError.setText("OK");
-				}
-				i++;
+		//Si detecta que todo lo anterior es correcto devolvera un TRUE
+		return true;
+	}
+
+	public static boolean ComprobarCoherenciaNumerica(ArrayList<JTextField> fieldsAgregarProducto, ArrayList<JLabel> labelsAlertaAgregarProducto, JLabel AlertaPersonalizada) {
+
+		double Grasas = Double.parseDouble(fieldsAgregarProducto.get(2).getText());
+		double GrasasSaturadas = Double.parseDouble(fieldsAgregarProducto.get(3).getText());
+
+		if(GrasasSaturadas > Grasas)
+		{
+			labelsAlertaAgregarProducto.get(3).setForeground(Color.RED);
+			labelsAlertaAgregarProducto.get(3).setText("!");
+
+			AlertaPersonalizada.setForeground(Color.RED);
+			AlertaPersonalizada.setText("Grasas Saturadas no puede ser mayor que Grasas");
+			return false;
+		}
+		else
+		{
+			double Hidratos = Double.parseDouble(fieldsAgregarProducto.get(4).getText());
+			double Azucar = Double.parseDouble(fieldsAgregarProducto.get(5).getText());
+
+			if(Azucar > Hidratos)
+			{
+				labelsAlertaAgregarProducto.get(5).setForeground(Color.RED);
+				labelsAlertaAgregarProducto.get(5).setText("!");
+
+				AlertaPersonalizada.setForeground(Color.RED);
+				AlertaPersonalizada.setText("Azucar no puede ser mayor que Hidratos");
+				return false;
 			}
 		}
+
+		return true;
 	}
 	
 	public static void mostrarCalculoEnLabel(JLabel g100,JLabel gres, double cantGg) {

@@ -507,11 +507,11 @@ public class Ventana {
 		Etiqueta_Titulo.setBounds(44, -27, 670, 100);
 		panel_Titulo.add(Etiqueta_Titulo);
 		
-		JLabel Etiqueta_Exception_AgregarProducto = new JLabel("");
-		Etiqueta_Exception_AgregarProducto.setForeground(Color.RED);
-		Etiqueta_Exception_AgregarProducto.setFont(new Font("Dialog", Font.BOLD, 12));
-		Etiqueta_Exception_AgregarProducto.setBounds(0, 504, 324, 22);
-		panel_AgregarProducto.add(Etiqueta_Exception_AgregarProducto);
+		JLabel Etiqueta_Alerta_AgregarProducto = new JLabel("");
+		Etiqueta_Alerta_AgregarProducto.setForeground(Color.RED);
+		Etiqueta_Alerta_AgregarProducto.setFont(new Font("Dialog", Font.BOLD, 12));
+		Etiqueta_Alerta_AgregarProducto.setBounds(0, 504, 324, 22);
+		panel_AgregarProducto.add(Etiqueta_Alerta_AgregarProducto);
 		
 		JLabel ErrorGrAlimento = new JLabel("");
 		ErrorGrAlimento.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -680,47 +680,42 @@ public class Ventana {
 		Boton_Agregar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//Sirve para poner todos los huecos en null y que no se guarde los valores del atnerior prodcuto agregrado
-				//para eso estamos usando la ArrayList etiquetaUsuario
+				
+				
+				
+				//Sirve para poner todos Label de usuario 
 				for(int i=0;i<labelsUsuario.size();i++) {
 					labelsUsuario.get(i).setText("0");
 				}
 				
 		
-				//Esta exception sirve para mostrar al usuario si ha introducido los datos bien
-				Etiqueta_Alerta_Ingesta.setText("");
-				
-				if(isDigit) {
-				// Creamos un objeto ing de Ingesta para poder calcular los Macros dependiendo las calorias que pone el usuario
-				//gracias a un metodo el cual hace todos los calculos
-				Integer NumeroLista=Lista_Productos.getSelectedIndex();
-				int gramos=Integer.parseInt(Cantidad_Gramos_Introducido.getText());
-				//Llamamos la metodo insertarProducto
-				ing.insertarProducto(ArrayListaProductos.ListaProductos.get(NumeroLista), gramos);
-				}	
 			}
 		});
 		
 		//Array de Etiquetas añadir Productos 
-		ArrayList<JTextField> AgregarProd=new ArrayList<JTextField>();
-		AgregarProd.add(textField_GramosAgregarProducto);
-		AgregarProd.add(textField_GrasasAgregarProducto);
-		AgregarProd.add(textField_GrasasSaturadasAgregarProducto);
-		AgregarProd.add(textField_HidratosAgregarProducto);
-		AgregarProd.add(textField_AzucarAgregarProducto);
-		AgregarProd.add(textField_ProteinasAgregarProducto);
-		AgregarProd.add(textField_SalAgregarProducto);
-		AgregarProd.add(textField_TotalCaloriasAgregarProducto);
+		ArrayList<JTextField> fieldsAgregarProducto=new ArrayList<JTextField>();
+		fieldsAgregarProducto.add(textField_NombreAgregarProducto);
 		
-		ArrayList<JLabel> EtiquetaErrores=new ArrayList<JLabel>();
-		EtiquetaErrores.add(ErrorGrAlimento);
-		EtiquetaErrores.add(ErrorGrasas);
-		EtiquetaErrores.add(ErrorGrasasSaturadas);
-		EtiquetaErrores.add(ErrorHidratos);
-		EtiquetaErrores.add(ErrorAzucar);
-		EtiquetaErrores.add(ErrorProteinas);
-		EtiquetaErrores.add(ErrorSal);
-		EtiquetaErrores.add(ErrorTotalCalorias);
+		fieldsAgregarProducto.add(textField_GramosAgregarProducto);
+		fieldsAgregarProducto.add(textField_GrasasAgregarProducto);
+		fieldsAgregarProducto.add(textField_GrasasSaturadasAgregarProducto);
+		fieldsAgregarProducto.add(textField_HidratosAgregarProducto);
+		fieldsAgregarProducto.add(textField_AzucarAgregarProducto);
+		fieldsAgregarProducto.add(textField_ProteinasAgregarProducto);
+		fieldsAgregarProducto.add(textField_SalAgregarProducto);
+		fieldsAgregarProducto.add(textField_TotalCaloriasAgregarProducto);
+		
+		ArrayList<JLabel> labelsAlertaAgregarProducto=new ArrayList<JLabel>();
+		labelsAlertaAgregarProducto.add(ErrorNombreAlimento);
+		
+		labelsAlertaAgregarProducto.add(ErrorGrAlimento);
+		labelsAlertaAgregarProducto.add(ErrorGrasas);
+		labelsAlertaAgregarProducto.add(ErrorGrasasSaturadas);
+		labelsAlertaAgregarProducto.add(ErrorHidratos);
+		labelsAlertaAgregarProducto.add(ErrorAzucar);
+		labelsAlertaAgregarProducto.add(ErrorProteinas);
+		labelsAlertaAgregarProducto.add(ErrorSal);
+		labelsAlertaAgregarProducto.add(ErrorTotalCalorias);
 		
 		
 		//Boton para añadir un nuevo producto
@@ -730,17 +725,9 @@ public class Ventana {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				Etiqueta_Exception_AgregarProducto.setText("");
+				boolean Comprobante1 = Metodos.ComprobarCeldasValidas(fieldsAgregarProducto, labelsAlertaAgregarProducto, Etiqueta_Alerta_AgregarProducto);
 				
-				int size = AgregarProd.size();
-				
-				Metodos.ComprobarCeldaVaciaString(textField_NombreAgregarProducto, ErrorNombreAlimento);
-				
-				for(int i=0;i<size;i++) {
-				Metodos.ComprobarCeldaValidaDouble(AgregarProd.get(i),EtiquetaErrores.get(i) );
-				}
-				
-				
+				boolean Comprobante2 =Metodos.ComprobarCoherenciaNumerica(fieldsAgregarProducto, labelsAlertaAgregarProducto, Etiqueta_Alerta_AgregarProducto);
 			
 			}
 		});
