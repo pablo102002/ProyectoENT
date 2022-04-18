@@ -727,8 +727,12 @@ public class Ventana {
 				
 				boolean Comprobante1 = Metodos.ComprobarCeldasValidas(fieldsAgregarProducto, labelsAlertaAgregarProducto, Etiqueta_Alerta_AgregarProducto);
 				
-				boolean Comprobante2 =Metodos.ComprobarCoherenciaNumerica(fieldsAgregarProducto, labelsAlertaAgregarProducto, Etiqueta_Alerta_AgregarProducto);
-			
+				boolean Comprobante2;
+				
+				if(Comprobante1)
+				{
+				Comprobante2 =Metodos.ComprobarCoherenciaNumerica(fieldsAgregarProducto, labelsAlertaAgregarProducto, Etiqueta_Alerta_AgregarProducto);
+				}
 			}
 		});
 		botonAgregarProductoUsuario.setFont(new Font("Tahoma", Font.PLAIN, 12));
