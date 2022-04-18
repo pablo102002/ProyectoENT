@@ -3,6 +3,7 @@ package Productos;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -164,4 +165,44 @@ public class Metodos {
 		return true;
 	}
 	
+	public static Producto agregarProductoAlCatalogo(ArrayList<JTextField> fieldsAgregarProducto)
+	{
+		String nombre = fieldsAgregarProducto.get(0).getText();
+		double grasas = Double.parseDouble(fieldsAgregarProducto.get(2).getText());
+		double grasas_saturadas = Double.parseDouble(fieldsAgregarProducto.get(3).getText());
+		double hidratos_carbono = Double.parseDouble(fieldsAgregarProducto.get(4).getText());
+		double azucar = Double.parseDouble(fieldsAgregarProducto.get(5).getText());
+		double proteinas = Double.parseDouble(fieldsAgregarProducto.get(6).getText());
+		double sal = Double.parseDouble(fieldsAgregarProducto.get(7).getText());
+		double calorias = Double.parseDouble(fieldsAgregarProducto.get(8).getText());
+		
+		double gramos_alimento = Double.parseDouble(fieldsAgregarProducto.get(1).getText());
+		
+		// Producto (String nombre, double grasas, double grasas_saturadas, double hidratos_carbono, double azucar,
+		// double proteinas, double sal, double calorias)
+		
+		if(gramos_alimento != 100)
+		{
+			grasas = 100 * grasas/gramos_alimento;
+			grasas_saturadas = 100 * grasas_saturadas / gramos_alimento;
+			hidratos_carbono = 100 * hidratos_carbono / gramos_alimento;
+			azucar = 100 * azucar / gramos_alimento;
+			proteinas = 100 * proteinas / gramos_alimento;
+			sal = 100 * sal / gramos_alimento;
+			calorias = 100 * calorias / gramos_alimento;
+		}
+		
+		Producto prod = new Producto(nombre, grasas, grasas_saturadas, hidratos_carbono, azucar, proteinas, sal, calorias);
+		return prod;
+		
+	}
+	public static void VaciarCamposAgregarProducto(ArrayList<JTextField> fieldsAgregarProducto, ArrayList<JLabel> labelsAlertaAgregarProducto)
+	{
+		int size = labelsAlertaAgregarProducto.size();
+		for (int i = 0; i<size;i++)
+		{
+			labelsAlertaAgregarProducto.get(i).setText("");
+			fieldsAgregarProducto.get(i).setText("");
+		}
+	}
 }

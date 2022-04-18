@@ -28,6 +28,7 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
+import javax.swing.JTextPane;
 
 public class Ventana {
 
@@ -109,8 +110,14 @@ public class Ventana {
 		//panel_Resumen
 		JPanel panel_Resumen = new JPanel();
 		panel_Resumen.setBackground(new Color(153, 255, 255));
-		panel_Resumen.setBounds(1077, 283, 264, 596);
+		panel_Resumen.setBounds(1071, 283, 264, 596);
 		frame.getContentPane().add(panel_Resumen);
+		panel_Resumen.setLayout(null);
+		
+		JTextPane Panel_Alimentos_Ingeridos = new JTextPane();
+		Panel_Alimentos_Ingeridos.setEditable(false);
+		Panel_Alimentos_Ingeridos.setBounds(10, 42, 244, 238);
+		panel_Resumen.add(Panel_Alimentos_Ingeridos);
 		
 		JLabel Etiqueta_agregarProducto = new JLabel("Agregar Producto");
 		Etiqueta_agregarProducto.setFont(new Font("Dialog", Font.BOLD, 17));
@@ -567,7 +574,11 @@ public class Ventana {
 		ErrorNombreAlimento.setBounds(288, 64, 46, 14);
 		panel_AgregarProducto.add(ErrorNombreAlimento);
 		
-		
+		JLabel Etiqueta_ProductoAgregado = new JLabel("");
+		Etiqueta_ProductoAgregado.setForeground(Color.BLUE);
+		Etiqueta_ProductoAgregado.setFont(new Font("Tahoma", Font.BOLD, 13));
+		Etiqueta_ProductoAgregado.setBounds(95, 496, 152, 30);
+		panel_AgregarProducto.add(Etiqueta_ProductoAgregado);
 		
 		//OBJETOS LOS CUALES TIENEN FUNCIONES
 
@@ -593,28 +604,29 @@ public class Ventana {
 		labelsMacros100.add(Etiqueta_Total_Calorias_100gr);
 
 		
-		JComboBox Lista_Productos = new JComboBox();
-		Lista_Productos.addItemListener(new ItemListener() {
+		JComboBox Catalogo = new JComboBox();
+		Catalogo.addItemListener(new ItemListener() {
 			//Cuando se cambie el valor del desplegable, los macros deberan cambiar
 			public void itemStateChanged(ItemEvent arg0) {
 				
 				//Primero coge el indice del numero del despegable
-				Integer NumeroLista = Lista_Productos.getSelectedIndex();
+				Integer NumeroLista = Catalogo.getSelectedIndex();
 				//Segundo de ese indice anterior, saca el Producto del Array de Productos
 				Producto ProductoElegido = ArrayListaProductos.ListaProductos.get(NumeroLista);
 				//Llama al metodo que actualizara la lista
 				Metodos.actualizarMacros100g(ProductoElegido, labelsMacros100);
 
+				Etiqueta_ProductoAgregado.setText("");
 			}
 		});
-		Lista_Productos.setBounds(76, 32, 124, 26);
-		panel_Ingesta.add(Lista_Productos);
+		Catalogo.setBounds(42, 33, 124, 26);
+		panel_Ingesta.add(Catalogo);
 		
 		
 		//Bucle el cual recorre toda la ArrayList de La lista de productos y agrega al desplegable el nombre de cada objeto Producto
 		for(int i=0;i<ArrayListaProductos.ListaProductos.size();i++) {
-			Lista_Productos.addItem(ArrayListaProductos.ListaProductos.get(i).getNombre());
-		};
+			Catalogo.addItem(ArrayListaProductos.ListaProductos.get(i).getNombre());
+		}
 		
 		//Array que guarda los JLabel de los que hace referencia a los gramos consumidos por el usuario
 		ArrayList<JLabel> labelsUsuario=new ArrayList<JLabel>();
@@ -630,7 +642,7 @@ public class Ventana {
 		//Cantidad de Gramos del producto seleccionado
 		Cantidad_Gramos_Introducido = new JTextField();
 		Cantidad_Gramos_Introducido.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		Cantidad_Gramos_Introducido.setBounds(255, 34, 70, 23);
+		Cantidad_Gramos_Introducido.setBounds(221, 35, 70, 23);
 		panel_Ingesta.add(Cantidad_Gramos_Introducido);
 		//Sirve para acutalizar la candidad de gramos que pone le usuario
 		Cantidad_Gramos_Introducido.addCaretListener(new CaretListener() {
@@ -667,17 +679,15 @@ public class Ventana {
 		//Etiqueta Gramos
 		JLabel Etiqueta_Gramos = new JLabel("Gr");
 		Etiqueta_Gramos.setFont(new Font("Tahoma", Font.BOLD, 15));
-		Etiqueta_Gramos.setBounds(351, 41, 20, 17);
+		Etiqueta_Gramos.setBounds(317, 42, 20, 17);
 		panel_Ingesta.add(Etiqueta_Gramos);
 		
 		//Boton Agregar
-		JButton Boton_Agregar = new JButton("Agregar");
-		Boton_Agregar.setBounds(411, 25, 106, 41);
-		panel_Ingesta.add(Boton_Agregar);
-	
+		JButton Boton_AgregarProducto = new JButton("Agregar");
+		Boton_AgregarProducto.setBounds(351, 26, 106, 41);
+		panel_Ingesta.add(Boton_AgregarProducto);
 		
-		
-		Boton_Agregar.addMouseListener(new MouseAdapter() {
+		Boton_AgregarProducto.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
@@ -688,14 +698,35 @@ public class Ventana {
 					labelsUsuario.get(i).setText("0");
 				}
 				
-		
+				String textPanel=Panel_Alimentos_Ingeridos.getText();
+				Integer NumeroLista = Catalogo.getSelectedIndex();
+				textPanel+="Alimento: "+ArrayListaProductos.ListaProductos.get(NumeroLista).getNombre()+"|| Gramos: "+Cantidad_Gramos_Introducido.getText()+"\n";
+				Panel_Alimentos_Ingeridos.setText(textPanel);
 			}
 		});
+		
+		//Boton Borrar Producto
+		JButton boton_BorrarProducto = new JButton("Borrar Producto");
+		boton_BorrarProducto.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//Primero coge el indice del Producto de Catalogo
+				Integer NumeroLista = Catalogo.getSelectedIndex();
+				//Coge el nombre
+				String cat = Catalogo.getSelectedItem().toString();
+				//Lo borra del Catalogo
+				Catalogo.removeItemAt(NumeroLista);
+				//Borra el primer Producto que coincida con el nombre del Array de los Productos
+				ArrayListaProductos.eliminarProducto(cat);
+				
+			}
+		});
+		boton_BorrarProducto.setBounds(468, 26, 131, 41);
+		panel_Ingesta.add(boton_BorrarProducto);
 		
 		//Array de Etiquetas añadir Productos 
 		ArrayList<JTextField> fieldsAgregarProducto=new ArrayList<JTextField>();
 		fieldsAgregarProducto.add(textField_NombreAgregarProducto);
-		
 		fieldsAgregarProducto.add(textField_GramosAgregarProducto);
 		fieldsAgregarProducto.add(textField_GrasasAgregarProducto);
 		fieldsAgregarProducto.add(textField_GrasasSaturadasAgregarProducto);
@@ -707,7 +738,6 @@ public class Ventana {
 		
 		ArrayList<JLabel> labelsAlertaAgregarProducto=new ArrayList<JLabel>();
 		labelsAlertaAgregarProducto.add(ErrorNombreAlimento);
-		
 		labelsAlertaAgregarProducto.add(ErrorGrAlimento);
 		labelsAlertaAgregarProducto.add(ErrorGrasas);
 		labelsAlertaAgregarProducto.add(ErrorGrasasSaturadas);
@@ -725,20 +755,34 @@ public class Ventana {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				boolean Comprobante1 = Metodos.ComprobarCeldasValidas(fieldsAgregarProducto, labelsAlertaAgregarProducto, Etiqueta_Alerta_AgregarProducto);
+				boolean ComprobanteCeldasValidas = Metodos.ComprobarCeldasValidas(fieldsAgregarProducto, labelsAlertaAgregarProducto, Etiqueta_Alerta_AgregarProducto);
 				
-				boolean Comprobante2;
+				boolean ComprobanteCoherenciaNumerica;
 				
-				if(Comprobante1)
+				if(ComprobanteCeldasValidas)
 				{
-				Comprobante2 =Metodos.ComprobarCoherenciaNumerica(fieldsAgregarProducto, labelsAlertaAgregarProducto, Etiqueta_Alerta_AgregarProducto);
+					ComprobanteCoherenciaNumerica =Metodos.ComprobarCoherenciaNumerica(fieldsAgregarProducto, labelsAlertaAgregarProducto, Etiqueta_Alerta_AgregarProducto);
+
+					if(ComprobanteCeldasValidas && ComprobanteCoherenciaNumerica)
+					{
+						Producto nuevoProducto = Metodos.agregarProductoAlCatalogo(fieldsAgregarProducto);
+						ArrayListaProductos.insertarProducto(nuevoProducto);
+						
+						Catalogo.addItem(nuevoProducto.getNombre());
+						
+						Metodos.VaciarCamposAgregarProducto(fieldsAgregarProducto,labelsAlertaAgregarProducto);
+						
+						
+						Etiqueta_ProductoAgregado.setText("Producto creado");
+					}
 				}
+
+
 			}
 		});
 		botonAgregarProductoUsuario.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		botonAgregarProductoUsuario.setBounds(90, 537, 129, 32);
+		botonAgregarProductoUsuario.setBounds(76, 537, 162, 32);
 		panel_AgregarProducto.add(botonAgregarProductoUsuario);
-		
 		
 		
 		

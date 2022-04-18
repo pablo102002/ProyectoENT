@@ -121,6 +121,12 @@ public class Ingesta {
 	public void insertarProducto(Producto prod, double gramos) {
 
 		//Calculamos la cantidad de nutrientes y lo guardamos en variables
+		
+		
+		//REVISAR!!!!!!
+		
+		
+		
 		double grasas = prod.getGrasas() * gramos / 100;						//grasas 
 		double grasas_saturadas = prod.getGrasas_saturadas() * gramos / 100;	//grasas_saturadas
 		double hidratos_carbono = prod.getHidratos_carbono() * gramos / 100;	//hidratos_carbono
@@ -145,19 +151,30 @@ public class Ingesta {
 
 	}
 
-	public void eliminarProducto(int index) {
+	public void eliminarProducto(String NomProductoABorrar) {
 
-		Producto prod = dieta.get(index);
-
-		total_grasas -= prod.getGrasas();
-		total_grasas_saturadas -= prod.getGrasas_saturadas();
-		total_hidratos_carbono -= prod.getHidratos_carbono();
-		total_azucar -= prod.getAzucar();
-		total_proteinas -= prod.getProteinas();
-		total_sal -= prod.getSal();
-		total_calorias -= prod.getCalorias();
-		
-		dieta.remove(index);
+		int i=0;
+		boolean encontrado = false;
+		while(!encontrado && i<dieta.size())
+		{
+			//Si... tiene el mismo nombre se borrara
+			if(dieta.get(i).getNombre().equals(NomProductoABorrar))
+			{
+				Producto prod = dieta.get(i);
+				total_grasas -= prod.getGrasas();
+				total_grasas_saturadas -= prod.getGrasas_saturadas();
+				total_hidratos_carbono -= prod.getHidratos_carbono();
+				total_azucar -= prod.getAzucar();
+				total_proteinas -= prod.getProteinas();
+				total_sal -= prod.getSal();
+				total_calorias -= prod.getCalorias();
+				
+				dieta.remove(i);
+				encontrado = true;
+			}
+			else
+				i++;
+		}
 	
 	}
 	

@@ -19,16 +19,17 @@ public class ListadoProductos {
 		ListaProductos.add(pr);
 	}
 	
-	public void eliminarProducto(Producto pr) {
+	public void eliminarProducto(String NomProductoABorrar) {
 		//Buscara en el Array el Producto que contenga su mismo nombre
 		int i=0;
 		boolean encontrado = false;
 		while(!encontrado && i<ListaProductos.size())
 		{
 			//Si... tiene el mismo nombre se borrara
-			if(ListaProductos.get(i).getNombre().equals(pr.getNombre()))
+			if(ListaProductos.get(i).getNombre().equals(NomProductoABorrar))
 			{
 				ListaProductos.remove(i);
+				encontrado = true;
 			}
 			else
 				i++;
