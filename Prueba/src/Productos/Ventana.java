@@ -609,6 +609,7 @@ public class Ventana {
 			//Cuando se cambie el valor del desplegable, los macros deberan cambiar
 			public void itemStateChanged(ItemEvent arg0) {
 				
+				
 				//Primero coge el indice del numero del despegable
 				Integer NumeroLista = Catalogo.getSelectedIndex();
 				//Segundo de ese indice anterior, saca el Producto del Array de Productos
@@ -698,9 +699,16 @@ public class Ventana {
 					labelsUsuario.get(i).setText("0");
 				}
 				
+				//Cogemos el La cantidad de Gramos Introducido
+				double CantidadGramosConsumido = Double.parseDouble(Cantidad_Gramos_Introducido.getText());
+				//Cogemos el producto seleccionado del desplegable del Catalogo
+				Producto PrAgregado = ArrayListaProductos.ListaProductos.get(Catalogo.getSelectedIndex());
+				//Y ambos, se lo pasamos a la Ingesta y que lo implemente
+				ing.insertarProducto(PrAgregado, CantidadGramosConsumido);
+				
 				String textPanel=Panel_Alimentos_Ingeridos.getText();
 				Integer NumeroLista = Catalogo.getSelectedIndex();
-				textPanel+="Alimento: "+ArrayListaProductos.ListaProductos.get(NumeroLista).getNombre()+"|| Gramos: "+Cantidad_Gramos_Introducido.getText()+"\n";
+				textPanel+="Alimento: "+ArrayListaProductos.ListaProductos.get(NumeroLista).getNombre()+" -> Gramos: "+CantidadGramosConsumido+"\n";
 				Panel_Alimentos_Ingeridos.setText(textPanel);
 			}
 		});
@@ -710,6 +718,10 @@ public class Ventana {
 		boton_BorrarProducto.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				
+				if(Catalogo.getItemCount()>1)
+				{
+					Etiqueta_Alerta_Ingesta.setText("");
 				//Primero coge el indice del Producto de Catalogo
 				Integer NumeroLista = Catalogo.getSelectedIndex();
 				//Coge el nombre
@@ -718,7 +730,9 @@ public class Ventana {
 				Catalogo.removeItemAt(NumeroLista);
 				//Borra el primer Producto que coincida con el nombre del Array de los Productos
 				ArrayListaProductos.eliminarProducto(cat);
-				
+				}
+				else
+					Etiqueta_Alerta_Ingesta.setText("No puedes tener 0 Productos");
 			}
 		});
 		boton_BorrarProducto.setBounds(468, 26, 131, 41);
