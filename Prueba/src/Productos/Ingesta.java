@@ -154,8 +154,9 @@ public class Ingesta {
 	public void eliminarProducto(String NomProductoABorrar) {
 
 		int i=0;
+		int length = dieta.size();
 		boolean encontrado = false;
-		while(!encontrado && i<dieta.size())
+		while(!encontrado && i<length)
 		{
 			//Si... tiene el mismo nombre se borrara
 			if(dieta.get(i).getNombre().equals(NomProductoABorrar))
