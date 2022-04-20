@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
 
 public class Metodos {
 	public static void VaciarAlertas(ArrayList<JLabel> labelsAlertaAgregarProducto) {
@@ -205,4 +206,21 @@ public class Metodos {
 			fieldsAgregarProducto.get(i).setText("");
 		}
 	}
+
+	public static void actualizarPanel(ArrayList <Producto> dieta, JTextPane panel) {
+		
+		int length = dieta.size();
+		
+		if(length>0) {
+			String stringPanel = "";
+			
+			for(int i=0;i<length;i++) {
+				Producto prod = dieta.get(i);
+				stringPanel += "ID: "+i+prod.getNombre()+"Calorias: "+prod.getCalorias()+"\n";
+			}
+			
+			panel.setText(stringPanel);
+		}
+	}
+
 }

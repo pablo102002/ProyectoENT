@@ -687,29 +687,32 @@ public class Ventana {
 		JButton Boton_AgregarProducto = new JButton("Agregar");
 		Boton_AgregarProducto.setBounds(351, 26, 106, 41);
 		panel_Ingesta.add(Boton_AgregarProducto);
-		
+
 		Boton_AgregarProducto.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				
-				
-				//Sirve para poner todos Label de usuario 
-				for(int i=0;i<labelsUsuario.size();i++) {
-					labelsUsuario.get(i).setText("0");
+
+				//Si el campo de los gramos esta vacio o a 0 no introduce producto
+				if(Cantidad_Gramos_Introducido.getText().equals("") || Cantidad_Gramos_Introducido.getText().equals("0")) {
+					System.out.println("Na");
+				}else {
+					//Sirve para poner todos Label de usuario 
+					for(int i=0;i<labelsUsuario.size();i++) {
+						labelsUsuario.get(i).setText("0");
+					}
+
+
+					//Cogemos el La cantidad de Gramos Introducido
+					double CantidadGramosConsumido = Double.parseDouble(Cantidad_Gramos_Introducido.getText());
+					Cantidad_Gramos_Introducido.setText("");
+					Etiqueta_NumerodeGramosSeleccionados.setText("0");
+					//Cogemos el producto seleccionado del desplegable del Catalogo
+					Producto PrAgregado = ArrayListaProductos.ListaProductos.get(Catalogo.getSelectedIndex());
+					//Y ambos, se lo pasamos a la Ingesta y que lo implemente
+					ing.insertarProducto(PrAgregado, CantidadGramosConsumido);
+
+					Metodos.actualizarPanel(ing.dieta, Panel_Alimentos_Ingeridos);
 				}
-				
-				//Cogemos el La cantidad de Gramos Introducido
-				double CantidadGramosConsumido = Double.parseDouble(Cantidad_Gramos_Introducido.getText());
-				//Cogemos el producto seleccionado del desplegable del Catalogo
-				Producto PrAgregado = ArrayListaProductos.ListaProductos.get(Catalogo.getSelectedIndex());
-				//Y ambos, se lo pasamos a la Ingesta y que lo implemente
-				ing.insertarProducto(PrAgregado, CantidadGramosConsumido);
-				
-				String textPanel=Panel_Alimentos_Ingeridos.getText();
-				Integer NumeroLista = Catalogo.getSelectedIndex();
-				textPanel+="Alimento: "+ArrayListaProductos.ListaProductos.get(NumeroLista).getNombre()+" -> Gramos: "+CantidadGramosConsumido+"\n";
-				Panel_Alimentos_Ingeridos.setText(textPanel);
 			}
 		});
 		
