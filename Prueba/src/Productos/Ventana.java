@@ -694,7 +694,7 @@ public class Ventana {
 
 				//Si el campo de los gramos esta vacio o a 0 no introduce producto
 				if(Cantidad_Gramos_Introducido.getText().equals("") || Cantidad_Gramos_Introducido.getText().equals("0")) {
-					System.out.println("Na");
+					Etiqueta_Alerta_Ingesta.setText("El campo no agregarse como vacio o 0");;
 				}else {
 					//Sirve para poner todos Label de usuario 
 					for(int i=0;i<labelsUsuario.size();i++) {
@@ -704,6 +704,7 @@ public class Ventana {
 
 					//Cogemos el La cantidad de Gramos Introducido
 					double CantidadGramosConsumido = Double.parseDouble(Cantidad_Gramos_Introducido.getText());
+					//Ya podemos pasar ciertos campos a valor 0
 					Cantidad_Gramos_Introducido.setText("");
 					Etiqueta_NumerodeGramosSeleccionados.setText("0");
 					//Cogemos el producto seleccionado del desplegable del Catalogo
