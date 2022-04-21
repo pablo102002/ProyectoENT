@@ -580,6 +580,13 @@ public class Ventana {
 		Etiqueta_ProductoAgregado.setBounds(95, 496, 152, 30);
 		panel_AgregarProducto.add(Etiqueta_ProductoAgregado);
 		
+		
+		//Cantidad de Gramos del producto seleccionado
+		Cantidad_Gramos_Introducido = new JTextField();
+		Cantidad_Gramos_Introducido.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		Cantidad_Gramos_Introducido.setBounds(221, 35, 70, 23);
+		panel_Ingesta.add(Cantidad_Gramos_Introducido);
+
 		//OBJETOS LOS CUALES TIENEN FUNCIONES
 
 		//Lista de productos referenciados a la ArrayList de la clase Productos
@@ -609,6 +616,7 @@ public class Ventana {
 			//Cuando se cambie el valor del desplegable, los macros deberan cambiar
 			public void itemStateChanged(ItemEvent arg0) {
 				
+				Cantidad_Gramos_Introducido.setText("0");
 				
 				//Primero coge el indice del numero del despegable
 				Integer NumeroLista = Catalogo.getSelectedIndex();
@@ -640,11 +648,7 @@ public class Ventana {
 		labelsUsuario.add(Etiqueta_Total_Calorias_Usuario);
 		
 		
-		//Cantidad de Gramos del producto seleccionado
-		Cantidad_Gramos_Introducido = new JTextField();
-		Cantidad_Gramos_Introducido.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		Cantidad_Gramos_Introducido.setBounds(221, 35, 70, 23);
-		panel_Ingesta.add(Cantidad_Gramos_Introducido);
+		
 		//Sirve para acutalizar la candidad de gramos que pone le usuario
 		Cantidad_Gramos_Introducido.addCaretListener(new CaretListener() {
 			public void caretUpdate(CaretEvent e) {
