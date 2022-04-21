@@ -207,20 +207,28 @@ public class Metodos {
 		}
 	}
 
-	public static void actualizarPanel(ArrayList <Producto> dieta, JTextPane panel) {
+	public static void actualizarPanel(ArrayList <Producto> dieta, JTextPane panel, JComboBox Desplegable) {
 		
 		int length = dieta.size();
 		
 		if(length>0) {
+			
 			String stringPanel = "";
+			Desplegable.removeAllItems();
 			
 			for(int i=0;i<length;i++) {
+				
 				Producto prod = dieta.get(i);
+				Desplegable.addItem(prod.getNombre());
 				stringPanel += "ID: "+i+prod.getNombre()+"Calorias: "+prod.getCalorias()+"\n";
 			}
 			
 			panel.setText(stringPanel);
+			
 		}
+		else
+			Desplegable.removeAllItems();
+			panel.setText("");
 	}
 
 }

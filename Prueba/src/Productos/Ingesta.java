@@ -151,33 +151,25 @@ public class Ingesta {
 
 	}
 
-	public void eliminarProducto(String NomProductoABorrar) {
-
-		int i=0;
-		int length = dieta.size();
-		boolean encontrado = false;
-		while(!encontrado && i<length)
-		{
-			//Si... tiene el mismo nombre se borrara
-			if(dieta.get(i).getNombre().equals(NomProductoABorrar))
-			{
-				Producto prod = dieta.get(i);
-				total_grasas -= prod.getGrasas();
-				total_grasas_saturadas -= prod.getGrasas_saturadas();
-				total_hidratos_carbono -= prod.getHidratos_carbono();
-				total_azucar -= prod.getAzucar();
-				total_proteinas -= prod.getProteinas();
-				total_sal -= prod.getSal();
-				total_calorias -= prod.getCalorias();
-				
-				dieta.remove(i);
-				encontrado = true;
-			}
-			else
-				i++;
-		}
 	
+
+	public void eliminarProducto(int index) {
+
+		Producto prod = dieta.get(index);
+
+		total_grasas -= prod.getGrasas();
+		total_grasas_saturadas -= prod.getGrasas_saturadas();
+		total_hidratos_carbono -= prod.getHidratos_carbono();
+		total_azucar -= prod.getAzucar();
+		total_proteinas -= prod.getProteinas();
+		total_sal -= prod.getSal();
+		total_calorias -= prod.getCalorias();
+
+		dieta.remove(index);
+
 	}
+
+
 	
 	//Calcular si la dieta es saludable
 	

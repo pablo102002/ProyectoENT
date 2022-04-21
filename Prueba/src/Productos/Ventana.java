@@ -116,8 +116,22 @@ public class Ventana {
 		
 		JTextPane Panel_Alimentos_Ingeridos = new JTextPane();
 		Panel_Alimentos_Ingeridos.setEditable(false);
-		Panel_Alimentos_Ingeridos.setBounds(10, 42, 244, 238);
+		Panel_Alimentos_Ingeridos.setBounds(10, 86, 244, 238);
 		panel_Resumen.add(Panel_Alimentos_Ingeridos);
+		
+		JComboBox Desplegable_Dieta = new JComboBox();
+		Desplegable_Dieta.setBounds(10, 49, 117, 26);
+		panel_Resumen.add(Desplegable_Dieta);
+		
+		JButton boton_BorrarProductoDieta = new JButton("Borrar Producto");
+		boton_BorrarProductoDieta.setBounds(145, 48, 109, 27);
+		panel_Resumen.add(boton_BorrarProductoDieta);
+		
+		JLabel Etiqueta_Alerta_Dieta = new JLabel("");
+		Etiqueta_Alerta_Dieta.setForeground(Color.RED);
+		Etiqueta_Alerta_Dieta.setFont(new Font("Dialog", Font.BOLD, 12));
+		Etiqueta_Alerta_Dieta.setBounds(10, 11, 244, 22);
+		panel_Resumen.add(Etiqueta_Alerta_Dieta);
 		
 		JLabel Etiqueta_agregarProducto = new JLabel("Agregar Producto");
 		Etiqueta_agregarProducto.setFont(new Font("Dialog", Font.BOLD, 17));
@@ -611,15 +625,17 @@ public class Ventana {
 		labelsMacros100.add(Etiqueta_Total_Calorias_100gr);
 
 		
-		JComboBox Catalogo = new JComboBox();
-		Catalogo.addItemListener(new ItemListener() {
+		JComboBox Desplegable_Catalogo = new JComboBox();
+		Desplegable_Catalogo.addItemListener(new ItemListener() {
 			//Cuando se cambie el valor del desplegable, los macros deberan cambiar
 			public void itemStateChanged(ItemEvent arg0) {
+				
+				Etiqueta_Alerta_Dieta.setText("");
 				
 				Cantidad_Gramos_Introducido.setText("0");
 				
 				//Primero coge el indice del numero del despegable
-				Integer NumeroLista = Catalogo.getSelectedIndex();
+				Integer NumeroLista = Desplegable_Catalogo.getSelectedIndex();
 				//Segundo de ese indice anterior, saca el Producto del Array de Productos
 				Producto ProductoElegido = ArrayListaProductos.ListaProductos.get(NumeroLista);
 				//Llama al metodo que actualizara la lista
@@ -628,13 +644,13 @@ public class Ventana {
 				Etiqueta_ProductoAgregado.setText("");
 			}
 		});
-		Catalogo.setBounds(42, 33, 124, 26);
-		panel_Ingesta.add(Catalogo);
+		Desplegable_Catalogo.setBounds(42, 33, 124, 26);
+		panel_Ingesta.add(Desplegable_Catalogo);
 		
 		
 		//Bucle el cual recorre toda la ArrayList de La lista de productos y agrega al desplegable el nombre de cada objeto Producto
 		for(int i=0;i<ArrayListaProductos.ListaProductos.size();i++) {
-			Catalogo.addItem(ArrayListaProductos.ListaProductos.get(i).getNombre());
+			Desplegable_Catalogo.addItem(ArrayListaProductos.ListaProductos.get(i).getNombre());
 		}
 		
 		//Array que guarda los JLabel de los que hace referencia a los gramos consumidos por el usuario
@@ -652,6 +668,7 @@ public class Ventana {
 		//Sirve para acutalizar la candidad de gramos que pone le usuario
 		Cantidad_Gramos_Introducido.addCaretListener(new CaretListener() {
 			public void caretUpdate(CaretEvent e) {
+				Etiqueta_Alerta_Dieta.setText("");
 
 				//Si no esta vacio, realizara lo de dentro
 				if(!Cantidad_Gramos_Introducido.getText().isEmpty()) {
@@ -695,7 +712,8 @@ public class Ventana {
 		Boton_AgregarProducto.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
+				Etiqueta_Alerta_Dieta.setText("");
+				
 				//Si el campo de los gramos esta vacio o a 0 no introduce producto
 				if(Cantidad_Gramos_Introducido.getText().equals("") || Cantidad_Gramos_Introducido.getText().equals("0")) {
 					Etiqueta_Alerta_Ingesta.setText("El campo no agregarse como vacio o 0");;
@@ -712,11 +730,12 @@ public class Ventana {
 					Cantidad_Gramos_Introducido.setText("");
 					Etiqueta_NumerodeGramosSeleccionados.setText("0");
 					//Cogemos el producto seleccionado del desplegable del Catalogo
-					Producto PrAgregado = ArrayListaProductos.ListaProductos.get(Catalogo.getSelectedIndex());
+					Producto PrAgregado = ArrayListaProductos.ListaProductos.get(Desplegable_Catalogo.getSelectedIndex());
 					//Y ambos, se lo pasamos a la Ingesta y que lo implemente
 					ing.insertarProducto(PrAgregado, CantidadGramosConsumido);
 
-					Metodos.actualizarPanel(ing.dieta, Panel_Alimentos_Ingeridos);
+					
+					Metodos.actualizarPanel(ing.dieta, Panel_Alimentos_Ingeridos, Desplegable_Dieta);
 				}
 			}
 		});
@@ -726,16 +745,17 @@ public class Ventana {
 		boton_BorrarProducto.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				Etiqueta_Alerta_Dieta.setText("");
 				
-				if(Catalogo.getItemCount()>1)
+				if(Desplegable_Catalogo.getItemCount()>1)
 				{
 					Etiqueta_Alerta_Ingesta.setText("");
 				//Primero coge el indice del Producto de Catalogo
-				Integer NumeroLista = Catalogo.getSelectedIndex();
+				Integer NumeroLista = Desplegable_Catalogo.getSelectedIndex();
 				//Coge el nombre
-				String cat = Catalogo.getSelectedItem().toString();
+				String cat = Desplegable_Catalogo.getSelectedItem().toString();
 				//Lo borra del Catalogo
-				Catalogo.removeItemAt(NumeroLista);
+				Desplegable_Catalogo.removeItemAt(NumeroLista);
 				//Borra el primer Producto que coincida con el nombre del Array de los Productos
 				ArrayListaProductos.eliminarProducto(cat);
 				}
@@ -776,6 +796,7 @@ public class Ventana {
 		botonAgregarProductoUsuario.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				Etiqueta_Alerta_Dieta.setText("");
 				
 				boolean ComprobanteCeldasValidas = Metodos.ComprobarCeldasValidas(fieldsAgregarProducto, labelsAlertaAgregarProducto, Etiqueta_Alerta_AgregarProducto);
 				
@@ -790,7 +811,7 @@ public class Ventana {
 						Producto nuevoProducto = Metodos.agregarProductoAlCatalogo(fieldsAgregarProducto);
 						ArrayListaProductos.insertarProducto(nuevoProducto);
 						
-						Catalogo.addItem(nuevoProducto.getNombre());
+						Desplegable_Catalogo.addItem(nuevoProducto.getNombre());
 						
 						Metodos.VaciarCamposAgregarProducto(fieldsAgregarProducto,labelsAlertaAgregarProducto);
 						
@@ -808,7 +829,30 @@ public class Ventana {
 		
 		
 		
-		
+		boton_BorrarProductoDieta.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				if(ing.dieta.size()>0)
+				{
+				
+				int NumeroIndice = Desplegable_Dieta.getSelectedIndex();
+				
+				ing.eliminarProducto(NumeroIndice);
+				
+				Metodos.actualizarPanel(ing.dieta, Panel_Alimentos_Ingeridos, Desplegable_Dieta);
+				
+				Etiqueta_Alerta_Dieta.setForeground(Color.BLUE);
+				Etiqueta_Alerta_Dieta.setText("Producto borrado");
+				}
+				else
+				{
+					Etiqueta_Alerta_Dieta.setForeground(Color.RED);
+					Etiqueta_Alerta_Dieta.setText("No existen mas productos");
+				}
+					
+			}
+		});
 		
 		
 	}
