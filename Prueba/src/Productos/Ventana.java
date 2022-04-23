@@ -29,6 +29,8 @@ import java.awt.Color;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 import javax.swing.JTextPane;
+import javax.swing.JCheckBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class Ventana {
 
@@ -75,7 +77,7 @@ public class Ventana {
 		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(153, 255, 204));
-		frame.setBounds(100, 100, 1400, 1000);
+		frame.setBounds(100, 100, 1400, 1100);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -88,29 +90,100 @@ public class Ventana {
 		
 		//panel_Persona
 		JPanel panel_Persona = new JPanel();
-		panel_Persona.setLayout(null);
 		panel_Persona.setBackground(new Color(153, 255, 255));
-		panel_Persona.setBounds(47, 115, 1294, 133);
+		panel_Persona.setBounds(25, 95, 1316, 161);
 		frame.getContentPane().add(panel_Persona);
+		panel_Persona.setLayout(null);
+		
+		JLabel Etiqueta_Hombre = new JLabel("Hombre");
+		Etiqueta_Hombre.setFont(new Font("Tahoma", Font.BOLD, 11));
+		Etiqueta_Hombre.setBounds(363, 63, 46, 14);
+		panel_Persona.add(Etiqueta_Hombre);
+		
+		JLabel Etiqueta_Mujer = new JLabel("Mujer");
+		Etiqueta_Mujer.setFont(new Font("Tahoma", Font.BOLD, 11));
+		Etiqueta_Mujer.setBounds(363, 98, 46, 14);
+		panel_Persona.add(Etiqueta_Mujer);
+		
+		JCheckBox check_Hombre = new JCheckBox("");
+		check_Hombre.setBounds(415, 63, 21, 14);
+		panel_Persona.add(check_Hombre);
+		
+		JCheckBox check_Mujer = new JCheckBox("");
+		check_Mujer.setBounds(415, 98, 21, 14);
+		panel_Persona.add(check_Mujer);
+		
+		JSpinner spinner_Edad = new JSpinner();
+		spinner_Edad.setEnabled(false);
+		spinner_Edad.setBounds(519, 60, 30, 20);
+		panel_Persona.add(spinner_Edad);
+		
+		JLabel Etiqueta_Edad = new JLabel("Edad:");
+		Etiqueta_Edad.setFont(new Font("Tahoma", Font.BOLD, 14));
+		Etiqueta_Edad.setBounds(509, 27, 46, 14);
+		panel_Persona.add(Etiqueta_Edad);
+		
+		JLabel Etiqueta_Sexo = new JLabel("Sexo:");
+		Etiqueta_Sexo.setFont(new Font("Tahoma", Font.BOLD, 14));
+		Etiqueta_Sexo.setBounds(363, 27, 46, 14);
+		panel_Persona.add(Etiqueta_Sexo);
+		
+		JLabel Etiqueta_ActividadFisica = new JLabel("Actividad Fisica");
+		Etiqueta_ActividadFisica.setFont(new Font("Tahoma", Font.BOLD, 14));
+		Etiqueta_ActividadFisica.setBounds(753, 27, 106, 14);
+		panel_Persona.add(Etiqueta_ActividadFisica);
+		
+		JLabel Etiqueta_Peso = new JLabel("Peso");
+		Etiqueta_Peso.setFont(new Font("Tahoma", Font.BOLD, 14));
+		Etiqueta_Peso.setBounds(623, 27, 46, 14);
+		panel_Persona.add(Etiqueta_Peso);
+		
+		JSpinner spinner_Peso = new JSpinner();
+		spinner_Peso.setEnabled(false);
+		spinner_Peso.setBounds(621, 60, 30, 20);
+		panel_Persona.add(spinner_Peso);
+		
+		JLabel Etiqueta_Kilogramos = new JLabel("Kg");
+		Etiqueta_Kilogramos.setBounds(661, 63, 21, 14);
+		panel_Persona.add(Etiqueta_Kilogramos);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Leve", "Moderada", "Intensa"}));
+		comboBox.setBounds(753, 59, 94, 22);
+		panel_Persona.add(comboBox);
+		
+		JLabel Etiqueta_InformativaIMC = new JLabel("IMC");
+		Etiqueta_InformativaIMC.setFont(new Font("Tahoma", Font.BOLD, 14));
+		Etiqueta_InformativaIMC.setBounds(913, 27, 46, 14);
+		panel_Persona.add(Etiqueta_InformativaIMC);
+		
+		JLabel Etiqueta_IMC = new JLabel("0");
+		Etiqueta_IMC.setFont(new Font("Tahoma", Font.BOLD, 11));
+		Etiqueta_IMC.setBounds(913, 63, 46, 14);
+		panel_Persona.add(Etiqueta_IMC);
+		
+		JLabel Etiqeuta_Edad_1 = new JLabel("A\u00F1os");
+		Etiqeuta_Edad_1.setBounds(553, 63, 46, 14);
+		panel_Persona.add(Etiqeuta_Edad_1);
 		
 		//panel_AgregarProducto
 		JPanel panel_AgregarProducto = new JPanel();
 		panel_AgregarProducto.setLayout(null);
 		panel_AgregarProducto.setBackground(new Color(153, 255, 255));
-		panel_AgregarProducto.setBounds(25, 283, 334, 596);
+		panel_AgregarProducto.setBounds(25, 279, 340, 596);
 		frame.getContentPane().add(panel_AgregarProducto);
 
 		//panel_Ingesta
 		JPanel panel_Ingesta = new JPanel();
 		panel_Ingesta.setBackground(new Color(153, 255, 255));
-		panel_Ingesta.setBounds(401, 283, 609, 596);
+		panel_Ingesta.setBounds(401, 279, 622, 596);
 		frame.getContentPane().add(panel_Ingesta);
 		panel_Ingesta.setLayout(null);
 
 		//panel_Resumen
 		JPanel panel_Resumen = new JPanel();
 		panel_Resumen.setBackground(new Color(153, 255, 255));
-		panel_Resumen.setBounds(1071, 283, 264, 596);
+		panel_Resumen.setBounds(1077, 279, 264, 596);
 		frame.getContentPane().add(panel_Resumen);
 		panel_Resumen.setLayout(null);
 		
@@ -601,16 +674,18 @@ public class Ventana {
 		Cantidad_Gramos_Introducido.setBounds(221, 35, 70, 23);
 		panel_Ingesta.add(Cantidad_Gramos_Introducido);
 
-		//OBJETOS LOS CUALES TIENEN FUNCIONES
-
+		/**
+		*OBJETOS LOS CUALES TIENEN FUNCIONES
+		*/
+		
 		//Lista de productos referenciados a la ArrayList de la clase Productos
 		//ArrayList<String> ArrayListaProductos = new ArrayList<String>();
 		ListadoProductos ArrayListaProductos=new ListadoProductos();
 		//Para crear cada alimento este es el esquema "Producto(nombre, grasas, grasas_saturadas, hidratos_carbono,  azucar, proteinas, sal, calorias)"
 
-		ArrayListaProductos.insertarProducto(new Producto("Actimel", 0.4, 0.8, 0, 10.6, 1.5, 0.05,84));
-		ArrayListaProductos.insertarProducto(new Producto("Kit-Kat", 11.8, 15, 13.3, 45.7, 7.8, 0.14,518));
-		ArrayListaProductos.insertarProducto(new Producto("Arroz", 4, 0.9, 13.3, 0.6, 8.5, 0.72,456));
+		ArrayListaProductos.insertarProducto(new Producto("Almendras", 50.64, 3.881, 19.74, 4.8, 21.26, 0,578));
+		ArrayListaProductos.insertarProducto(new Producto("Macarrones", 0.92, 0.175, 30.68, 0.56, 5.76, 0.58,157));
+		ArrayListaProductos.insertarProducto(new Producto("Arroz", 4, 0.12, 44.08, 0.08, 4.2, 0.72,204));
 		ArrayListaProductos.insertarProducto(new Producto("Pollo",7.72,2.17,0,0,29.55,0.98,195));
 		ArrayListaProductos.insertarProducto(new Producto("Avena",6.9,1.21,66.27,0,16.89,0,389));
 
@@ -827,6 +902,11 @@ public class Ventana {
 		botonAgregarProductoUsuario.setBounds(76, 537, 162, 32);
 		panel_AgregarProducto.add(botonAgregarProductoUsuario);
 		
+		JPanel panel_ChecksComidaEquilibrada = new JPanel();
+		panel_ChecksComidaEquilibrada.setBounds(25, 895, 1316, 155);
+		frame.getContentPane().add(panel_ChecksComidaEquilibrada);
+		panel_ChecksComidaEquilibrada.setBackground(new Color(153, 255, 255));
+		panel_ChecksComidaEquilibrada.setLayout(null);
 		
 		
 		boton_BorrarProductoDieta.addMouseListener(new MouseAdapter() {
