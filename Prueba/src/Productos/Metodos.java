@@ -220,15 +220,17 @@ public class Metodos {
 				
 				Producto prod = dieta.get(i);
 				Desplegable.addItem(prod.getNombre());
-				stringPanel += "ID: "+i+prod.getNombre()+"Calorias: "+prod.getCalorias()+"\n";
+				stringPanel += "ID: "+i+prod.getNombre()+" Calorias: "+prod.getCalorias()+"\n";
 			}
 			
 			panel.setText(stringPanel);
 			
 		}
 		else
+		{
 			Desplegable.removeAllItems();
 			panel.setText("");
+		}
 	}
 
 }
