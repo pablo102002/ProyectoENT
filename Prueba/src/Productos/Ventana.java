@@ -754,7 +754,7 @@ public class Ventana {
 						Etiqueta_NumerodeGramosSeleccionados.setText(texto);
 						for(int j=0;j<labelsMacros100.size();j++) {
 							//Le pasa al metodo (Label del cual realizara el calculo, Label donde se mostrara el calculo, int con el valor de cantidad de Gramos)
-							Metodos.mostrarCalculoEnLabel(labelsMacros100.get(j),labelsUsuario.get(j), cantidadGramos);
+							Metodos.calcularMostrarMacrosUsuario(labelsMacros100.get(j),labelsUsuario.get(j), cantidadGramos);
 
 						}
 					}	
@@ -802,7 +802,7 @@ public class Ventana {
 					ing.insertarProducto(PrAgregado, CantidadGramosConsumido);
 
 					
-					Metodos.actualizarPanel(ing.dieta, Panel_Alimentos_Ingeridos, Desplegable_Dieta);
+					Metodos.actualizarPanelDieta(ing.dieta, Panel_Alimentos_Ingeridos, Desplegable_Dieta);
 				}
 			}
 		});
@@ -865,13 +865,13 @@ public class Ventana {
 			public void mouseClicked(MouseEvent e) {
 				Etiqueta_Alerta_Dieta.setText("");
 				
-				boolean ComprobanteCeldasValidas = Metodos.ComprobarCeldasValidas(fieldsAgregarProducto, labelsAlertaAgregarProducto, Etiqueta_Alerta_AgregarProducto);
+				boolean ComprobanteCeldasValidas = Metodos.comprobarCeldasValidasAgregarProducto(fieldsAgregarProducto, labelsAlertaAgregarProducto, Etiqueta_Alerta_AgregarProducto);
 				
 				boolean ComprobanteCoherenciaNumerica;
 				
 				if(ComprobanteCeldasValidas)
 				{
-					ComprobanteCoherenciaNumerica =Metodos.ComprobarCoherenciaNumerica(fieldsAgregarProducto, labelsAlertaAgregarProducto, Etiqueta_Alerta_AgregarProducto);
+					ComprobanteCoherenciaNumerica = Metodos.comprobarGrasaAzucar(fieldsAgregarProducto, labelsAlertaAgregarProducto, Etiqueta_Alerta_AgregarProducto);
 
 					if(ComprobanteCeldasValidas && ComprobanteCoherenciaNumerica)
 					{
@@ -880,7 +880,7 @@ public class Ventana {
 						
 						Desplegable_Catalogo.addItem(nuevoProducto.getNombre());
 						
-						Metodos.VaciarCamposAgregarProducto(fieldsAgregarProducto,labelsAlertaAgregarProducto);
+						Metodos.vaciarCamposAgregarProducto(fieldsAgregarProducto,labelsAlertaAgregarProducto);
 						
 						
 						Etiqueta_ProductoAgregado.setText("Producto creado");
@@ -912,7 +912,7 @@ public class Ventana {
 				
 				ing.eliminarProducto(NumeroIndice);
 				
-				Metodos.actualizarPanel(ing.dieta, Panel_Alimentos_Ingeridos, Desplegable_Dieta);
+				Metodos.actualizarPanelDieta(ing.dieta, Panel_Alimentos_Ingeridos, Desplegable_Dieta);
 				
 				Etiqueta_Alerta_Dieta.setForeground(Color.BLUE);
 				Etiqueta_Alerta_Dieta.setText("Producto borrado");

@@ -9,7 +9,7 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
 public class Metodos {
-	public static void VaciarAlertas(ArrayList<JLabel> labelsAlertaAgregarProducto) {
+	public static void vaciarAlertas(ArrayList<JLabel> labelsAlertaAgregarProducto) {
 		//Le pasas un array de labels que vaciara los mensajes de alerta
 		int size = labelsAlertaAgregarProducto.size();
 		for(int i = 0; i<size;i++){
@@ -17,10 +17,10 @@ public class Metodos {
 		}
 	}
 	
-	public static boolean ComprobarCeldasValidas(ArrayList<JTextField> fieldsAgregarProducto, ArrayList<JLabel> labelsAlertaAgregarProducto, JLabel AlertaPersonalizada) {
+	public static boolean comprobarCeldasValidasAgregarProducto(ArrayList<JTextField> fieldsAgregarProducto, ArrayList<JLabel> labelsAlertaAgregarProducto, JLabel AlertaPersonalizada) {
 		//Lo primero es vaciar las alertas
 		AlertaPersonalizada.setText("");
-		VaciarAlertas(labelsAlertaAgregarProducto);
+		vaciarAlertas(labelsAlertaAgregarProducto);
 		
 		
 		int size = fieldsAgregarProducto.size();
@@ -68,7 +68,7 @@ public class Metodos {
 		return true;
 	}
 
-	public static boolean ComprobarCoherenciaNumerica(ArrayList<JTextField> fieldsAgregarProducto, ArrayList<JLabel> labelsAlertaAgregarProducto, JLabel AlertaPersonalizada) {
+	public static boolean comprobarGrasaAzucar(ArrayList<JTextField> fieldsAgregarProducto, ArrayList<JLabel> labelsAlertaAgregarProducto, JLabel AlertaPersonalizada) {
 
 		double Grasas = Double.parseDouble(fieldsAgregarProducto.get(2).getText());
 		double GrasasSaturadas = Double.parseDouble(fieldsAgregarProducto.get(3).getText());
@@ -101,7 +101,7 @@ public class Metodos {
 		return true;
 	}
 	
-	public static void mostrarCalculoEnLabel(JLabel g100,JLabel gres, double cantGg) {
+	public static void calcularMostrarMacrosUsuario(JLabel g100,JLabel gres, double cantGg) {
 		double valor_calcular = Double.parseDouble(g100.getText());
 		double calculoMacro=cantGg*valor_calcular/100;
 		String pasarcalculoMacro=String.valueOf(calculoMacro);
@@ -214,7 +214,7 @@ public class Metodos {
 		return prod;
 		
 	}
-	public static void VaciarCamposAgregarProducto(ArrayList<JTextField> fieldsAgregarProducto, ArrayList<JLabel> labelsAlertaAgregarProducto)
+	public static void vaciarCamposAgregarProducto(ArrayList<JTextField> fieldsAgregarProducto, ArrayList<JLabel> labelsAlertaAgregarProducto)
 	{
 		int size = labelsAlertaAgregarProducto.size();
 		for (int i = 0; i<size;i++)
@@ -224,7 +224,7 @@ public class Metodos {
 		}
 	}
 
-	public static void actualizarPanel(ArrayList <Producto> dieta, JTextPane panel, JComboBox Desplegable) {
+	public static void actualizarPanelDieta(ArrayList <Producto> dieta, JTextPane panel, JComboBox Desplegable) {
 		
 		int length = dieta.size();
 		
