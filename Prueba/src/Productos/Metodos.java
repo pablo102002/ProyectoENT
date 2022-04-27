@@ -12,8 +12,7 @@ public class Metodos {
 	public static void VaciarAlertas(ArrayList<JLabel> labelsAlertaAgregarProducto) {
 		//Le pasas un array de labels que vaciara los mensajes de alerta
 		int size = labelsAlertaAgregarProducto.size();
-		for(int i = 0; i<size;i++)
-		{
+		for(int i = 0; i<size;i++){
 			labelsAlertaAgregarProducto.get(i).setText("");
 		}
 	}
@@ -143,9 +142,8 @@ public class Metodos {
 		label.get(i).setText(MacroEspecifica);
 		
 	}
-	
-	public static boolean comprobarCantidadValida(JTextField FieldCantidad,JLabel LabelAlerta) {
-		//Sirve para que el numero añadido no tenga letras ni numeros inferiores a 0
+	public static boolean comprobarCantidadValida(JTextField FieldCantidad) {
+		//Sirve para que el numero agregado no tenga letras ni numeros inferiores a 0
 		
 		//Convierto el texto de Cantidad_Gramos_Introducido a un array de Chars
 		String texto = FieldCantidad.getText();
@@ -153,7 +151,26 @@ public class Metodos {
 		int i=0;
 
 		//Mientras el valor que encuentre sea un digito continuara hasta el final
-		//Sino parará y mostrará un error
+		//Sino parar y mostrar un error
+		while( i<v.length ) {
+			if(!Character.isDigit(v[i])) {
+				return false;
+			}
+			i++;
+		}
+		return true;
+	}
+	
+	public static boolean comprobarCantidadValida(JTextField FieldCantidad,JLabel LabelAlerta) {
+		//Sirve para que el numero agregado no tenga letras ni numeros inferiores a 0
+		
+		//Convierto el texto de Cantidad_Gramos_Introducido a un array de Chars
+		String texto = FieldCantidad.getText();
+		char[] v=texto.toCharArray();
+		int i=0;
+
+		//Mientras el valor que encuentre sea un digito continuara hasta el final
+		//Sino parar y mostrar un error
 		while( i<v.length ) {
 			if(!Character.isDigit(v[i])) {
 				LabelAlerta.setText("Valor erroneo, tienes que introducir un numero positivo");

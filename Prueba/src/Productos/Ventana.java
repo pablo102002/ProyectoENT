@@ -31,6 +31,9 @@ import java.awt.event.ItemEvent;
 import javax.swing.JTextPane;
 import javax.swing.JCheckBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.SwingConstants;
 
 public class Ventana {
 
@@ -46,6 +49,8 @@ public class Ventana {
 	private JTextField textField_SalAgregarProducto;
 	private JTextField textField_TotalCaloriasAgregarProducto;
 	boolean isDigit=true;
+	private JTextField textField_Edad;
+	private JTextField textField_Peso;
 
 	/**
 	 * Launch the application.
@@ -95,57 +100,25 @@ public class Ventana {
 		frame.getContentPane().add(panel_Persona);
 		panel_Persona.setLayout(null);
 		
-		JLabel Etiqueta_Hombre = new JLabel("Hombre");
-		Etiqueta_Hombre.setFont(new Font("Tahoma", Font.BOLD, 11));
-		Etiqueta_Hombre.setBounds(363, 63, 46, 14);
-		panel_Persona.add(Etiqueta_Hombre);
-		
-		JLabel Etiqueta_Mujer = new JLabel("Mujer");
-		Etiqueta_Mujer.setFont(new Font("Tahoma", Font.BOLD, 11));
-		Etiqueta_Mujer.setBounds(363, 98, 46, 14);
-		panel_Persona.add(Etiqueta_Mujer);
-		
-		JCheckBox check_Hombre = new JCheckBox("");
-		check_Hombre.setBounds(415, 63, 21, 14);
-		panel_Persona.add(check_Hombre);
-		
-		JCheckBox check_Mujer = new JCheckBox("");
-		check_Mujer.setBounds(415, 98, 21, 14);
-		panel_Persona.add(check_Mujer);
-		
-		JSpinner spinner_Edad = new JSpinner();
-		spinner_Edad.setEnabled(false);
-		spinner_Edad.setBounds(519, 60, 30, 20);
-		panel_Persona.add(spinner_Edad);
-		
 		JLabel Etiqueta_Edad = new JLabel("Edad:");
 		Etiqueta_Edad.setFont(new Font("Tahoma", Font.BOLD, 14));
-		Etiqueta_Edad.setBounds(509, 27, 46, 14);
+		Etiqueta_Edad.setBounds(437, 22, 46, 14);
 		panel_Persona.add(Etiqueta_Edad);
 		
 		JLabel Etiqueta_Sexo = new JLabel("Sexo:");
 		Etiqueta_Sexo.setFont(new Font("Tahoma", Font.BOLD, 14));
-		Etiqueta_Sexo.setBounds(363, 27, 46, 14);
+		Etiqueta_Sexo.setBounds(250, 25, 46, 14);
 		panel_Persona.add(Etiqueta_Sexo);
 		
 		JLabel Etiqueta_ActividadFisica = new JLabel("Actividad Fisica");
 		Etiqueta_ActividadFisica.setFont(new Font("Tahoma", Font.BOLD, 14));
-		Etiqueta_ActividadFisica.setBounds(753, 27, 106, 14);
+		Etiqueta_ActividadFisica.setBounds(753, 27, 125, 14);
 		panel_Persona.add(Etiqueta_ActividadFisica);
 		
 		JLabel Etiqueta_Peso = new JLabel("Peso");
 		Etiqueta_Peso.setFont(new Font("Tahoma", Font.BOLD, 14));
 		Etiqueta_Peso.setBounds(623, 27, 46, 14);
 		panel_Persona.add(Etiqueta_Peso);
-		
-		JSpinner spinner_Peso = new JSpinner();
-		spinner_Peso.setEnabled(false);
-		spinner_Peso.setBounds(621, 60, 30, 20);
-		panel_Persona.add(spinner_Peso);
-		
-		JLabel Etiqueta_Kilogramos = new JLabel("Kg");
-		Etiqueta_Kilogramos.setBounds(661, 63, 21, 14);
-		panel_Persona.add(Etiqueta_Kilogramos);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Leve", "Moderada", "Intensa"}));
@@ -162,9 +135,28 @@ public class Ventana {
 		Etiqueta_IMC.setBounds(913, 63, 46, 14);
 		panel_Persona.add(Etiqueta_IMC);
 		
-		JLabel Etiqeuta_Edad_1 = new JLabel("A\u00F1os");
-		Etiqeuta_Edad_1.setBounds(553, 63, 46, 14);
+		JLabel Etiqeuta_Edad_1= new JLabel("A\u00F1os");
+		Etiqeuta_Edad_1.setBounds(464, 62, 46, 14);
 		panel_Persona.add(Etiqeuta_Edad_1);
+		
+		JComboBox comboBox_Sexo = new JComboBox();
+		comboBox_Sexo.setModel(new DefaultComboBoxModel(new String[] {"Mujer", "Hombre"}));
+		comboBox_Sexo.setBounds(237, 55, 78, 26);
+		panel_Persona.add(comboBox_Sexo);
+		
+		
+		JLabel Etiqeuta_Peso1 = new JLabel("Kg");
+		Etiqeuta_Peso1.setBounds(651, 64, 46, 14);
+		panel_Persona.add(Etiqeuta_Peso1);
+		
+		//Etiquetas de error de Peso y Edad
+		JLabel Etiqueta_ErrorEdad = new JLabel("");
+		Etiqueta_ErrorEdad.setBounds(317, 118, 227, 17);
+		panel_Persona.add(Etiqueta_ErrorEdad);
+		
+		JLabel Etiqueta_ErrorPeso = new JLabel("");
+		Etiqueta_ErrorPeso.setBounds(572, 118, 244, 17);
+		panel_Persona.add(Etiqueta_ErrorPeso);	
 		
 		//panel_AgregarProducto
 		JPanel panel_AgregarProducto = new JPanel();
@@ -841,7 +833,7 @@ public class Ventana {
 		boton_BorrarProducto.setBounds(468, 26, 131, 41);
 		panel_Ingesta.add(boton_BorrarProducto);
 		
-		//Array de Etiquetas añadir Productos 
+		//Array de Etiquetas aï¿½adir Productos 
 		ArrayList<JTextField> fieldsAgregarProducto=new ArrayList<JTextField>();
 		fieldsAgregarProducto.add(textField_NombreAgregarProducto);
 		fieldsAgregarProducto.add(textField_GramosAgregarProducto);
@@ -865,7 +857,7 @@ public class Ventana {
 		labelsAlertaAgregarProducto.add(ErrorTotalCalorias);
 		
 		
-		//Boton para añadir un nuevo producto
+		//Boton para agregar un nuevo producto
 		
 		JButton botonAgregarProductoUsuario = new JButton("Agregar Producto");
 		botonAgregarProductoUsuario.addMouseListener(new MouseAdapter() {
@@ -933,7 +925,67 @@ public class Ventana {
 					
 			}
 		});
+		/**
+		 * Etiquetas y funciones de Edad y Peso
+		 * */
+		/* 
+		 * ESTO LO HACEMOS CON LOS 2 JTEXTFIELD
+		 * Primero identificamos si el texto esta vacio, si no lo esta llamamos al metodo el cual nos permite
+		 * verificar si el texto es un numero, si lo es devuelve true y despues comprobamos si la edad no entra en
+		 * la condicion salen mensajes de error
+		 */
+		textField_Edad = new JTextField();
+		textField_Edad.addCaretListener(new CaretListener() {
+			public void caretUpdate(CaretEvent arg0) {
+				Etiqueta_ErrorEdad.setText(null);
+				Etiqueta_ErrorEdad.setForeground(Color.RED);
+				if(!textField_Edad.getText().equals("")) {
+					boolean ComprobarEdad=Metodos.comprobarCantidadValida(textField_Edad);
+
+					if(!ComprobarEdad) {
+						Etiqueta_ErrorEdad.setText("Tiene que ser un numero");
+					}
+					else {
+						String textoEdad=textField_Edad.getText();
+						int numeroEdad=Integer.parseInt(textoEdad);
+						if(numeroEdad<16 || numeroEdad>99) {
+							Etiqueta_ErrorEdad.setText("El numero debe estar entre (16-99)");
+						}
+					}
+				}
+			}
+		});
+		textField_Edad.setText("16");
+		textField_Edad.setBounds(412, 59, 46, 21);
+		panel_Persona.add(textField_Edad);
+		textField_Edad.setColumns(10);
 		
+		
+		textField_Peso = new JTextField();
+		textField_Peso.addCaretListener(new CaretListener() {
+			public void caretUpdate(CaretEvent arg0) {
+				Etiqueta_ErrorPeso.setText(null);
+				Etiqueta_ErrorPeso.setForeground(Color.RED);
+				if(!textField_Peso.getText().equals("")) {
+					boolean ComprobarEdad=Metodos.comprobarCantidadValida(textField_Peso);
+
+					if(!ComprobarEdad) {
+						Etiqueta_ErrorPeso.setText("Tiene que ser un numero");
+					}
+					else {
+						String textoPeso=textField_Peso.getText();
+						int numeroEdad=Integer.parseInt(textoPeso);
+						if(numeroEdad<40 || numeroEdad>200) {
+							Etiqueta_ErrorPeso.setText("Los kilos deben estar entre (40-200)kg");
+						}
+					}
+				}
+			}
+		});
+		textField_Peso.setText("40");
+		textField_Peso.setColumns(10);
+		textField_Peso.setBounds(599, 61, 46, 21);
+		panel_Persona.add(textField_Peso);
 		
 	}
 }
