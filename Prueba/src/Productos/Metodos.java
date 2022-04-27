@@ -161,28 +161,6 @@ public class Metodos {
 		return true;
 	}
 	
-	public static boolean comprobarCantidadValida(JTextField FieldCantidad,JLabel LabelAlerta) {
-		//Sirve para que el numero agregado no tenga letras ni numeros inferiores a 0
-		
-		//Convierto el texto de Cantidad_Gramos_Introducido a un array de Chars
-		String texto = FieldCantidad.getText();
-		char[] v=texto.toCharArray();
-		int i=0;
-
-		//Mientras el valor que encuentre sea un digito continuara hasta el final
-		//Sino parar y mostrar un error
-		while( i<v.length ) {
-			if(!Character.isDigit(v[i])) {
-				LabelAlerta.setText("Valor erroneo, tienes que introducir un numero positivo");
-				return false;
-			}
-			else
-				LabelAlerta.setText("");
-			i++;
-		}
-		return true;
-	}
-	
 	public static Producto agregarProductoAlCatalogo(ArrayList<JTextField> fieldsAgregarProducto)
 	{
 		String nombre = fieldsAgregarProducto.get(0).getText();
@@ -237,7 +215,7 @@ public class Metodos {
 				
 				Producto prod = dieta.get(i);
 				Desplegable.addItem(prod.getNombre());
-				stringPanel += "ID: "+i+prod.getNombre()+" Calorias: "+prod.getCalorias()+"\n";
+				stringPanel += "ID: "+i+" "+prod.getNombre()+" Calorias: "+prod.getCalorias()+"\n";
 			}
 			
 			panel.setText(stringPanel);

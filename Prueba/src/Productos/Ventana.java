@@ -38,7 +38,7 @@ import javax.swing.SwingConstants;
 public class Ventana {
 
 	private JFrame frame;
-	private JTextField Cantidad_Gramos_Introducido;
+	private JTextField textField_CantidadGramosIntroducido;
 	private JTextField textField_NombreAgregarProducto;
 	private JTextField textField_GramosAgregarProducto;
 	private JTextField textField_GrasasAgregarProducto;
@@ -48,7 +48,6 @@ public class Ventana {
 	private JTextField textField_ProteinasAgregarProducto;
 	private JTextField textField_SalAgregarProducto;
 	private JTextField textField_TotalCaloriasAgregarProducto;
-	boolean isDigit=true;
 	private JTextField textField_Edad;
 	private JTextField textField_Peso;
 
@@ -185,11 +184,11 @@ public class Ventana {
 		panel_Resumen.add(Panel_Alimentos_Ingeridos);
 		
 		JComboBox Desplegable_Dieta = new JComboBox();
-		Desplegable_Dieta.setBounds(10, 49, 117, 26);
+		Desplegable_Dieta.setBounds(10, 49, 98, 26);
 		panel_Resumen.add(Desplegable_Dieta);
 		
 		JButton boton_BorrarProductoDieta = new JButton("Borrar Producto");
-		boton_BorrarProductoDieta.setBounds(145, 48, 109, 27);
+		boton_BorrarProductoDieta.setBounds(120, 48, 134, 27);
 		panel_Resumen.add(boton_BorrarProductoDieta);
 		
 		JLabel Etiqueta_Alerta_Dieta = new JLabel("");
@@ -342,20 +341,20 @@ public class Ventana {
 		Etiqueta_Grasas.setBounds(42, 127, 60, 17);
 		panel_Ingesta.add(Etiqueta_Grasas);
 		
-		JLabel Etiqueta_Grasas_Saturadas = new JLabel("Grasas Saturadas:");
-		Etiqueta_Grasas_Saturadas.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Etiqueta_Grasas_Saturadas.setBounds(42, 193, 106, 17);
-		panel_Ingesta.add(Etiqueta_Grasas_Saturadas);
+		JLabel Etiqueta_GrasasSaturadas = new JLabel("Grasas Saturadas:");
+		Etiqueta_GrasasSaturadas.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		Etiqueta_GrasasSaturadas.setBounds(42, 193, 106, 17);
+		panel_Ingesta.add(Etiqueta_GrasasSaturadas);
 		
-		JLabel Etiqueta_Hidratos_Carbono = new JLabel("Hidratos de Carbono:");
-		Etiqueta_Hidratos_Carbono.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Etiqueta_Hidratos_Carbono.setBounds(42, 262, 137, 17);
-		panel_Ingesta.add(Etiqueta_Hidratos_Carbono);
+		JLabel Etiqueta_HidratosCarbono = new JLabel("Hidratos de Carbono:");
+		Etiqueta_HidratosCarbono.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		Etiqueta_HidratosCarbono.setBounds(42, 262, 137, 17);
+		panel_Ingesta.add(Etiqueta_HidratosCarbono);
 		
-		JLabel Etiqeuta_Azucar = new JLabel("Azucar:");
-		Etiqeuta_Azucar.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Etiqeuta_Azucar.setBounds(42, 323, 60, 17);
-		panel_Ingesta.add(Etiqeuta_Azucar);
+		JLabel Etiqueta_Azucar = new JLabel("Azucar:");
+		Etiqueta_Azucar.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		Etiqueta_Azucar.setBounds(42, 323, 60, 17);
+		panel_Ingesta.add(Etiqueta_Azucar);
 		
 		JLabel Etiqueta_Proteinas = new JLabel("Proteinas:");
 		Etiqueta_Proteinas.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -367,20 +366,20 @@ public class Ventana {
 		Etiqueta_Sal.setBounds(42, 458, 60, 17);
 		panel_Ingesta.add(Etiqueta_Sal);
 		
-		JLabel Gramos_Hidratos = new JLabel("0");
-		Gramos_Hidratos.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Gramos_Hidratos.setBounds(191, 262, 43, 17);
-		panel_Ingesta.add(Gramos_Hidratos);
+		JLabel Etiqueta_GramosHidratos = new JLabel("0");
+		Etiqueta_GramosHidratos.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		Etiqueta_GramosHidratos.setBounds(191, 262, 43, 17);
+		panel_Ingesta.add(Etiqueta_GramosHidratos);
 		
-		JLabel Gramos_Grasas_Saturadas = new JLabel("0");
-		Gramos_Grasas_Saturadas.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Gramos_Grasas_Saturadas.setBounds(191, 193, 43, 17);
-		panel_Ingesta.add(Gramos_Grasas_Saturadas);
+		JLabel Etiqueta_GramosGrasasSaturadas = new JLabel("0");
+		Etiqueta_GramosGrasasSaturadas.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		Etiqueta_GramosGrasasSaturadas.setBounds(191, 193, 43, 17);
+		panel_Ingesta.add(Etiqueta_GramosGrasasSaturadas);
 		
-		JLabel Gramos_Grasas = new JLabel("0");
-		Gramos_Grasas.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Gramos_Grasas.setBounds(191, 127, 43, 17);
-		panel_Ingesta.add(Gramos_Grasas);
+		JLabel Etiqueta_GramosGrasas = new JLabel("0");
+		Etiqueta_GramosGrasas.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		Etiqueta_GramosGrasas.setBounds(191, 127, 43, 17);
+		panel_Ingesta.add(Etiqueta_GramosGrasas);
 		
 		JLabel Gramos_Proteinas = new JLabel("0");
 		Gramos_Proteinas.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -447,60 +446,60 @@ public class Ventana {
 		panel_Ingesta.add(Etiqueta_gramos_7);
 		Etiqueta_gramos_7.setFont(new Font("Tahoma", Font.BOLD, 17));
 		
-		JLabel Etiqueta_Grasas_Usuario = new JLabel("Grasas:");
-		Etiqueta_Grasas_Usuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Etiqueta_Grasas_Usuario.setBounds(351, 127, 60, 17);
-		panel_Ingesta.add(Etiqueta_Grasas_Usuario);
+		JLabel Etiqueta_GrasasUsuario = new JLabel("Grasas:");
+		Etiqueta_GrasasUsuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		Etiqueta_GrasasUsuario.setBounds(351, 127, 60, 17);
+		panel_Ingesta.add(Etiqueta_GrasasUsuario);
 		
-		JLabel Etiqueta_Grasas_Saturadas_Usuario = new JLabel("Grasas Saturadas:");
-		Etiqueta_Grasas_Saturadas_Usuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Etiqueta_Grasas_Saturadas_Usuario.setBounds(351, 193, 106, 17);
-		panel_Ingesta.add(Etiqueta_Grasas_Saturadas_Usuario);
+		JLabel Etiqueta_GrasasSaturadasUsuario = new JLabel("Grasas Saturadas:");
+		Etiqueta_GrasasSaturadasUsuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		Etiqueta_GrasasSaturadasUsuario.setBounds(351, 193, 106, 17);
+		panel_Ingesta.add(Etiqueta_GrasasSaturadasUsuario);
 		
-		JLabel Etiqueta_Hidratos_Carbono_Usuario = new JLabel("Hidratos de Carbono:");
-		Etiqueta_Hidratos_Carbono_Usuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Etiqueta_Hidratos_Carbono_Usuario.setBounds(351, 262, 137, 17);
-		panel_Ingesta.add(Etiqueta_Hidratos_Carbono_Usuario);
+		JLabel Etiqueta_HidratosCarbonoUsuario = new JLabel("Hidratos de Carbono:");
+		Etiqueta_HidratosCarbonoUsuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		Etiqueta_HidratosCarbonoUsuario.setBounds(351, 262, 137, 17);
+		panel_Ingesta.add(Etiqueta_HidratosCarbonoUsuario);
 		
-		JLabel Etiqeuta_Azucar_Usuario = new JLabel("Azucar:");
-		Etiqeuta_Azucar_Usuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Etiqeuta_Azucar_Usuario.setBounds(351, 323, 60, 17);
-		panel_Ingesta.add(Etiqeuta_Azucar_Usuario);
+		JLabel Etiqueta_AzucarUsuario = new JLabel("Azucar:");
+		Etiqueta_AzucarUsuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		Etiqueta_AzucarUsuario.setBounds(351, 323, 60, 17);
+		panel_Ingesta.add(Etiqueta_AzucarUsuario);
 		
-		JLabel Etiqueta_Proteinas_Usuario = new JLabel("Proteinas:");
-		Etiqueta_Proteinas_Usuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Etiqueta_Proteinas_Usuario.setBounds(351, 389, 60, 17);
-		panel_Ingesta.add(Etiqueta_Proteinas_Usuario);
+		JLabel Etiqueta_ProteinasUsuario = new JLabel("Proteinas:");
+		Etiqueta_ProteinasUsuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		Etiqueta_ProteinasUsuario.setBounds(351, 389, 60, 17);
+		panel_Ingesta.add(Etiqueta_ProteinasUsuario);
 		
-		JLabel Etiqueta_Sal_Usuario = new JLabel("Sal:");
-		Etiqueta_Sal_Usuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Etiqueta_Sal_Usuario.setBounds(351, 458, 60, 17);
-		panel_Ingesta.add(Etiqueta_Sal_Usuario);
+		JLabel Etiqueta_SalUsuario = new JLabel("Sal:");
+		Etiqueta_SalUsuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		Etiqueta_SalUsuario.setBounds(351, 458, 60, 17);
+		panel_Ingesta.add(Etiqueta_SalUsuario);
 		
-		JLabel Gramos_Hidratos_Usuario = new JLabel("0");
-		Gramos_Hidratos_Usuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Gramos_Hidratos_Usuario.setBounds(488, 262, 53, 17);
-		panel_Ingesta.add(Gramos_Hidratos_Usuario);
+		JLabel Etiqueta_GramosHidratosUsuario = new JLabel("0");
+		Etiqueta_GramosHidratosUsuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		Etiqueta_GramosHidratosUsuario.setBounds(488, 262, 53, 17);
+		panel_Ingesta.add(Etiqueta_GramosHidratosUsuario);
 		
-		JLabel Gramos_Grasas_Saturadas_Usuario = new JLabel("0");
-		Gramos_Grasas_Saturadas_Usuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Gramos_Grasas_Saturadas_Usuario.setBounds(488, 193, 53, 17);
-		panel_Ingesta.add(Gramos_Grasas_Saturadas_Usuario);
+		JLabel Etiqueta_GramosGrasasSaturadasUsuario = new JLabel("0");
+		Etiqueta_GramosGrasasSaturadasUsuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		Etiqueta_GramosGrasasSaturadasUsuario.setBounds(488, 193, 53, 17);
+		panel_Ingesta.add(Etiqueta_GramosGrasasSaturadasUsuario);
 		
-		JLabel Gramos_Grasas_Usuario = new JLabel("0");
-		Gramos_Grasas_Usuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Gramos_Grasas_Usuario.setBounds(488, 127, 53, 17);
-		panel_Ingesta.add(Gramos_Grasas_Usuario);
+		JLabel Etiqueta_GramosGrasasUsuario = new JLabel("0");
+		Etiqueta_GramosGrasasUsuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		Etiqueta_GramosGrasasUsuario.setBounds(488, 127, 53, 17);
+		panel_Ingesta.add(Etiqueta_GramosGrasasUsuario);
 		
-		JLabel Gramos_Proteinas_Usuario = new JLabel("0");
-		Gramos_Proteinas_Usuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Gramos_Proteinas_Usuario.setBounds(488, 389, 53, 17);
-		panel_Ingesta.add(Gramos_Proteinas_Usuario);
+		JLabel Etiqueta_GramosProteinasUsuario = new JLabel("0");
+		Etiqueta_GramosProteinasUsuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		Etiqueta_GramosProteinasUsuario.setBounds(488, 389, 53, 17);
+		panel_Ingesta.add(Etiqueta_GramosProteinasUsuario);
 		
-		JLabel Gramos_Azucar_Usuario = new JLabel("0");
-		Gramos_Azucar_Usuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		Gramos_Azucar_Usuario.setBounds(488, 323, 53, 17);
-		panel_Ingesta.add(Gramos_Azucar_Usuario);
+		JLabel Etiqueta_GramosAzucarUsuario = new JLabel("0");
+		Etiqueta_GramosAzucarUsuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		Etiqueta_GramosAzucarUsuario.setBounds(488, 323, 53, 17);
+		panel_Ingesta.add(Etiqueta_GramosAzucarUsuario);
 		
 		JLabel Gramos_Sal_Usuario = new JLabel("0");
 		Gramos_Sal_Usuario.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -661,10 +660,10 @@ public class Ventana {
 		
 		
 		//Cantidad de Gramos del producto seleccionado
-		Cantidad_Gramos_Introducido = new JTextField();
-		Cantidad_Gramos_Introducido.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		Cantidad_Gramos_Introducido.setBounds(221, 35, 70, 23);
-		panel_Ingesta.add(Cantidad_Gramos_Introducido);
+		textField_CantidadGramosIntroducido = new JTextField();
+		textField_CantidadGramosIntroducido.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textField_CantidadGramosIntroducido.setBounds(221, 35, 70, 23);
+		panel_Ingesta.add(textField_CantidadGramosIntroducido);
 
 		/**
 		*OBJETOS LOS CUALES TIENEN FUNCIONES
@@ -683,9 +682,9 @@ public class Ventana {
 
 		//Array que guarda los JLabel de los que hace referencia a 100g
 		ArrayList<JLabel> labelsMacros100=new ArrayList<JLabel>();
-		labelsMacros100.add(Gramos_Grasas);
-		labelsMacros100.add(Gramos_Grasas_Saturadas);
-		labelsMacros100.add(Gramos_Hidratos);
+		labelsMacros100.add(Etiqueta_GramosGrasas);
+		labelsMacros100.add(Etiqueta_GramosGrasasSaturadas);
+		labelsMacros100.add(Etiqueta_GramosHidratos);
 		labelsMacros100.add(Gramos_Azucar);
 		labelsMacros100.add(Gramos_Proteinas);
 		labelsMacros100.add(Gramos_Sal);
@@ -699,7 +698,7 @@ public class Ventana {
 				
 				Etiqueta_Alerta_Dieta.setText("");
 				
-				Cantidad_Gramos_Introducido.setText("0");
+				textField_CantidadGramosIntroducido.setText("0");
 				
 				//Primero coge el indice del numero del despegable
 				Integer NumeroLista = Desplegable_Catalogo.getSelectedIndex();
@@ -722,31 +721,35 @@ public class Ventana {
 		
 		//Array que guarda los JLabel de los que hace referencia a los gramos consumidos por el usuario
 		ArrayList<JLabel> labelsUsuario=new ArrayList<JLabel>();
-		labelsUsuario.add(Gramos_Grasas_Usuario);
-		labelsUsuario.add(Gramos_Grasas_Saturadas_Usuario);
-		labelsUsuario.add(Gramos_Hidratos_Usuario);
-		labelsUsuario.add(Gramos_Azucar_Usuario);
-		labelsUsuario.add(Gramos_Proteinas_Usuario);
+		labelsUsuario.add(Etiqueta_GramosGrasasUsuario);
+		labelsUsuario.add(Etiqueta_GramosGrasasSaturadasUsuario);
+		labelsUsuario.add(Etiqueta_GramosHidratosUsuario);
+		labelsUsuario.add(Etiqueta_GramosAzucarUsuario);
+		labelsUsuario.add(Etiqueta_GramosProteinasUsuario);
 		labelsUsuario.add(Gramos_Sal_Usuario);
 		labelsUsuario.add(Etiqueta_Total_Calorias_Usuario);
 		
 		
 		
 		//Sirve para acutalizar la candidad de gramos que pone le usuario
-		Cantidad_Gramos_Introducido.addCaretListener(new CaretListener() {
+		textField_CantidadGramosIntroducido.addCaretListener(new CaretListener() {
 			public void caretUpdate(CaretEvent e) {
 				Etiqueta_Alerta_Dieta.setText("");
-
+				Etiqueta_Alerta_Ingesta.setText("");
+				
 				//Si no esta vacio, realizara lo de dentro
-				if(!Cantidad_Gramos_Introducido.getText().isEmpty()) {
+				if(!textField_CantidadGramosIntroducido.getText().isEmpty()) {
 
 					//Comprobara si el valor introducido es valido, si consigue terminarlo devolvera true
 					//Sino cambiara la alerta del label y devolvera false
-					boolean Valido = Metodos.comprobarCantidadValida(Cantidad_Gramos_Introducido, Etiqueta_Alerta_Ingesta);
-
+					boolean Valido = Metodos.comprobarCantidadValida(textField_CantidadGramosIntroducido);
+					if(!Valido) {
+						Etiqueta_Alerta_Ingesta.setText("Valor erroneo, tienes que introducir un numero positivo");
+					}
 					//Si el resultado anterior es true, realizara lo de dentro
-					if(Valido) {
-						String texto = Cantidad_Gramos_Introducido.getText();
+					else
+					{
+						String texto = textField_CantidadGramosIntroducido.getText();
 						//convertimos el JTextField en un Double para hacer los calculos
 						double cantidadGramos=Double.parseDouble(texto);
 
@@ -782,7 +785,7 @@ public class Ventana {
 				Etiqueta_Alerta_Dieta.setText("");
 				
 				//Si el campo de los gramos esta vacio o a 0 no introduce producto
-				if(Cantidad_Gramos_Introducido.getText().equals("") || Cantidad_Gramos_Introducido.getText().equals("0")) {
+				if(textField_CantidadGramosIntroducido.getText().equals("") || textField_CantidadGramosIntroducido.getText().equals("0")) {
 					Etiqueta_Alerta_Ingesta.setText("El campo no agregarse como vacio o 0");;
 				}else {
 					//Sirve para poner todos Label de usuario 
@@ -792,9 +795,9 @@ public class Ventana {
 
 
 					//Cogemos el La cantidad de Gramos Introducido
-					double CantidadGramosConsumido = Double.parseDouble(Cantidad_Gramos_Introducido.getText());
+					double CantidadGramosConsumido = Double.parseDouble(textField_CantidadGramosIntroducido.getText());
 					//Ya podemos pasar ciertos campos a valor 0
-					Cantidad_Gramos_Introducido.setText("");
+					textField_CantidadGramosIntroducido.setText("");
 					Etiqueta_NumerodeGramosSeleccionados.setText("0");
 					//Cogemos el producto seleccionado del desplegable del Catalogo
 					Producto PrAgregado = ArrayListaProductos.ListaProductos.get(Desplegable_Catalogo.getSelectedIndex());
