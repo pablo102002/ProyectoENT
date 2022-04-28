@@ -101,51 +101,51 @@ public class Ventana {
 		
 		JLabel Etiqueta_Edad = new JLabel("Edad:");
 		Etiqueta_Edad.setFont(new Font("Tahoma", Font.BOLD, 14));
-		Etiqueta_Edad.setBounds(437, 22, 46, 14);
+		Etiqueta_Edad.setBounds(284, 26, 46, 14);
 		panel_Persona.add(Etiqueta_Edad);
 		
 		JLabel Etiqueta_Sexo = new JLabel("Sexo:");
 		Etiqueta_Sexo.setFont(new Font("Tahoma", Font.BOLD, 14));
-		Etiqueta_Sexo.setBounds(250, 25, 46, 14);
+		Etiqueta_Sexo.setBounds(97, 29, 46, 14);
 		panel_Persona.add(Etiqueta_Sexo);
 		
 		JLabel Etiqueta_ActividadFisica = new JLabel("Actividad Fisica");
 		Etiqueta_ActividadFisica.setFont(new Font("Tahoma", Font.BOLD, 14));
-		Etiqueta_ActividadFisica.setBounds(753, 27, 125, 14);
+		Etiqueta_ActividadFisica.setBounds(600, 31, 125, 14);
 		panel_Persona.add(Etiqueta_ActividadFisica);
 		
 		JLabel Etiqueta_Peso = new JLabel("Peso");
 		Etiqueta_Peso.setFont(new Font("Tahoma", Font.BOLD, 14));
-		Etiqueta_Peso.setBounds(623, 27, 46, 14);
+		Etiqueta_Peso.setBounds(470, 31, 46, 14);
 		panel_Persona.add(Etiqueta_Peso);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Leve", "Moderada", "Intensa"}));
-		comboBox.setBounds(753, 59, 94, 22);
+		comboBox.setBounds(600, 63, 94, 22);
 		panel_Persona.add(comboBox);
 		
 		JLabel Etiqueta_InformativaIMC = new JLabel("IMC");
 		Etiqueta_InformativaIMC.setFont(new Font("Tahoma", Font.BOLD, 14));
-		Etiqueta_InformativaIMC.setBounds(913, 27, 46, 14);
+		Etiqueta_InformativaIMC.setBounds(760, 31, 46, 14);
 		panel_Persona.add(Etiqueta_InformativaIMC);
 		
 		JLabel Etiqueta_IMC = new JLabel("0");
 		Etiqueta_IMC.setFont(new Font("Tahoma", Font.BOLD, 11));
-		Etiqueta_IMC.setBounds(913, 63, 46, 14);
+		Etiqueta_IMC.setBounds(760, 67, 46, 14);
 		panel_Persona.add(Etiqueta_IMC);
 		
 		JLabel Etiqeuta_Edad_1= new JLabel("A\u00F1os");
-		Etiqeuta_Edad_1.setBounds(464, 62, 46, 14);
+		Etiqeuta_Edad_1.setBounds(311, 66, 46, 14);
 		panel_Persona.add(Etiqeuta_Edad_1);
 		
 		JComboBox comboBox_Sexo = new JComboBox();
 		comboBox_Sexo.setModel(new DefaultComboBoxModel(new String[] {"Mujer", "Hombre"}));
-		comboBox_Sexo.setBounds(237, 55, 78, 26);
+		comboBox_Sexo.setBounds(84, 59, 78, 26);
 		panel_Persona.add(comboBox_Sexo);
 		
 		
 		JLabel Etiqeuta_Peso1 = new JLabel("Kg");
-		Etiqeuta_Peso1.setBounds(651, 64, 46, 14);
+		Etiqeuta_Peso1.setBounds(498, 68, 46, 14);
 		panel_Persona.add(Etiqeuta_Peso1);
 		
 		//Etiquetas de error de Peso y Edad
@@ -587,9 +587,10 @@ public class Ventana {
 		
 		
 		
-		JLabel Etiqueta_Titulo = new JLabel("Nombre Aplicacion");
-		Etiqueta_Titulo.setFont(new Font("Dialog", Font.BOLD, 58));
-		Etiqueta_Titulo.setBounds(44, -27, 670, 100);
+		JLabel Etiqueta_Titulo = new JLabel("DietCalc");
+		Etiqueta_Titulo.setHorizontalAlignment(SwingConstants.CENTER);
+		Etiqueta_Titulo.setFont(new Font("Linux Biolinum Keyboard O", Font.BOLD, 58));
+		Etiqueta_Titulo.setBounds(44, 0, 529, 73);
 		panel_Titulo.add(Etiqueta_Titulo);
 		
 		JLabel Etiqueta_Alerta_AgregarProducto = new JLabel("");
@@ -959,7 +960,7 @@ public class Ventana {
 			}
 		});
 		textField_Edad.setText("16");
-		textField_Edad.setBounds(412, 59, 46, 21);
+		textField_Edad.setBounds(259, 63, 46, 21);
 		panel_Persona.add(textField_Edad);
 		textField_Edad.setColumns(10);
 		
@@ -987,7 +988,7 @@ public class Ventana {
 		});
 		textField_Peso.setText("40");
 		textField_Peso.setColumns(10);
-		textField_Peso.setBounds(599, 61, 46, 21);
+		textField_Peso.setBounds(446, 65, 46, 21);
 		panel_Persona.add(textField_Peso);
 		
 	}
