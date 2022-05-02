@@ -50,7 +50,7 @@ public class Ventana {
 	private JTextField textField_TotalCaloriasAgregarProducto;
 	private JTextField textField_Edad;
 	private JTextField textField_Peso;
-	private JTextField textField;
+	private JTextField textField_Altura;
 
 	/**
 	 * Launch the application.
@@ -120,10 +120,10 @@ public class Ventana {
 		Etiqueta_Peso.setBounds(371, 42, 46, 14);
 		panel_Persona.add(Etiqueta_Peso);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Leve", "Moderada", "Intensa"}));
-		comboBox.setBounds(457, 74, 94, 22);
-		panel_Persona.add(comboBox);
+		JComboBox Desplegable_Actividad = new JComboBox();
+		Desplegable_Actividad.setModel(new DefaultComboBoxModel(new String[] {"Poco", "Ligero", "Moderado", "Intenso", "Muy intenso"}));
+		Desplegable_Actividad.setBounds(457, 74, 94, 22);
+		panel_Persona.add(Desplegable_Actividad);
 		
 		JLabel Etiqueta_InformativaIMC = new JLabel("IMC");
 		Etiqueta_InformativaIMC.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -132,30 +132,30 @@ public class Ventana {
 		
 		JLabel Etiqueta_IMC = new JLabel("0");
 		Etiqueta_IMC.setFont(new Font("Tahoma", Font.BOLD, 11));
-		Etiqueta_IMC.setBounds(702, 80, 46, 14);
+		Etiqueta_IMC.setBounds(702, 78, 79, 14);
 		panel_Persona.add(Etiqueta_IMC);
 		
 		JLabel Etiqeuta_Edad_1= new JLabel("A\u00F1os");
 		Etiqeuta_Edad_1.setBounds(189, 82, 46, 14);
 		panel_Persona.add(Etiqeuta_Edad_1);
 		
-		JComboBox comboBox_Sexo = new JComboBox();
-		comboBox_Sexo.setModel(new DefaultComboBoxModel(new String[] {"Mujer", "Hombre"}));
-		comboBox_Sexo.setBounds(26, 72, 78, 26);
-		panel_Persona.add(comboBox_Sexo);
+		JComboBox Desplegable_Sexo = new JComboBox();
+		Desplegable_Sexo.setModel(new DefaultComboBoxModel(new String[] {"Mujer", "Hombre"}));
+		Desplegable_Sexo.setBounds(26, 72, 78, 26);
+		panel_Persona.add(Desplegable_Sexo);
 		
 		
 		JLabel Etiqeuta_Peso1 = new JLabel("Kg");
-		Etiqeuta_Peso1.setBounds(399, 79, 25, 14);
+		Etiqeuta_Peso1.setBounds(409, 78, 25, 14);
 		panel_Persona.add(Etiqeuta_Peso1);
 		
 		//Etiquetas de error de Peso y Edad
 		JLabel Etiqueta_ErrorEdad = new JLabel("");
-		Etiqueta_ErrorEdad.setBounds(317, 118, 227, 17);
+		Etiqueta_ErrorEdad.setBounds(81, 118, 251, 17);
 		panel_Persona.add(Etiqueta_ErrorEdad);
 		
 		JLabel Etiqueta_ErrorPeso = new JLabel("");
-		Etiqueta_ErrorPeso.setBounds(572, 118, 244, 17);
+		Etiqueta_ErrorPeso.setBounds(342, 118, 244, 17);
 		panel_Persona.add(Etiqueta_ErrorPeso);	
 		
 		//panel_AgregarProducto
@@ -667,6 +667,55 @@ public class Ventana {
 		textField_CantidadGramosIntroducido.setBounds(221, 35, 70, 23);
 		panel_Ingesta.add(textField_CantidadGramosIntroducido);
 
+		/*
+		 *Etiquetas y TexField de el apartado de seleccion de peso, altura, peso, sexo...
+		  */
+		
+		textField_Edad = new JTextField();
+		textField_Edad.setText("16");
+		textField_Edad.setBounds(147, 75, 36, 21);
+		panel_Persona.add(textField_Edad);
+		textField_Edad.setColumns(10);
+		
+		textField_Peso = new JTextField();
+		textField_Peso.setText("40");
+		textField_Peso.setColumns(10);
+		textField_Peso.setBounds(363, 77, 36, 21);
+		panel_Persona.add(textField_Peso);
+		JLabel Etiqueta_Altura_1 = new JLabel("Altura:");
+		Etiqueta_Altura_1.setFont(new Font("Dialog", Font.BOLD, 14));
+		Etiqueta_Altura_1.setBounds(258, 42, 61, 14);
+		panel_Persona.add(Etiqueta_Altura_1);
+		
+		JLabel Etiqeuta_Altura_1_1 = new JLabel("cm");
+		Etiqeuta_Altura_1_1.setBounds(299, 80, 36, 14);
+		panel_Persona.add(Etiqeuta_Altura_1_1);
+		
+		JLabel Etiqueta_ErrorAltura = new JLabel("");
+		Etiqueta_ErrorAltura.setForeground(Color.RED);
+		Etiqueta_ErrorAltura.setBounds(133, 138, 284, 22);
+		panel_Persona.add(Etiqueta_ErrorAltura);
+		
+		textField_Altura = new JTextField();
+		textField_Altura.setText("130");
+		textField_Altura.setColumns(10);
+		textField_Altura.setBounds(247, 77, 46, 21);
+		panel_Persona.add(textField_Altura);
+		
+		JButton btnNewButton = new JButton("Calcular");
+		btnNewButton.setBounds(733, 112, 86, 23);
+		panel_Persona.add(btnNewButton);
+		
+		JLabel Etiqueta_InformativaTMC = new JLabel("TMC");
+		Etiqueta_InformativaTMC.setFont(new Font("Tahoma", Font.BOLD, 14));
+		Etiqueta_InformativaTMC.setBounds(820, 42, 46, 14);
+		panel_Persona.add(Etiqueta_InformativaTMC);
+		
+		JLabel Etiqueta_TMC = new JLabel("0");
+		Etiqueta_TMC.setFont(new Font("Tahoma", Font.BOLD, 11));
+		Etiqueta_TMC.setBounds(807, 78, 79, 14);
+		panel_Persona.add(Etiqueta_TMC);
+		
 		/**
 		*OBJETOS LOS CUALES TIENEN FUNCIONES
 		*/
@@ -939,7 +988,11 @@ public class Ventana {
 		 * verificar si el texto es un numero, si lo es devuelve true y despues comprobamos si la edad no entra en
 		 * la condicion salen mensajes de error
 		 */
-		textField_Edad = new JTextField();
+		
+		/*
+		 *CONTROL DE ERRORES MEDIANTE EVENTOS DE EDAD, ALTURA Y PESO 
+		 */
+		
 		textField_Edad.addCaretListener(new CaretListener() {
 			public void caretUpdate(CaretEvent arg0) {
 				Etiqueta_ErrorEdad.setText(null);
@@ -960,13 +1013,8 @@ public class Ventana {
 				}
 			}
 		});
-		textField_Edad.setText("16");
-		textField_Edad.setBounds(147, 75, 36, 21);
-		panel_Persona.add(textField_Edad);
-		textField_Edad.setColumns(10);
 		
-		
-		textField_Peso = new JTextField();
+	
 		textField_Peso.addCaretListener(new CaretListener() {
 			public void caretUpdate(CaretEvent arg0) {
 				Etiqueta_ErrorPeso.setText(null);
@@ -987,25 +1035,73 @@ public class Ventana {
 				}
 			}
 		});
-		textField_Peso.setText("40");
-		textField_Peso.setColumns(10);
-		textField_Peso.setBounds(363, 77, 36, 21);
-		panel_Persona.add(textField_Peso);
 		
-		JLabel Etiqueta_Altura_1 = new JLabel("Altura:");
-		Etiqueta_Altura_1.setFont(new Font("Dialog", Font.BOLD, 14));
-		Etiqueta_Altura_1.setBounds(258, 42, 61, 14);
-		panel_Persona.add(Etiqueta_Altura_1);
 		
-		JLabel Etiqeuta_Altura_1_1 = new JLabel("cm");
-		Etiqeuta_Altura_1_1.setBounds(299, 80, 36, 14);
-		panel_Persona.add(Etiqeuta_Altura_1_1);
+		textField_Altura.addCaretListener(new CaretListener() {
+			public void caretUpdate(CaretEvent e) {
+				Etiqueta_ErrorAltura.setText(null);
+				Etiqueta_ErrorAltura.setForeground(Color.RED);
+				if(!textField_Altura.getText().equals("")) {
+					boolean ComprobarAltura=Metodos.comprobarCantidadValida(textField_Altura);
+
+					if(!ComprobarAltura) {
+						Etiqueta_ErrorAltura.setText("Tiene que ser un numero");
+					}
+					else {
+						String textoAltura=textField_Altura.getText();
+						int numeroAltura=Integer.parseInt(textoAltura);
+						if(numeroAltura<120 || numeroAltura>220) {
+							Etiqueta_ErrorAltura.setText("La altura debe de estar entre (130-220) cm");
+						}
+					}
+				}
+			}
+		});
+		/*
+		 * CALCULAR IMC y TMC
+		 */
+		ArrayList<Double> CantidadActividad=new ArrayList<Double>();
+		CantidadActividad.add(1.2);
+		CantidadActividad.add(1.375);
+		CantidadActividad.add(1.55);
+		CantidadActividad.add(1.725);
+		CantidadActividad.add(1.9);
 		
-		textField = new JTextField();
-		textField.setText("16");
-		textField.setColumns(10);
-		textField.setBounds(247, 77, 46, 21);
-		panel_Persona.add(textField);
+		
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//IMC
+				double altura=Double.valueOf(textField_Altura.getText())/100;
+				double alturaCm=Double.valueOf(textField_Altura.getText());
+				double edad=Double.valueOf(textField_Edad.getText());
+				double peso=Double.valueOf(textField_Peso.getText());
+				double resultadoIMC=peso/Math.pow(altura, 2);
+				resultadoIMC=Math.round(resultadoIMC*100.00)/100.00;
+				Etiqueta_IMC.setText(String.valueOf(resultadoIMC));
+				
+				//TMC
+				int numeroSexo=Desplegable_Sexo.getSelectedIndex();
+				int numeroActividad=Desplegable_Actividad.getSelectedIndex();
+				double hombreTMB=(10*peso)+(6.25*alturaCm)-(5*edad)+5;
+				double mujerTMB=(10*peso)+(6.25*alturaCm)-(5*edad)-161;
+				if(numeroSexo==0) {
+					mujerTMB=mujerTMB*CantidadActividad.get(numeroActividad);
+					mujerTMB=Math.round(mujerTMB*100.00)/100.00;
+					Etiqueta_TMC.setText(String.valueOf(mujerTMB));
+				}
+				else{
+					hombreTMB=hombreTMB*CantidadActividad.get(numeroActividad);
+					hombreTMB=Math.round(hombreTMB*100.00)/100.00;
+					Etiqueta_TMC.setText(String.valueOf(hombreTMB));
+				}
+				
+				
+			}
+		});
+		
+		
+		
 		
 	}
 }
