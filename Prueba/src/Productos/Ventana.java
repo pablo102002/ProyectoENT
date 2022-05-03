@@ -715,7 +715,7 @@ public class Ventana {
 		Etiqueta_calculo_basal.setBounds(1211, 12, 93, 17);
 		panel_Persona.add(Etiqueta_calculo_basal);
 		
-		JLabel Etiqueta_MantenerPeso = new JLabel("Calorías para mantener peso: ");
+		JLabel Etiqueta_MantenerPeso = new JLabel("Calorias para mantener peso: ");
 		Etiqueta_MantenerPeso.setFont(new Font("Dialog", Font.BOLD, 14));
 		Etiqueta_MantenerPeso.setBounds(989, 43, 210, 17);
 		panel_Persona.add(Etiqueta_MantenerPeso);
@@ -724,7 +724,7 @@ public class Ventana {
 		Etiqueta_calculo_mantener.setBounds(1211, 43, 93, 17);
 		panel_Persona.add(Etiqueta_calculo_mantener);
 		
-		JLabel Etiqueta_Adelgazar = new JLabel("Calorías para adelgazar: ");
+		JLabel Etiqueta_Adelgazar = new JLabel("Calorias para adelgazar: ");
 		Etiqueta_Adelgazar.setFont(new Font("Dialog", Font.BOLD, 14));
 		Etiqueta_Adelgazar.setBounds(989, 79, 210, 17);
 		panel_Persona.add(Etiqueta_Adelgazar);
@@ -733,7 +733,7 @@ public class Ventana {
 		Etiqueta_calculo_adelgazar.setBounds(1211, 79, 93, 17);
 		panel_Persona.add(Etiqueta_calculo_adelgazar);
 		
-		JLabel Etiqueta_Engordar = new JLabel("Calorías para subir de peso: ");
+		JLabel Etiqueta_Engordar = new JLabel("Calorias para subir de peso: ");
 		Etiqueta_Engordar.setFont(new Font("Dialog", Font.BOLD, 14));
 		Etiqueta_Engordar.setBounds(989, 112, 210, 17);
 		panel_Persona.add(Etiqueta_Engordar);
@@ -1147,9 +1147,17 @@ public class Ventana {
 					//Calcular y mostrar TMB
 					double tmb = (10 * peso) + (6.25 * alturaCm) - (5 * edad) + sexo;
 					
+					//Metabolismo basal
 					Etiqueta_calculo_basal.setText(String.valueOf(tmb));
 					
+					//Mantener peso
 					Etiqueta_calculo_mantener.setText(String.valueOf(tmb * actividad));
+					
+					//Adelgazar
+					Etiqueta_calculo_adelgazar.setText(String.valueOf((tmb * actividad) * 0.85));
+					
+					//Engordar
+					Etiqueta_calculo_engordar.setText(String.valueOf((tmb * actividad) + (tmb * actividad) * 0.15));
 				}
 				
 			}
