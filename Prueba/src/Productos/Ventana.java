@@ -706,15 +706,41 @@ public class Ventana {
 		btnNewButton.setBounds(733, 112, 86, 23);
 		panel_Persona.add(btnNewButton);
 		
-		JLabel Etiqueta_InformativaTMC = new JLabel("TMC");
-		Etiqueta_InformativaTMC.setFont(new Font("Tahoma", Font.BOLD, 14));
-		Etiqueta_InformativaTMC.setBounds(820, 42, 46, 14);
-		panel_Persona.add(Etiqueta_InformativaTMC);
+		JLabel Etiqueta_MetabolismoBasal = new JLabel("Metabolismo basal: ");
+		Etiqueta_MetabolismoBasal.setFont(new Font("Dialog", Font.BOLD, 14));
+		Etiqueta_MetabolismoBasal.setBounds(989, 12, 210, 17);
+		panel_Persona.add(Etiqueta_MetabolismoBasal);
 		
-		JLabel Etiqueta_TMC = new JLabel("0");
-		Etiqueta_TMC.setFont(new Font("Tahoma", Font.BOLD, 11));
-		Etiqueta_TMC.setBounds(807, 78, 79, 14);
-		panel_Persona.add(Etiqueta_TMC);
+		JLabel Etiqueta_calculo_basal = new JLabel("0");
+		Etiqueta_calculo_basal.setBounds(1211, 12, 93, 17);
+		panel_Persona.add(Etiqueta_calculo_basal);
+		
+		JLabel Etiqueta_MantenerPeso = new JLabel("Calorías para mantener peso: ");
+		Etiqueta_MantenerPeso.setFont(new Font("Dialog", Font.BOLD, 14));
+		Etiqueta_MantenerPeso.setBounds(989, 43, 210, 17);
+		panel_Persona.add(Etiqueta_MantenerPeso);
+		
+		JLabel Etiqueta_calculo_mantener = new JLabel("0");
+		Etiqueta_calculo_mantener.setBounds(1211, 43, 93, 17);
+		panel_Persona.add(Etiqueta_calculo_mantener);
+		
+		JLabel Etiqueta_Adelgazar = new JLabel("Calorías para adelgazar: ");
+		Etiqueta_Adelgazar.setFont(new Font("Dialog", Font.BOLD, 14));
+		Etiqueta_Adelgazar.setBounds(989, 79, 210, 17);
+		panel_Persona.add(Etiqueta_Adelgazar);
+		
+		JLabel Etiqueta_calculo_adelgazar = new JLabel("0");
+		Etiqueta_calculo_adelgazar.setBounds(1211, 79, 93, 17);
+		panel_Persona.add(Etiqueta_calculo_adelgazar);
+		
+		JLabel Etiqueta_Engordar = new JLabel("Calorías para subir de peso: ");
+		Etiqueta_Engordar.setFont(new Font("Dialog", Font.BOLD, 14));
+		Etiqueta_Engordar.setBounds(989, 112, 210, 17);
+		panel_Persona.add(Etiqueta_Engordar);
+		
+		JLabel Etiqueta_calculo_engordar = new JLabel("0");
+		Etiqueta_calculo_engordar.setBounds(1211, 115, 93, 17);
+		panel_Persona.add(Etiqueta_calculo_engordar);
 		
 		/**
 		*OBJETOS LOS CUALES TIENEN FUNCIONES
@@ -1071,31 +1097,60 @@ public class Ventana {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//IMC
-				double altura=Double.valueOf(textField_Altura.getText())/100;
-				double alturaCm=Double.valueOf(textField_Altura.getText());
-				double edad=Double.valueOf(textField_Edad.getText());
-				double peso=Double.valueOf(textField_Peso.getText());
-				double resultadoIMC=peso/Math.pow(altura, 2);
-				resultadoIMC=Math.round(resultadoIMC*100.00)/100.00;
-				Etiqueta_IMC.setText(String.valueOf(resultadoIMC));
-				
-				//TMC
-				int numeroSexo=Desplegable_Sexo.getSelectedIndex();
-				int numeroActividad=Desplegable_Actividad.getSelectedIndex();
-				double hombreTMB=(10*peso)+(6.25*alturaCm)-(5*edad)+5;
-				double mujerTMB=(10*peso)+(6.25*alturaCm)-(5*edad)-161;
-				if(numeroSexo==0) {
-					mujerTMB=mujerTMB*CantidadActividad.get(numeroActividad);
-					mujerTMB=Math.round(mujerTMB*100.00)/100.00;
-					Etiqueta_TMC.setText(String.valueOf(mujerTMB));
+	
+				//TMB & IMC
+				if(textField_Edad.getText().isEmpty() || textField_Altura.getText().isEmpty() || textField_Peso.getText().isEmpty()) {
+					
+				}else {
+					//Sacar variables para los calculos
+					double altura=Double.valueOf(textField_Altura.getText())/100;
+					double alturaCm=Double.valueOf(textField_Altura.getText());
+					double edad=Double.valueOf(textField_Edad.getText());
+					double peso=Double.valueOf(textField_Peso.getText());
+					
+					//Sacamos que sexo ha sido seleccionado y guardamos el valor indicado para usar más tarde en la formula
+					int sexo;
+					if(Desplegable_Sexo.getSelectedIndex()==0)
+						sexo = -161;
+					else
+						sexo = 5;
+					
+					//Sacamos que nivel de actividad fisica ha sido seleccionado y lo guardamos para calcular mas tarde
+					double actividad = 1;
+					int index_desplegable_actividad = Desplegable_Actividad.getSelectedIndex();
+					switch(index_desplegable_actividad) {
+						case 0:
+							actividad = 1.2;
+							break;
+						case 1:
+							actividad = 1.375;
+							break;
+						case 2:
+							actividad = 1.55;
+							break;
+						case 3:
+							actividad = 1.725;
+							break;
+						case 4:
+							actividad = 1.9;
+							break;
+						
+					}
+					
+					//Calcular y mostrar IMC
+					double resultadoIMC=peso/Math.pow(altura, 2);
+					
+					resultadoIMC=Math.round(resultadoIMC*100.00)/100.00;
+					
+					Etiqueta_IMC.setText(String.valueOf(resultadoIMC));
+					
+					//Calcular y mostrar TMB
+					double tmb = (10 * peso) + (6.25 * alturaCm) - (5 * edad) + sexo;
+					
+					Etiqueta_calculo_basal.setText(String.valueOf(tmb));
+					
+					Etiqueta_calculo_mantener.setText(String.valueOf(tmb * actividad));
 				}
-				else{
-					hombreTMB=hombreTMB*CantidadActividad.get(numeroActividad);
-					hombreTMB=Math.round(hombreTMB*100.00)/100.00;
-					Etiqueta_TMC.setText(String.valueOf(hombreTMB));
-				}
-				
 				
 			}
 		});
