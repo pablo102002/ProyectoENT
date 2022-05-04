@@ -51,6 +51,12 @@ public class Ventana {
 	private JTextField textField_Edad;
 	private JTextField textField_Peso;
 	private JTextField textField_Altura;
+	
+	static boolean validEdad = true;
+	static boolean validAltura = true;
+	static boolean validPeso = true;
+	
+	
 
 	/**
 	 * Launch the application.
@@ -85,6 +91,7 @@ public class Ventana {
 		frame.setBounds(100, 100, 1400, 1100);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
 		
 		//panel_Titulo
 		JPanel panel_Titulo = new JPanel();
@@ -1021,6 +1028,8 @@ public class Ventana {
 		
 		textField_Edad.addCaretListener(new CaretListener() {
 			public void caretUpdate(CaretEvent arg0) {
+				//Empezamos poniendo que el valor no es valido y al final si lo es cambiara
+				validEdad = false;
 				Etiqueta_ErrorEdad.setText(null);
 				Etiqueta_ErrorEdad.setForeground(Color.RED);
 				if(!textField_Edad.getText().equals("")) {
@@ -1034,7 +1043,8 @@ public class Ventana {
 						int numeroEdad=Integer.parseInt(textoEdad);
 						if(numeroEdad<16 || numeroEdad>99) {
 							Etiqueta_ErrorEdad.setText("El numero debe estar entre (16-99)");
-						}
+						}else
+							validEdad = true;
 					}
 				}
 			}
@@ -1043,6 +1053,8 @@ public class Ventana {
 	
 		textField_Peso.addCaretListener(new CaretListener() {
 			public void caretUpdate(CaretEvent arg0) {
+				//Empezamos poniendo que el valor no es valido y al final si lo es cambiara
+				validPeso = false;
 				Etiqueta_ErrorPeso.setText(null);
 				Etiqueta_ErrorPeso.setForeground(Color.RED);
 				if(!textField_Peso.getText().equals("")) {
@@ -1056,7 +1068,8 @@ public class Ventana {
 						int numeroEdad=Integer.parseInt(textoPeso);
 						if(numeroEdad<40 || numeroEdad>200) {
 							Etiqueta_ErrorPeso.setText("Los kilos deben estar entre (40-200)kg");
-						}
+						}else
+							validPeso = true;
 					}
 				}
 			}
@@ -1065,6 +1078,8 @@ public class Ventana {
 		
 		textField_Altura.addCaretListener(new CaretListener() {
 			public void caretUpdate(CaretEvent e) {
+				//Empezamos poniendo que el valor no es valido y al final si lo es cambiara
+				validAltura = false;
 				Etiqueta_ErrorAltura.setText(null);
 				Etiqueta_ErrorAltura.setForeground(Color.RED);
 				if(!textField_Altura.getText().equals("")) {
@@ -1078,7 +1093,8 @@ public class Ventana {
 						int numeroAltura=Integer.parseInt(textoAltura);
 						if(numeroAltura<120 || numeroAltura>220) {
 							Etiqueta_ErrorAltura.setText("La altura debe de estar entre (130-220) cm");
-						}
+						}else
+							validAltura = true;
 					}
 				}
 			}
@@ -1086,27 +1102,22 @@ public class Ventana {
 		/*
 		 * CALCULAR IMC y TMC
 		 */
-		ArrayList<Double> CantidadActividad=new ArrayList<Double>();
-		CantidadActividad.add(1.2);
-		CantidadActividad.add(1.375);
-		CantidadActividad.add(1.55);
-		CantidadActividad.add(1.725);
-		CantidadActividad.add(1.9);
-		
 		
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 	
 				//TMB & IMC
-				if(textField_Edad.getText().isEmpty() || textField_Altura.getText().isEmpty() || textField_Peso.getText().isEmpty()) {
+				if(textField_Edad.getText().isEmpty() || textField_Altura.getText().isEmpty() || textField_Peso.getText().isEmpty() || !validEdad || !validAltura || !validPeso) {
 					
 				}else {
+					
 					//Sacar variables para los calculos
 					double altura=Double.valueOf(textField_Altura.getText())/100;
 					double alturaCm=Double.valueOf(textField_Altura.getText());
 					double edad=Double.valueOf(textField_Edad.getText());
 					double peso=Double.valueOf(textField_Peso.getText());
+					
 					
 					//Sacamos que sexo ha sido seleccionado y guardamos el valor indicado para usar más tarde en la formula
 					int sexo;
@@ -1148,16 +1159,16 @@ public class Ventana {
 					double tmb = (10 * peso) + (6.25 * alturaCm) - (5 * edad) + sexo;
 					
 					//Metabolismo basal
-					Etiqueta_calculo_basal.setText(String.valueOf(tmb));
+					Etiqueta_calculo_basal.setText(String.valueOf(Math.round(tmb)));
 					
 					//Mantener peso
-					Etiqueta_calculo_mantener.setText(String.valueOf(tmb * actividad));
+					Etiqueta_calculo_mantener.setText(String.valueOf(Math.round(tmb * actividad)));
 					
 					//Adelgazar
-					Etiqueta_calculo_adelgazar.setText(String.valueOf((tmb * actividad) * 0.85));
+					Etiqueta_calculo_adelgazar.setText(String.valueOf(Math.round((tmb * actividad) * 0.85)));
 					
 					//Engordar
-					Etiqueta_calculo_engordar.setText(String.valueOf((tmb * actividad) + (tmb * actividad) * 0.15));
+					Etiqueta_calculo_engordar.setText(String.valueOf(Math.round((tmb * actividad) + (tmb * actividad) * 0.15)));
 				}
 				
 			}
