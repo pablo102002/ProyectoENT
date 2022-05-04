@@ -1158,17 +1158,22 @@ public class Ventana {
 					//Calcular y mostrar TMB
 					double tmb = (10 * peso) + (6.25 * alturaCm) - (5 * edad) + sexo;
 					
+					
 					//Metabolismo basal
-					Etiqueta_calculo_basal.setText(String.valueOf(Math.round(tmb)));
+					double resultado = Math.round(tmb*100.00)/100.00;
+					Etiqueta_calculo_basal.setText(String.valueOf(resultado));
 					
 					//Mantener peso
-					Etiqueta_calculo_mantener.setText(String.valueOf(Math.round(tmb * actividad)));
+					resultado = Math.round((tmb * actividad)*100.00)/100.00;
+					Etiqueta_calculo_mantener.setText(String.valueOf(resultado));
 					
 					//Adelgazar
-					Etiqueta_calculo_adelgazar.setText(String.valueOf(Math.round((tmb * actividad) * 0.85)));
+					resultado = Math.round(((tmb * actividad) * 0.85)*100.00)/100.00;
+					Etiqueta_calculo_adelgazar.setText(String.valueOf(resultado));
 					
 					//Engordar
-					Etiqueta_calculo_engordar.setText(String.valueOf(Math.round((tmb * actividad) + (tmb * actividad) * 0.15)));
+					resultado = Math.round(((tmb * actividad) + (tmb * actividad) * 0.15)*100.00)/100.00;
+					Etiqueta_calculo_engordar.setText(String.valueOf(resultado));
 				}
 				
 			}
