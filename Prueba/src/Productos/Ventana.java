@@ -34,6 +34,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Ventana {
 
@@ -55,6 +57,7 @@ public class Ventana {
 	static boolean validEdad = true;
 	static boolean validAltura = true;
 	static boolean validPeso = true;
+	static boolean personaRegistrada = false;
 	
 	
 
@@ -987,6 +990,81 @@ public class Ventana {
 		panel_ChecksComidaEquilibrada.setBackground(new Color(153, 255, 255));
 		panel_ChecksComidaEquilibrada.setLayout(null);
 		
+		JButton Boton_CalcularDieta = new JButton("Calcular Dieta");
+		Boton_CalcularDieta.setFont(new Font("Tahoma", Font.BOLD, 13));
+		Boton_CalcularDieta.setBounds(26, 55, 121, 45);
+		panel_ChecksComidaEquilibrada.add(Boton_CalcularDieta);
+		
+		JLabel Etiqueta_calculo_mantener_1 = new JLabel("0");
+		Etiqueta_calculo_mantener_1.setBounds(227, 43, 55, 17);
+		panel_ChecksComidaEquilibrada.add(Etiqueta_calculo_mantener_1);
+		
+		JLabel Etiqueta_TotalCalorias = new JLabel("0");
+		Etiqueta_TotalCalorias.setBounds(411, 46, 46, 14);
+		panel_ChecksComidaEquilibrada.add(Etiqueta_TotalCalorias);
+		
+		JLabel lblNewLabel = new JLabel("Calorias que debes consumir:");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel.setBounds(151, 12, 192, 14);
+		panel_ChecksComidaEquilibrada.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Calorias que Consumes:");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_1.setBounds(355, 12, 162, 14);
+		panel_ChecksComidaEquilibrada.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Consumo de grasas:");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2.setBounds(583, 8, 148, 22);
+		panel_ChecksComidaEquilibrada.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("Consumo de Azucar:");
+		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_1.setBounds(830, 13, 148, 14);
+		panel_ChecksComidaEquilibrada.add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_2_2 = new JLabel("Consumo de Sal:");
+		lblNewLabel_2_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2_2.setBounds(1074, 13, 148, 14);
+		panel_ChecksComidaEquilibrada.add(lblNewLabel_2_2);
+		
+		JLabel Etiqueta_ConsumoGrasas = new JLabel("0");
+		Etiqueta_ConsumoGrasas.setBounds(614, 43, 46, 14);
+		panel_ChecksComidaEquilibrada.add(Etiqueta_ConsumoGrasas);
+		
+		JLabel Etiqueta_ConsumoAzucar = new JLabel("0");
+		Etiqueta_ConsumoAzucar.setBounds(861, 43, 46, 14);
+		panel_ChecksComidaEquilibrada.add(Etiqueta_ConsumoAzucar);
+		
+		JLabel Etiqueta_ConsumoSal = new JLabel("0");
+		Etiqueta_ConsumoSal.setBounds(1111, 43, 46, 14);
+		panel_ChecksComidaEquilibrada.add(Etiqueta_ConsumoSal);
+		
+		JLabel Etiqueta_ColorCalorias = new JLabel("");
+		Etiqueta_ColorCalorias.setBackground(new Color(204, 255, 255));
+		Etiqueta_ColorCalorias.setBounds(306, 71, 68, 22);
+		panel_ChecksComidaEquilibrada.add(Etiqueta_ColorCalorias);
+		
+		JLabel Etiqueta_AlertaCalcularDieta = new JLabel("");
+		Etiqueta_AlertaCalcularDieta.setBackground(new Color(204, 255, 255));
+		Etiqueta_AlertaCalcularDieta.setBounds(26, 111, 192, 22);
+		panel_ChecksComidaEquilibrada.add(Etiqueta_AlertaCalcularDieta);
+		
+		JPanel panel_ColorConsumoGrasas = new JPanel();
+		panel_ColorConsumoGrasas.setBackground(new Color(153, 255, 255));
+		panel_ColorConsumoGrasas.setBounds(583, 78, 76, 22);
+		panel_ChecksComidaEquilibrada.add(panel_ColorConsumoGrasas);
+		
+		JPanel panel_ColorConsumoAzucar = new JPanel();
+		panel_ColorConsumoAzucar.setBackground(new Color(153, 255, 255));
+		panel_ColorConsumoAzucar.setBounds(850, 78, 76, 22);
+		panel_ChecksComidaEquilibrada.add(panel_ColorConsumoAzucar);
+		
+		JPanel panel_ColorConsumoSal = new JPanel();
+		panel_ColorConsumoSal.setBackground(new Color(153, 255, 255));
+		panel_ColorConsumoSal.setBounds(1087, 78, 76, 22);
+		panel_ChecksComidaEquilibrada.add(panel_ColorConsumoSal);
+		
 		
 		boton_BorrarProductoDieta.addMouseListener(new MouseAdapter() {
 			@Override
@@ -1174,12 +1252,64 @@ public class Ventana {
 					//Engordar
 					resultado = Math.round(((tmb * actividad) + (tmb * actividad) * 0.15)*100.00)/100.00;
 					Etiqueta_calculo_engordar.setText(String.valueOf(resultado));
+					
+					personaRegistrada = true;
 				}
 				
 			}
 		});
 		
+		/*
+		 * CALCULO DIETA EQUILIBRADA
+		 */
+		//Llamamos al boton Boton_CalcularDieta
 		
+		Boton_CalcularDieta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				if(!personaRegistrada )
+				{
+					Etiqueta_AlertaCalcularDieta.setText("Persona no registrada");
+				}
+				else if(ing.dieta.size() == 0)
+				{
+					Etiqueta_AlertaCalcularDieta.setText("Dieta vacia");
+				}
+				else
+				{
+					Etiqueta_AlertaCalcularDieta.setText("");
+					//Poner en etiquetas los porcentajes
+					Etiqueta_ConsumoGrasas.setText(String.valueOf(ing.consumo_grasas()));
+					Etiqueta_ConsumoAzucar.setText(String.valueOf(ing.consumo_azucar()));
+					Etiqueta_ConsumoSal.setText(String.valueOf(ing.consumo_Sal()));
+
+					//Poner etiqueta consumo total de calorias
+					Etiqueta_TotalCalorias.setText(String.valueOf(ing.total()));
+					Etiqueta_calculo_mantener_1.setText(Etiqueta_calculo_mantener.getText());
+					
+
+					if(!ing.consumo_grasas_saludable()) {
+						panel_ColorConsumoGrasas.setBackground(Color.RED);
+					}
+					else {
+						panel_ColorConsumoGrasas.setBackground(Color.GREEN);
+					}
+
+					if(!ing.consumo_sal_saludable()) {
+						panel_ColorConsumoSal.setBackground(Color.RED);
+					}
+					else {
+						panel_ColorConsumoSal.setBackground(Color.GREEN);
+					}
+					
+					ing.consumo_azucar_saludable(panel_ColorConsumoAzucar);
+					
+						
+					
+				}
+			}
+		});
+
 		
 		
 	}

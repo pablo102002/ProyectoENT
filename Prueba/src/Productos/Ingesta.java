@@ -1,6 +1,10 @@
 package Productos;
 
+import java.awt.Color;
 import java.util.ArrayList;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class Ingesta {
 
@@ -174,31 +178,59 @@ public class Ingesta {
 	//Calcular si la dieta es saludable
 	
 		public double total() {
-			return total_grasas + total_grasas_saturadas + total_hidratos_carbono + total_azucar + total_proteinas + total_sal;
+			return Math.round((total_grasas + total_grasas_saturadas + total_hidratos_carbono + total_azucar + total_proteinas + total_sal)*100.00)/100.00;
 		}
 		
 		public double consumo_grasas() {
-			return 100 * (total_grasas + total_grasas_saturadas) / total();
+			return Math.round((100 * (total_grasas + total_grasas_saturadas) / total())*100.00)/100.00;
 		}
-		
+		/*
 		public double consumo_hidratos() {
 			return 100 * (total_hidratos_carbono + total_azucar) / total();
 		}
+		*/
 		
 		public double consumo_azucar() {
-			return 100 * total_azucar / total();
+			return Math.round((100 * total_azucar / total())*100.00)/100.00;
 		}
+		
+		public double consumo_Sal() {
+			return Math.round((100 * total_sal / total())*100.00)/100.00;
+		}
+		
 		
 		//Comprobar que sea una dieta saludale calculando que las grasas no superen el 30%
 		//Que el azucar sea menos del 10%
 		//Menos de 5 gramos de sal
-		public boolean alimentacion_saludable() {
+		
+		public boolean consumo_grasas_saludable() {
 			
-			if(this.consumo_grasas() <= 30 && this.consumo_azucar() < 10 && total_sal < 5) 
+			if(this.consumo_grasas() <= 30 ) 
 				return true;
 			else
 				return false;
 			
 		}
+		public void consumo_azucar_saludable(JPanel color) {
+			if(this.consumo_azucar() <= 10) {
+				if(this.consumo_azucar() <= 5) {
+					color.setBackground(Color.GREEN);
+				}
+				else {
+					color.setBackground(Color.ORANGE);
+				}
+			}
+			else {
+				color.setBackground(Color.RED);
+			}
+				
+		}
 
+		public boolean consumo_sal_saludable() {
+			if(total_sal < 5) 
+				return true;
+			else
+				return false;
+		}
+		
 }
