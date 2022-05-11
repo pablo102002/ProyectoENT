@@ -5,10 +5,12 @@ import java.util.ArrayList;
 
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.Icon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JSpinner;
 import javax.swing.JLabel;
@@ -36,6 +38,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class Ventana {
 
@@ -137,7 +140,7 @@ public class Ventana {
 		
 		JLabel Etiqueta_InformativaIMC = new JLabel("IMC");
 		Etiqueta_InformativaIMC.setFont(new Font("Tahoma", Font.BOLD, 14));
-		Etiqueta_InformativaIMC.setBounds(702, 44, 46, 14);
+		Etiqueta_InformativaIMC.setBounds(702, 44, 27, 14);
 		panel_Persona.add(Etiqueta_InformativaIMC);
 		
 		JLabel Etiqueta_IMC = new JLabel("0");
@@ -172,41 +175,47 @@ public class Ventana {
 		JPanel panel_AgregarProducto = new JPanel();
 		panel_AgregarProducto.setLayout(null);
 		panel_AgregarProducto.setBackground(new Color(153, 255, 255));
-		panel_AgregarProducto.setBounds(25, 279, 340, 596);
+		panel_AgregarProducto.setBounds(25, 279, 340, 583);
 		frame.getContentPane().add(panel_AgregarProducto);
 
 		//panel_Ingesta
 		JPanel panel_Ingesta = new JPanel();
 		panel_Ingesta.setBackground(new Color(153, 255, 255));
-		panel_Ingesta.setBounds(401, 279, 622, 596);
+		panel_Ingesta.setBounds(401, 279, 622, 583);
 		frame.getContentPane().add(panel_Ingesta);
 		panel_Ingesta.setLayout(null);
 
 		//panel_Resumen
 		JPanel panel_Resumen = new JPanel();
 		panel_Resumen.setBackground(new Color(153, 255, 255));
-		panel_Resumen.setBounds(1077, 279, 264, 596);
+		panel_Resumen.setBounds(1077, 279, 264, 583);
 		frame.getContentPane().add(panel_Resumen);
 		panel_Resumen.setLayout(null);
 		
 		JTextPane Panel_Alimentos_Ingeridos = new JTextPane();
 		Panel_Alimentos_Ingeridos.setEditable(false);
-		Panel_Alimentos_Ingeridos.setBounds(10, 86, 244, 238);
+		Panel_Alimentos_Ingeridos.setBounds(12, 114, 244, 238);
 		panel_Resumen.add(Panel_Alimentos_Ingeridos);
 		
 		JComboBox Desplegable_Dieta = new JComboBox();
-		Desplegable_Dieta.setBounds(10, 49, 98, 26);
+		Desplegable_Dieta.setBounds(12, 77, 98, 26);
 		panel_Resumen.add(Desplegable_Dieta);
 		
 		JButton boton_BorrarProductoDieta = new JButton("Borrar Producto");
-		boton_BorrarProductoDieta.setBounds(120, 48, 134, 27);
+		boton_BorrarProductoDieta.setBounds(122, 76, 134, 27);
 		panel_Resumen.add(boton_BorrarProductoDieta);
 		
 		JLabel Etiqueta_Alerta_Dieta = new JLabel("");
 		Etiqueta_Alerta_Dieta.setForeground(Color.RED);
 		Etiqueta_Alerta_Dieta.setFont(new Font("Dialog", Font.BOLD, 12));
-		Etiqueta_Alerta_Dieta.setBounds(10, 11, 244, 22);
+		Etiqueta_Alerta_Dieta.setBounds(12, 39, 244, 22);
 		panel_Resumen.add(Etiqueta_Alerta_Dieta);
+		
+		JLabel Etiqueta_TuDieta = new JLabel("Tu Dieta:");
+		Etiqueta_TuDieta.setHorizontalAlignment(SwingConstants.CENTER);
+		Etiqueta_TuDieta.setFont(new Font("Dialog", Font.BOLD, 17));
+		Etiqueta_TuDieta.setBounds(12, 12, 240, 21);
+		panel_Resumen.add(Etiqueta_TuDieta);
 		
 		JLabel Etiqueta_agregarProducto = new JLabel("Agregar Producto");
 		Etiqueta_agregarProducto.setFont(new Font("Dialog", Font.BOLD, 17));
@@ -593,7 +602,7 @@ public class Ventana {
 		JLabel Etiqueta_Alerta_Ingesta = new JLabel("");
 		Etiqueta_Alerta_Ingesta.setFont(new Font("Dialog", Font.BOLD, 12));
 		Etiqueta_Alerta_Ingesta.setForeground(Color.RED);
-		Etiqueta_Alerta_Ingesta.setBounds(131, 0, 338, 22);
+		Etiqueta_Alerta_Ingesta.setBounds(191, 72, 338, 22);
 		panel_Ingesta.add(Etiqueta_Alerta_Ingesta);
 		
 		
@@ -751,6 +760,18 @@ public class Ventana {
 		JLabel Etiqueta_calculo_engordar = new JLabel("0");
 		Etiqueta_calculo_engordar.setBounds(1211, 115, 93, 17);
 		panel_Persona.add(Etiqueta_calculo_engordar);
+		
+		JButton btn_infoActividad = new JButton("");
+		btn_infoActividad.setIcon(new ImageIcon(Ventana.class.getResource("/img/icons8-acerca-de-17.png")));
+		btn_infoActividad.setBounds(563, 74, 25, 22);
+		panel_Persona.add(btn_infoActividad);
+		
+		JButton btn_infoActividad_1 = new JButton("");
+		btn_infoActividad_1.setIcon(new ImageIcon(Ventana.class.getResource("/img/icons8-acerca-de-17.png")));
+		btn_infoActividad_1.setBounds(733, 36, 25, 22);
+		panel_Persona.add(btn_infoActividad_1);
+		
+		
 		
 		/**
 		*OBJETOS LOS CUALES TIENEN FUNCIONES
@@ -923,6 +944,12 @@ public class Ventana {
 		boton_BorrarProducto.setBounds(468, 26, 131, 41);
 		panel_Ingesta.add(boton_BorrarProducto);
 		
+		JLabel Etiqueta_QueHasComido = new JLabel("¿Que has comido?");
+		Etiqueta_QueHasComido.setHorizontalAlignment(SwingConstants.CENTER);
+		Etiqueta_QueHasComido.setFont(new Font("Dialog", Font.BOLD, 17));
+		Etiqueta_QueHasComido.setBounds(12, 2, 264, 21);
+		panel_Ingesta.add(Etiqueta_QueHasComido);
+		
 		//Array de Etiquetas a�adir Productos 
 		ArrayList<JTextField> fieldsAgregarProducto=new ArrayList<JTextField>();
 		fieldsAgregarProducto.add(textField_NombreAgregarProducto);
@@ -985,14 +1012,14 @@ public class Ventana {
 		panel_AgregarProducto.add(botonAgregarProductoUsuario);
 		
 		JPanel panel_ChecksComidaEquilibrada = new JPanel();
-		panel_ChecksComidaEquilibrada.setBounds(25, 895, 1316, 155);
+		panel_ChecksComidaEquilibrada.setBounds(25, 874, 1316, 135);
 		frame.getContentPane().add(panel_ChecksComidaEquilibrada);
 		panel_ChecksComidaEquilibrada.setBackground(new Color(153, 255, 255));
 		panel_ChecksComidaEquilibrada.setLayout(null);
 		
 		JButton Boton_CalcularDieta = new JButton("Calcular Dieta");
 		Boton_CalcularDieta.setFont(new Font("Tahoma", Font.BOLD, 13));
-		Boton_CalcularDieta.setBounds(26, 55, 121, 45);
+		Boton_CalcularDieta.setBounds(12, 55, 135, 45);
 		panel_ChecksComidaEquilibrada.add(Boton_CalcularDieta);
 		
 		JLabel Etiqueta_calculo_mantener_1 = new JLabel("0");
@@ -1046,6 +1073,8 @@ public class Ventana {
 		panel_ChecksComidaEquilibrada.add(Etiqueta_ColorCalorias);
 		
 		JLabel Etiqueta_AlertaCalcularDieta = new JLabel("");
+		Etiqueta_AlertaCalcularDieta.setForeground(Color.RED);
+		Etiqueta_AlertaCalcularDieta.setFont(new Font("Dialog", Font.BOLD, 16));
 		Etiqueta_AlertaCalcularDieta.setBackground(new Color(204, 255, 255));
 		Etiqueta_AlertaCalcularDieta.setBounds(26, 111, 192, 22);
 		panel_ChecksComidaEquilibrada.add(Etiqueta_AlertaCalcularDieta);
@@ -1069,6 +1098,17 @@ public class Ventana {
 		boton_BorrarProductoDieta.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				
+				//Borrar Etiquetas de dieta
+				Etiqueta_calculo_mantener_1.setText("0");
+				Etiqueta_TotalCalorias.setText("0");
+				Etiqueta_ConsumoGrasas.setText("0");
+				Etiqueta_ConsumoSal.setText("0");
+				Etiqueta_ConsumoAzucar.setText("0");
+				
+				panel_ColorConsumoAzucar.setBackground(new Color(153, 255, 255));
+				panel_ColorConsumoGrasas.setBackground(new Color(153, 255, 255));
+				panel_ColorConsumoSal.setBackground(new Color(153, 255, 255));
 				
 				if(ing.dieta.size()>0)
 				{
@@ -1284,7 +1324,7 @@ public class Ventana {
 					Etiqueta_ConsumoSal.setText(String.valueOf(ing.consumo_Sal()));
 
 					//Poner etiqueta consumo total de calorias
-					Etiqueta_TotalCalorias.setText(String.valueOf(ing.total()));
+					Etiqueta_TotalCalorias.setText(String.valueOf(ing.getTotal_calorias()));
 					Etiqueta_calculo_mantener_1.setText(Etiqueta_calculo_mantener.getText());
 					
 
@@ -1310,7 +1350,29 @@ public class Ventana {
 			}
 		});
 
+		btn_infoActividad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JOptionPane.showMessageDialog(
+						frame, "Poco --> poco o ningun ejercicio \n"
+								+ "Ligero --> 1 - 3 dias a la semana \n"
+								+ "Moderado --> 3 - 5 dias a la semana \n"
+								+ "Intenso --> 6 - 7 dias a la semana \n"
+								+ "Muy intenso --> 2 veces al dia",
+						"Actividad Fisica",
+					   	JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
 		
+		btn_infoActividad_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Icon icono = new ImageIcon(getClass().getResource("/img/IMC.png"));
+				
+				JOptionPane.showMessageDialog(
+						frame, icono, 
+						"IMC",
+					   	JOptionPane.PLAIN_MESSAGE);
+			}
+		});
 		
 	}
 }
