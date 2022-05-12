@@ -34,7 +34,7 @@ class MetodosTestJUnit {
 	@Test
 	void testComprobarCantidadValida() {
 		
-		Metodos.comprobarCantidadValida(prueba);
+		
 		
 	}
 
