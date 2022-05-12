@@ -127,9 +127,6 @@ public class Ingesta {
 		//Calculamos la cantidad de nutrientes y lo guardamos en variables
 		
 		
-		//REVISAR!!!!!!
-		
-		
 		
 		double grasas = prod.getGrasas() * gramos / 100;						//grasas 
 		double grasas_saturadas = prod.getGrasas_saturadas() * gramos / 100;	//grasas_saturadas

@@ -2,6 +2,8 @@ package Productos;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import javax.swing.JTextField;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -13,8 +15,8 @@ class MetodosTestJUnit {
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		
-		
-		
+		JTextField prueba = new JTextField();
+		prueba.setText("f");
 	}
 
 	@AfterAll
@@ -32,6 +34,7 @@ class MetodosTestJUnit {
 	@Test
 	void testComprobarCantidadValida() {
 		
+		Metodos.comprobarCantidadValida(prueba);
 		
 	}
 
