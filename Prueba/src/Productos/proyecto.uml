@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_SedwgM_ZEeyC1NdLXlXvzQ" name="NewModel">
+  <packageImport xmi:id="_t4dyEM_aEeyC1NdLXlXvzQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_XKfawM_ZEeyC1NdLXlXvzQ" name="Proyecto" visibility="package">
+    <packagedElement xmi:type="uml:Class" xmi:id="_o8vUYM_ZEeyC1NdLXlXvzQ" name="Ingesta" visibility="public">
+      <ownedAttribute xmi:id="_vMKEAM_ZEeyC1NdLXlXvzQ" name="total_grasas" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vMKEAc_ZEeyC1NdLXlXvzQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vMKEAs_ZEeyC1NdLXlXvzQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_1vDJQM_ZEeyC1NdLXlXvzQ" name="total_grasas_saturadas" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1vDJQc_ZEeyC1NdLXlXvzQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1vDJQs_ZEeyC1NdLXlXvzQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_3xDdQM_ZEeyC1NdLXlXvzQ" name="total_hidratos_carbono" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3xDdQc_ZEeyC1NdLXlXvzQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3xDdQs_ZEeyC1NdLXlXvzQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_5bIZcM_ZEeyC1NdLXlXvzQ" name="total_azucar" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5bIZcc_ZEeyC1NdLXlXvzQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5bIZcs_ZEeyC1NdLXlXvzQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_7ChOAM_ZEeyC1NdLXlXvzQ" name="total_proteinas" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7ChOAc_ZEeyC1NdLXlXvzQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7ChOAs_ZEeyC1NdLXlXvzQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_8cFpAM_ZEeyC1NdLXlXvzQ" name="total_sal" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8cFpAc_ZEeyC1NdLXlXvzQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8cFpAs_ZEeyC1NdLXlXvzQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_9wP_kM_ZEeyC1NdLXlXvzQ" name="total_calorias" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9wQmoM_ZEeyC1NdLXlXvzQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9wQmoc_ZEeyC1NdLXlXvzQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_P34d4M_bEeyC1NdLXlXvzQ" name="dieta" visibility="private" type="_V6DbsM_bEeyC1NdLXlXvzQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_P34d4c_bEeyC1NdLXlXvzQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_P34d4s_bEeyC1NdLXlXvzQ" value="1"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_Yy1msM_bEeyC1NdLXlXvzQ" name="Ingesta" visibility="public"/>
+      <ownedOperation xmi:id="_kob7sM_bEeyC1NdLXlXvzQ" name="getTotal_grasas" visibility="public"/>
+      <ownedOperation xmi:id="_DD3jYM_cEeyC1NdLXlXvzQ" name="setTotal_grasas" visibility="public">
+        <ownedParameter xmi:id="_Uu8eAM_cEeyC1NdLXlXvzQ" name="total_grasas">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_JwcJEM_cEeyC1NdLXlXvzQ" name="getTotal_grasas_saturadas" visibility="public"/>
+      <ownedOperation xmi:id="_LBCOQM_cEeyC1NdLXlXvzQ" name="setTotal_grasas_saturadas" visibility="public">
+        <ownedParameter xmi:id="_tDVO8M_cEeyC1NdLXlXvzQ" name="total_grasas_saturadas">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_MohwgM_cEeyC1NdLXlXvzQ" name="getTotal_hidratos_carbono" visibility="public"/>
+      <ownedOperation xmi:id="_y5kCgM_cEeyC1NdLXlXvzQ" name="setTotal_hidratos_carbono" visibility="public">
+        <ownedParameter xmi:id="_457CcM_cEeyC1NdLXlXvzQ" name="total_hidratos_carbono">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_75ZEQM_cEeyC1NdLXlXvzQ" name="getTotal_azucar" visibility="public"/>
+      <ownedOperation xmi:id="_CSUVMM_dEeyC1NdLXlXvzQ" name="setTotal_azucar" visibility="public">
+        <ownedParameter xmi:id="_GbzTEM_dEeyC1NdLXlXvzQ" name="total_azucar">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_23R_0M_dEeyC1NdLXlXvzQ" name="getTotal_proteinas" visibility="public"/>
+      <ownedOperation xmi:id="_4XHa4M_dEeyC1NdLXlXvzQ" name="setTotal_proteinas" visibility="public">
+        <ownedParameter xmi:id="_9hspYM_dEeyC1NdLXlXvzQ" name="total_proteinas">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_B_-ykM_eEeyC1NdLXlXvzQ" name="getTotal_sal" visibility="public"/>
+      <ownedOperation xmi:id="_DK2DMM_eEeyC1NdLXlXvzQ" name="setTotal_sal" visibility="public">
+        <ownedParameter xmi:id="_GY23UM_eEeyC1NdLXlXvzQ" name="total_sal">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_Hfa2wM_eEeyC1NdLXlXvzQ" name="getTotal_calorias" visibility="public"/>
+      <ownedOperation xmi:id="_JGIV4M_eEeyC1NdLXlXvzQ" name="setTotal_calorias" visibility="public">
+        <ownedParameter xmi:id="_M8HI8M_eEeyC1NdLXlXvzQ" name="total_calorias">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_BnvcQM_fEeyC1NdLXlXvzQ" name="insertarProducto" visibility="public">
+        <ownedParameter xmi:id="_HfddkM_fEeyC1NdLXlXvzQ" name="prod" type="_KVjg8M_fEeyC1NdLXlXvzQ"/>
+        <ownedParameter xmi:id="_O42tAM_fEeyC1NdLXlXvzQ" name="gramos">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_XdluMM_fEeyC1NdLXlXvzQ" name="eliminarProducto" visibility="public">
+        <ownedParameter xmi:id="_cyWzcM_fEeyC1NdLXlXvzQ" name="index">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_g846MM_fEeyC1NdLXlXvzQ" name="total" visibility="public"/>
+      <ownedOperation xmi:id="_nSyFQM_fEeyC1NdLXlXvzQ" name="consumo_grasas" visibility="public"/>
+      <ownedOperation xmi:id="_pQhkUM_fEeyC1NdLXlXvzQ" name="consumo_hidratos" visibility="public"/>
+      <ownedOperation xmi:id="_rOdQoM_fEeyC1NdLXlXvzQ" name="consumo_azucar" visibility="public"/>
+      <ownedOperation xmi:id="_tqrbcM_fEeyC1NdLXlXvzQ" name="alimentacion_saludable" visibility="public"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_V6DbsM_bEeyC1NdLXlXvzQ" name="ArrayList&lt;Producto> "/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_KVjg8M_fEeyC1NdLXlXvzQ" name="Producto" visibility="public">
+      <ownedAttribute xmi:id="_DFn6EM_gEeyC1NdLXlXvzQ" name="nombre" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DFn6Ec_gEeyC1NdLXlXvzQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DFn6Es_gEeyC1NdLXlXvzQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_IZ_WsM_gEeyC1NdLXlXvzQ" name="grasas" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IZ_Wsc_gEeyC1NdLXlXvzQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IZ_Wss_gEeyC1NdLXlXvzQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_KdCzkM_gEeyC1NdLXlXvzQ" name="grasas_saturadas" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KdCzkc_gEeyC1NdLXlXvzQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KdCzks_gEeyC1NdLXlXvzQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_QM8VoM_gEeyC1NdLXlXvzQ" name="hidratos_carbono" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QM88sM_gEeyC1NdLXlXvzQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QM88sc_gEeyC1NdLXlXvzQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_RVstcM_gEeyC1NdLXlXvzQ" name="azucar" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RVstcc_gEeyC1NdLXlXvzQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RVstcs_gEeyC1NdLXlXvzQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_TJtowM_gEeyC1NdLXlXvzQ" name="proteinas" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TJtowc_gEeyC1NdLXlXvzQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TJtows_gEeyC1NdLXlXvzQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_USJ3gM_gEeyC1NdLXlXvzQ" name="sal" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_USJ3gc_gEeyC1NdLXlXvzQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_USJ3gs_gEeyC1NdLXlXvzQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Vt75AM_gEeyC1NdLXlXvzQ" name="calorias" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Vt75Ac_gEeyC1NdLXlXvzQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Vt75As_gEeyC1NdLXlXvzQ" value="1"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_fg0vYM_gEeyC1NdLXlXvzQ" name="Producto" visibility="public">
+        <ownedParameter xmi:id="_tCdvcM_gEeyC1NdLXlXvzQ" name="nombre">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_tCdvcc_gEeyC1NdLXlXvzQ" name="grasas">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_tCdvcs_gEeyC1NdLXlXvzQ" name="grasas_saturadas">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_u7qFsM_gEeyC1NdLXlXvzQ" name="hidratos_carbono">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_3y3W8M_gEeyC1NdLXlXvzQ" name="azucar">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_A5vb4M_hEeyC1NdLXlXvzQ" name="proteinas">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_3y3W8c_gEeyC1NdLXlXvzQ" name="sal">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_A5vb4c_hEeyC1NdLXlXvzQ" name="calorias">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_MPj4sNISEeyVmbeQ5g9lRg" name="getAzucar" visibility="public"/>
+      <ownedOperation xmi:id="_a-pjUNISEeyVmbeQ5g9lRg" name="getCalorias" visibility="public"/>
+      <ownedOperation xmi:id="_kPxJYNISEeyVmbeQ5g9lRg" name="getGrasas" visibility="public"/>
+      <ownedOperation xmi:id="_mz56ENISEeyVmbeQ5g9lRg" name="getGrasas_saturadas" visibility="public"/>
+      <ownedOperation xmi:id="_p7EfUNISEeyVmbeQ5g9lRg" name="getHidratos_carbono" visibility="public"/>
+      <ownedOperation xmi:id="_suKSANISEeyVmbeQ5g9lRg" name="getNombre" visibility="public"/>
+      <ownedOperation xmi:id="_FNeHQNIYEeyVmbeQ5g9lRg" name="getProteinas" visibility="public"/>
+      <ownedOperation xmi:id="_IQU0QNIYEeyVmbeQ5g9lRg" name="getSal" visibility="public"/>
+      <ownedOperation xmi:id="_Jnjs8NIYEeyVmbeQ5g9lRg" name="setAzucar" visibility="public">
+        <ownedParameter xmi:id="_W4Fu4NIYEeyVmbeQ5g9lRg" name="azucar">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_L2zVQNIkEeyVmbeQ5g9lRg" name="setCalorias" visibility="public">
+        <ownedParameter xmi:id="_QD618NIkEeyVmbeQ5g9lRg" name="calorias">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_Qbm9MNIkEeyVmbeQ5g9lRg" name="setGrasas" visibility="public">
+        <ownedParameter xmi:id="_TV8AUNIkEeyVmbeQ5g9lRg" name="grasas">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_UovE8NIkEeyVmbeQ5g9lRg" name="setGrasas_saturadas" visibility="public">
+        <ownedParameter xmi:id="_YgHmMNIkEeyVmbeQ5g9lRg" name="grasas_saturadas">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_cMWAUNIkEeyVmbeQ5g9lRg" name="setHidratos_carbono" visibility="public">
+        <ownedParameter xmi:id="_hFKJYNIkEeyVmbeQ5g9lRg" name="hidratos_carbono">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_h1eMANIkEeyVmbeQ5g9lRg" name="setNombre" visibility="public">
+        <ownedParameter xmi:id="_tICscNIkEeyVmbeQ5g9lRg" name="nombre">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_lkW4kNIkEeyVmbeQ5g9lRg" name="setProteinas" visibility="public">
+        <ownedParameter xmi:id="_oCwNoNIkEeyVmbeQ5g9lRg" name="proteinas">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_uBsRQNIkEeyVmbeQ5g9lRg" name="setSal" visibility="public">
+        <ownedParameter xmi:id="_wlbZUNIkEeyVmbeQ5g9lRg" name="sal">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_5Rg_sNIkEeyVmbeQ5g9lRg" name="ListadoProductos" visibility="public">
+      <ownedAttribute xmi:id="__HJ9YNIkEeyVmbeQ5g9lRg" name="listaProductos" visibility="private" type="_V6DbsM_bEeyC1NdLXlXvzQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__HJ9YdIkEeyVmbeQ5g9lRg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__HKkcNIkEeyVmbeQ5g9lRg" value="1"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_BUdtANImEeyVmbeQ5g9lRg" name="ListadoProductos" visibility="public"/>
+      <ownedOperation xmi:id="_E00OUNImEeyVmbeQ5g9lRg" name="eliminarProducto" visibility="public">
+        <ownedParameter xmi:id="_ykA5gNNvEeyXv9IOYDSogA" name="nombreProducto">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_G70-INImEeyVmbeQ5g9lRg" name="insertarProducto" visibility="public">
+        <ownedParameter xmi:id="_-nqmsNNxEeyXv9IOYDSogA" name="prod" type="_KVjg8M_fEeyC1NdLXlXvzQ"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_pwCbENNyEeyXv9IOYDSogA" name="Metodos" visibility="public">
+      <ownedOperation xmi:id="_JCjbwNNzEeyXv9IOYDSogA" name="actualizarMacros100g" visibility="public">
+        <ownedParameter xmi:id="_texrwNN0EeyXv9IOYDSogA" name="producto" type="_KVjg8M_fEeyC1NdLXlXvzQ"/>
+        <ownedParameter xmi:id="_texrwdN0EeyXv9IOYDSogA" name="labels"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_MNcqcNNzEeyXv9IOYDSogA" name="actualizarPanelDieta" visibility="public">
+        <ownedParameter xmi:id="_5CvowNN1EeyXv9IOYDSogA" name="dieta" type="_V6DbsM_bEeyC1NdLXlXvzQ"/>
+        <ownedParameter xmi:id="_5CvowdN1EeyXv9IOYDSogA" name="panel"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_OaRuYNNzEeyXv9IOYDSogA" name="agregarProductoAlCatalogo" visibility="public">
+        <ownedParameter xmi:id="_Rs6ccNN2EeyXv9IOYDSogA" name="fieldsAgregarProducto"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_RTohINNzEeyXv9IOYDSogA" name="calcularMostrarMacrosUsuario" visibility="public">
+        <ownedParameter xmi:id="_vuyUoNN2EeyXv9IOYDSogA" name="gramos100"/>
+        <ownedParameter xmi:id="_vuyUodN2EeyXv9IOYDSogA" name="gres"/>
+        <ownedParameter xmi:id="_vuyUotN2EeyXv9IOYDSogA" name="cantGg">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_XluxUNNzEeyXv9IOYDSogA" name="comprobarCantidadValida" visibility="public">
+        <ownedParameter xmi:id="_7uiEINN2EeyXv9IOYDSogA" name="FieldCantidad"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_eIR4UNNzEeyXv9IOYDSogA" name="comprobarCeldasValidasAgregarProducto" visibility="public">
+        <ownedParameter xmi:id="_SoBu8NN4EeyXv9IOYDSogA" name="fieldsAgregarProducto"/>
+        <ownedParameter xmi:id="_b6YrINN4EeyXv9IOYDSogA" name="labelsAlertaAgregarProducto"/>
+        <ownedParameter xmi:id="_b6YrIdN4EeyXv9IOYDSogA" name="AlertaPersonalizada"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_O8ZukNN0EeyXv9IOYDSogA" name="comprobarGrasaAzucar" visibility="public">
+        <ownedParameter xmi:id="_vGkzMNN4EeyXv9IOYDSogA" name="fieldsAgregarProducto"/>
+        <ownedParameter xmi:id="_vGkzMdN4EeyXv9IOYDSogA" name="labelsAlertaAgregarProducto"/>
+        <ownedParameter xmi:id="_vGkzMtN4EeyXv9IOYDSogA" name="AlertaPersonalizada"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_SinAQNN0EeyXv9IOYDSogA" name="vaciarAlertas" visibility="public">
+        <ownedParameter xmi:id="_3LqrANN4EeyXv9IOYDSogA" name="labelsAlertaAgregarProducto"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_URKMwNN0EeyXv9IOYDSogA" name="vaciarCamposAgregarProducto" visibility="public">
+        <ownedParameter xmi:id="_Ela6YNN5EeyXv9IOYDSogA" name="fieldsAgregarProducto"/>
+        <ownedParameter xmi:id="_Ela6YdN5EeyXv9IOYDSogA" name="labelsAlertaAgregarProducto"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_aDVR0NOXEeyrP_JXJmygqA" name="Contiene" memberEnd="_aDVR0dOXEeyrP_JXJmygqA _aDVR1NOXEeyrP_JXJmygqA" navigableOwnedEnd="_aDVR0dOXEeyrP_JXJmygqA _aDVR1NOXEeyrP_JXJmygqA">
+      <ownedEnd xmi:id="_aDVR0dOXEeyrP_JXJmygqA" name="listadoProductoss" type="_5Rg_sNIkEeyVmbeQ5g9lRg" association="_aDVR0NOXEeyrP_JXJmygqA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aDVR0tOXEeyrP_JXJmygqA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aDVR09OXEeyrP_JXJmygqA" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_aDVR1NOXEeyrP_JXJmygqA" name="productos" type="_KVjg8M_fEeyC1NdLXlXvzQ" association="_aDVR0NOXEeyrP_JXJmygqA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aDVR1dOXEeyrP_JXJmygqA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aDVR1tOXEeyrP_JXJmygqA" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_jML6cNOcEeyrP_JXJmygqA" name="Contiene" memberEnd="_jML6cdOcEeyrP_JXJmygqA _jML6dNOcEeyrP_JXJmygqA" navigableOwnedEnd="_jML6cdOcEeyrP_JXJmygqA _jML6dNOcEeyrP_JXJmygqA">
+      <ownedEnd xmi:id="_jML6cdOcEeyrP_JXJmygqA" name="productos" type="_KVjg8M_fEeyC1NdLXlXvzQ" association="_jML6cNOcEeyrP_JXJmygqA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jML6ctOcEeyrP_JXJmygqA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jML6c9OcEeyrP_JXJmygqA" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_jML6dNOcEeyrP_JXJmygqA" name="ingestas" type="_o8vUYM_ZEeyC1NdLXlXvzQ" association="_jML6cNOcEeyrP_JXJmygqA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jML6ddOcEeyrP_JXJmygqA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jML6dtOcEeyrP_JXJmygqA" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_0Y69INOlEeyrP_JXJmygqA" name="Ventana" visibility="public"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_3dtKsNPPEeyrP_JXJmygqA" name="Usa" memberEnd="_3dtKsdPPEeyrP_JXJmygqA _3dtKtNPPEeyrP_JXJmygqA" navigableOwnedEnd="_3dtKsdPPEeyrP_JXJmygqA _3dtKtNPPEeyrP_JXJmygqA">
+      <ownedEnd xmi:id="_3dtKsdPPEeyrP_JXJmygqA" name="ventanas" type="_0Y69INOlEeyrP_JXJmygqA" association="_3dtKsNPPEeyrP_JXJmygqA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3dtKstPPEeyrP_JXJmygqA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3dtKs9PPEeyrP_JXJmygqA" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_3dtKtNPPEeyrP_JXJmygqA" name="metodoss" type="_pwCbENNyEeyXv9IOYDSogA" association="_3dtKsNPPEeyrP_JXJmygqA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3dtKtdPPEeyrP_JXJmygqA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3dtKttPPEeyrP_JXJmygqA" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_QZTsoNPQEeyrP_JXJmygqA" name="Contiene" memberEnd="_QZTsodPQEeyrP_JXJmygqA _QZTspNPQEeyrP_JXJmygqA" navigableOwnedEnd="_QZTsodPQEeyrP_JXJmygqA _QZTspNPQEeyrP_JXJmygqA">
+      <ownedEnd xmi:id="_QZTsodPQEeyrP_JXJmygqA" name="ventanas" type="_0Y69INOlEeyrP_JXJmygqA" association="_QZTsoNPQEeyrP_JXJmygqA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QZTsotPQEeyrP_JXJmygqA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QZTso9PQEeyrP_JXJmygqA" value="1"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_QZTspNPQEeyrP_JXJmygqA" name="listadoProductoss" type="_5Rg_sNIkEeyVmbeQ5g9lRg" association="_QZTsoNPQEeyrP_JXJmygqA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QZTspdPQEeyrP_JXJmygqA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QZTsptPQEeyrP_JXJmygqA" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_RLf-kNPQEeyrP_JXJmygqA" name="Contiene" memberEnd="_RLf-kdPQEeyrP_JXJmygqA _RLf-lNPQEeyrP_JXJmygqA" navigableOwnedEnd="_RLf-kdPQEeyrP_JXJmygqA _RLf-lNPQEeyrP_JXJmygqA">
+      <ownedEnd xmi:id="_RLf-kdPQEeyrP_JXJmygqA" name="ventanas" type="_0Y69INOlEeyrP_JXJmygqA" association="_RLf-kNPQEeyrP_JXJmygqA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RLf-ktPQEeyrP_JXJmygqA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RLf-k9PQEeyrP_JXJmygqA" value="1"/>
+      </ownedEnd>
+      <ownedEnd xmi:id="_RLf-lNPQEeyrP_JXJmygqA" name="ingestas" type="_o8vUYM_ZEeyC1NdLXlXvzQ" association="_RLf-kNPQEeyrP_JXJmygqA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RLf-ldPQEeyrP_JXJmygqA" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RLf-ltPQEeyrP_JXJmygqA" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>
