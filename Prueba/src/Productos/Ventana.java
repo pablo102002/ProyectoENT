@@ -977,6 +977,17 @@ public class Ventana {
 		ArrayListaProductos.insertarProducto(new Producto("Arroz", 4, 0.12, 44.08, 0.08, 4.2, 0.72,204));
 		ArrayListaProductos.insertarProducto(new Producto("Pollo",7.72,2.17,0,0,29.55,0.98,195));
 		ArrayListaProductos.insertarProducto(new Producto("Avena",6.9,1.21,66.27,0,16.89,0,389));
+		
+		ArrayListaProductos.insertarProducto(new Producto("Leche Semidesnatada",1.6,1.1,4.8,4.8,3.1,0.13,46));
+		ArrayListaProductos.insertarProducto(new Producto("Tomate Frito",3.5,0.3,9.5,6.9,1.5,1,77));
+		ArrayListaProductos.insertarProducto(new Producto("Atún claro en aceite de oliva",31,4.6,0.9,0.5,19,0.9,357));
+		ArrayListaProductos.insertarProducto(new Producto("Galletas María",15,9.1,71,20,7,1,452));
+		ArrayListaProductos.insertarProducto(new Producto("Zumo de Manzana",0.1,0,11.3,10.5,0.1,0,44));
+		ArrayListaProductos.insertarProducto(new Producto("Patatas fritas Lay's",29.2,3.7,52.7,0.7,6.3,1.2,509));
+		ArrayListaProductos.insertarProducto(new Producto("Coca-Cola",0,0,10.6,10.6,0,0,42));
+		ArrayListaProductos.insertarProducto(new Producto("Ensalada mezcla gourmet",0.3,0.04,3.1,0.5,1.4,0.06,26));
+		ArrayListaProductos.insertarProducto(new Producto("Chocolate Milka",29,18,59,58,6.3,0.37,530));
+		ArrayListaProductos.insertarProducto(new Producto("Flan de queso",6,3.6,18.7,18.7,4.6,0.18,148));
 
 		
 
