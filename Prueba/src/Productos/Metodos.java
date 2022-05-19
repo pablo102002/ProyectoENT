@@ -109,36 +109,38 @@ public class Metodos {
 	}
 	
 	public static void actualizarMacros100g(Producto producto,ArrayList<JLabel> label) {
-		//Recogo con un Array los Labels donde quiero actualizar los campos
-		//La Lista solo
 		
-		int i=0;
+		//Recogo con un Array los JLabels en donde quiero actualizarlos
+		//Recogo el Producto seleccionado del catalogo
+		//Procedemos a actualizar los campos con sus respectivos campos
 		
-		String MacroEspecifica=Double.toString(producto.getGrasas());
+		int i = 0;
+		
+		String MacroEspecifica = Double.toString(producto.getGrasas());
 		label.get(i).setText(MacroEspecifica);
 		i++;
 		
-		MacroEspecifica=Double.toString(producto.getGrasas_saturadas());
+		MacroEspecifica = Double.toString(producto.getGrasas_saturadas());
 		label.get(i).setText(MacroEspecifica);
 		i++;
 		
-		MacroEspecifica=Double.toString(producto.getHidratos_carbono());
+		MacroEspecifica = Double.toString(producto.getHidratos_carbono());
 		label.get(i).setText(MacroEspecifica);
 		i++;
 		
-		MacroEspecifica=Double.toString(producto.getAzucar());
+		MacroEspecifica = Double.toString(producto.getAzucar());
 		label.get(i).setText(MacroEspecifica);
 		i++;
 		
-		MacroEspecifica=Double.toString(producto.getProteinas());
+		MacroEspecifica = Double.toString(producto.getProteinas());
 		label.get(i).setText(MacroEspecifica);
 		i++;
 		
-		MacroEspecifica=Double.toString(producto.getSal());
+		MacroEspecifica = Double.toString(producto.getSal());
 		label.get(i).setText(MacroEspecifica);
 		i++;
 		
-		MacroEspecifica=Double.toString(producto.getCalorias());
+		MacroEspecifica = Double.toString(producto.getCalorias());
 		label.get(i).setText(MacroEspecifica);
 		
 	}
@@ -215,7 +217,7 @@ public class Metodos {
 				
 				Producto prod = dieta.get(i);
 				Desplegable.addItem(prod.getNombre());
-				stringPanel += "ID: "+i+" "+prod.getNombre()+" Calorias: "+prod.getCalorias()+"\n";
+				stringPanel += prod.getNombre()+" Calorias: "+prod.getCalorias()+"\n";
 			}
 			
 			panel.setText(stringPanel);

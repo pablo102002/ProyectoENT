@@ -1,29 +1,24 @@
 package Productos;
 
+/**
+* Esta es la interfaz de usuario que utilizara el usuario para realizar su dieta
+* Dentro contiene los objetos como los JLabels, JTextFields, JButtons  
+* @author Johann / Pablo / Gabriel
+* @version 0.1, 2022/05/19
+*/
+
 import java.awt.EventQueue;
 import java.util.ArrayList;
-
-import javax.swing.ComboBoxModel;
-import javax.swing.DefaultListModel;
 import javax.swing.Icon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.JSpinner;
 import javax.swing.JLabel;
 import javax.swing.JButton;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Font;
-import java.awt.event.HierarchyListener;
-import java.awt.event.HierarchyEvent;
-import java.awt.event.InputMethodListener;
-import java.awt.event.InputMethodEvent;
 import javax.swing.event.CaretListener;
 import javax.swing.event.CaretEvent;
 import javax.swing.JPanel;
@@ -31,10 +26,7 @@ import java.awt.Color;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 import javax.swing.JTextPane;
-import javax.swing.JCheckBox;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.ChangeEvent;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -215,7 +207,7 @@ public class Ventana {
 		//IMC
 		JLabel Etiqueta_InformativaIMC = new JLabel("IMC");
 		Etiqueta_InformativaIMC.setFont(new Font("Tahoma", Font.BOLD, 14));
-		Etiqueta_InformativaIMC.setBounds(702, 44, 27, 14);
+		Etiqueta_InformativaIMC.setBounds(702, 44, 36, 14);
 		panel_Persona.add(Etiqueta_InformativaIMC);
 		
 		JLabel Etiqueta_IMC = new JLabel("0");
@@ -980,8 +972,8 @@ public class Ventana {
 		
 		ArrayListaProductos.insertarProducto(new Producto("Leche Semidesnatada",1.6,1.1,4.8,4.8,3.1,0.13,46));
 		ArrayListaProductos.insertarProducto(new Producto("Tomate Frito",3.5,0.3,9.5,6.9,1.5,1,77));
-		ArrayListaProductos.insertarProducto(new Producto("At�n claro en aceite de oliva",31,4.6,0.9,0.5,19,0.9,357));
-		ArrayListaProductos.insertarProducto(new Producto("Galletas Mar�a",15,9.1,71,20,7,1,452));
+		ArrayListaProductos.insertarProducto(new Producto("At�n claro en aceite de oliva",31,4.6,0.9,0.5,19,0.9,357));
+		ArrayListaProductos.insertarProducto(new Producto("Galletas Mar�a",15,9.1,71,20,7,1,452));
 		ArrayListaProductos.insertarProducto(new Producto("Zumo de Manzana",0.1,0,11.3,10.5,0.1,0,44));
 		ArrayListaProductos.insertarProducto(new Producto("Patatas fritas Lay's",29.2,3.7,52.7,0.7,6.3,1.2,509));
 		ArrayListaProductos.insertarProducto(new Producto("Coca-Cola",0,0,10.6,10.6,0,0,42));
@@ -1037,6 +1029,12 @@ public class Ventana {
 				//Segun el indice anterior, saca el Producto del Array de Productos de ListadoProductos con nombre ArrayListaProductos
 				Producto ProductoElegido = ArrayListaProductos.ListaProductos.get(NumeroLista);
 				//Llama al metodo que actualizara la lista
+				
+				/**
+				* Este metodo actualizara los labels de macros cada 100g
+				* @param param1 Producto del Catalogo seleccionado
+				* @param param2 Array de los labels que tienen que cambiarse
+				*/
 				Metodos.actualizarMacros100g(ProductoElegido, labelsMacros100);
 			}
 		});
@@ -1057,8 +1055,13 @@ public class Ventana {
 				//Si no esta vacio, realizara lo de dentro
 				if(!textField_CantidadGramosIntroducido.getText().isEmpty()) {
 
-					//Comprobara si el valor introducido es valido, si consigue terminarlo devolverá true
-					//Sino cambiara la alerta del label y devolvera false
+					/**
+					 * Comprobara si el valor introducido es valido
+					 * Valido en no vacio, no menor que 0 y sin digitos
+					 * @param param1 El objeto textField con la cantidad de gramos que introduce el usuario
+					 * @return si consigue terminarlo devolverá true
+					 * @return sino devolvera false
+					 */
 					boolean Valido = Metodos.comprobarCantidadValida(textField_CantidadGramosIntroducido);
 
 					//Sí devuelve false mostrara un error
@@ -1076,6 +1079,12 @@ public class Ventana {
 						Etiqueta_NumerodeGramosSeleccionados.setText(texto);
 
 						for(int j=0;j<labelsMacros100.size();j++) {
+							/**
+							 * El metodo calculara los macros cada 100 por la cantidad y el resultado lo mostrara en su label correspodiente
+							 * @param param1 Label de un campo especifico
+							 * @param param2 Label relacionado con el campo anterior
+							 * @param param3 Cantidad de gramos que ha introducido el usuario
+							 */
 							//Le pasa al metodo (Label del cual realizara el calculo, Label donde se mostrara el calculo, int con el valor de cantidad de Gramos)
 							Metodos.calcularMostrarMacrosUsuario(labelsMacros100.get(j),labelsUsuario.get(j), cantidadGramos);
 
@@ -1113,9 +1122,20 @@ public class Ventana {
 					//Cogemos el producto seleccionado del desplegable del Catalogo
 					Producto PrAgregado = ArrayListaProductos.ListaProductos.get(Desplegable_Catalogo.getSelectedIndex());
 					//Y ambos, se lo pasamos a la Ingesta y que lo implemente
+					/**
+					* Agrega el producto a la clase ingesta que tenemos 
+					* Dentro del metodo se calcularan los campos y se guardaran los productos
+					* @param param1 Producto a ingresar a ingesta/dieta
+					* @param param2 Cantidad de gramos que ingerio el usuario para calcularse					
+					*/
 					ing.insertarProducto(PrAgregado, CantidadGramosConsumido);
 
-					
+					/**
+					* Le pasa el array list de la dieta para que se vea visualmente el producto agregado
+					* @param param1 ArrayList de la dieta/ingesta
+					* @param param2 Panel donde añadiremos visualmente el producto agregado
+					* @param param3 Desplegable que añadira a si mismo el Producto agregado	
+					*/
 					Metodos.actualizarPanelDieta(ing.dieta, Panel_Alimentos_Ingeridos, Desplegable_Dieta);
 				}
 			}
@@ -1179,21 +1199,42 @@ public class Ventana {
 			public void mouseClicked(MouseEvent e) {
 				Etiqueta_Alerta_Dieta.setText("");
 				
+				/**
+				* Comprueba que los todos los campos especificos de Agregar Producto sean los correctos
+				* @param param1 ArrayList de TextFields especificos
+				* @param param2 ArrayList de Jlabels especificos de las alertas "!" individuales
+				* @param param3 Label que mostrar que tipo error se ha producido 
+				* @return Devolvera true si termina todo el metodo
+				* @return Devolvera false si ha encontrado un error
+				*/
 				boolean ComprobanteCeldasValidas = Metodos.comprobarCeldasValidasAgregarProducto(fieldsAgregarProducto, labelsAlertaAgregarProducto, Etiqueta_Alerta_AgregarProducto);
 				
-				boolean ComprobanteCoherenciaNumerica;
+				boolean ComprobanteGrasaAzucar;
 				
 				if(ComprobanteCeldasValidas)
 				{
-					ComprobanteCoherenciaNumerica = Metodos.comprobarGrasaAzucar(fieldsAgregarProducto, labelsAlertaAgregarProducto, Etiqueta_Alerta_AgregarProducto);
+					/**
+					* Comprueba que grasas y azucar sean los correctos
+					* @param param1 ArrayList de TextFields especificos
+					* @param param2 ArrayList de Jlabels especificos de las alertas "!" individuales
+					* @param param3 Label que mostrar que tipo error se ha producido 
+					* @return Devolvera true si termina todo el metodo
+					* @return Devolvera false si ha encontrado un error
+					*/
+					ComprobanteGrasaAzucar = Metodos.comprobarGrasaAzucar(fieldsAgregarProducto, labelsAlertaAgregarProducto, Etiqueta_Alerta_AgregarProducto);
 
-					if(ComprobanteCeldasValidas && ComprobanteCoherenciaNumerica)
+					if(ComprobanteCeldasValidas && ComprobanteGrasaAzucar)
 					{
 						Producto nuevoProducto = Metodos.agregarProductoAlCatalogo(fieldsAgregarProducto);
 						ArrayListaProductos.insertarProducto(nuevoProducto);
 						
 						Desplegable_Catalogo.addItem(nuevoProducto.getNombre());
 						
+						/**
+						* Vacia todas las alertas de Agregar Producto
+						* @param param1 ArrayList de TextFields especificos
+						* @param param2 ArrayList de Jlabels especificos de las alertas "!" individuales
+						*/
 						Metodos.vaciarCamposAgregarProducto(fieldsAgregarProducto,labelsAlertaAgregarProducto);
 						
 						
@@ -1231,6 +1272,12 @@ public class Ventana {
 				
 				ing.eliminarProducto(NumeroIndice);
 				
+				/**
+				* Le pasa el array list de la dieta para que se vea visualmente el producto agregado
+				* @param param1 ArrayList de la dieta/ingesta
+				* @param param2 Panel donde añadiremos visualmente el producto agregado
+				* @param param3 Desplegable que añadira a si mismo el Producto agregado	
+				*/
 				Metodos.actualizarPanelDieta(ing.dieta, Panel_Alimentos_Ingeridos, Desplegable_Dieta);
 				
 				Etiqueta_Alerta_Dieta.setForeground(Color.BLUE);
@@ -1244,19 +1291,7 @@ public class Ventana {
 					
 			}
 		});
-		/**
-		 * Etiquetas y funciones de Edad y Peso
-		 * */
-		/* 
-		 * ESTO LO HACEMOS CON LOS 2 JTEXTFIELD
-		 * Primero identificamos si el texto esta vacio, si no lo esta llamamos al metodo el cual nos permite
-		 * verificar si el texto es un numero, si lo es devuelve true y despues comprobamos si la edad no entra en
-		 * la condicion salen mensajes de error
-		 */
 		
-		/*
-		 *CONTROL DE ERRORES MEDIANTE EVENTOS DE EDAD, ALTURA Y PESO 
-		 */
 		
 		textField_Edad.addCaretListener(new CaretListener() {
 			public void caretUpdate(CaretEvent arg0) {
@@ -1265,6 +1300,13 @@ public class Ventana {
 				Etiqueta_ErrorEdad.setText(null);
 				Etiqueta_ErrorEdad.setForeground(Color.RED);
 				if(!textField_Edad.getText().equals("")) {
+					/**
+					 * Comprobara si el valor introducido es valido
+					 * Valido en no vacio, no menor que 0 y sin digitos
+					 * @param param1 El objeto textField con la cantidad de gramos que introduce el usuario
+					 * @return si consigue terminarlo devolverá true
+					 * @return sino devolvera false
+					 */
 					boolean ComprobarEdad=Metodos.comprobarCantidadValida(textField_Edad);
 
 					if(!ComprobarEdad) {
@@ -1290,6 +1332,14 @@ public class Ventana {
 				Etiqueta_ErrorPeso.setText(null);
 				Etiqueta_ErrorPeso.setForeground(Color.RED);
 				if(!textField_Peso.getText().equals("")) {
+					
+					/**
+					 * Comprobara si el valor introducido es valido
+					 * Valido en no vacio, no menor que 0 y sin digitos
+					 * @param param1 El objeto textField con la cantidad de gramos que introduce el usuario
+					 * @return si consigue terminarlo devolverá true
+					 * @return sino devolvera false
+					 */
 					boolean ComprobarEdad=Metodos.comprobarCantidadValida(textField_Peso);
 
 					if(!ComprobarEdad) {
@@ -1315,6 +1365,13 @@ public class Ventana {
 				Etiqueta_ErrorAltura.setText(null);
 				Etiqueta_ErrorAltura.setForeground(Color.RED);
 				if(!textField_Altura.getText().equals("")) {
+					/**
+					 * Comprobara si el valor introducido es valido
+					 * Valido en no vacio, no menor que 0 y sin digitos
+					 * @param param1 El objeto textField con la cantidad de gramos que introduce el usuario
+					 * @return si consigue terminarlo devolverá true
+					 * @return sino devolvera false
+					 */
 					boolean ComprobarAltura=Metodos.comprobarCantidadValida(textField_Altura);
 
 					if(!ComprobarAltura) {
