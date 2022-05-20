@@ -15,8 +15,6 @@ class MetodosTestJUnit {
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		
-		JTextField prueba = new JTextField();
-		prueba.setText("f");
 	}
 
 	@AfterAll
@@ -34,8 +32,27 @@ class MetodosTestJUnit {
 	@Test
 	void testComprobarCantidadValida() {
 		
+		JTextField prueba = new JTextField("0.1");
+		boolean Valido = Metodos.comprobarCantidadValida(prueba);
 		
-		
+		assertEquals(false, Valido);
 	}
 
+	@Test
+	void testComprobarCantidadValida2() {
+		
+		JTextField prueba = new JTextField("-1");
+		boolean Valido = Metodos.comprobarCantidadValida(prueba);
+		
+		assertEquals(false, Valido);
+	}
+	
+	@Test
+	void testComprobarCantidadValida3() {
+		
+		JTextField prueba = new JTextField("3");
+		boolean Valido = Metodos.comprobarCantidadValida(prueba);
+		
+		assertEquals(true, Valido);
+	}
 }

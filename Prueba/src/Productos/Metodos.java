@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
@@ -229,5 +230,27 @@ public class Metodos {
 			panel.setText("");
 		}
 	}
+	
+	public static void resetearLabelsColoresComidaEquilibrada(ArrayList<JLabel> labelsDatosComidaEquilibrada , ArrayList<JPanel> panelsComidaEquilibrada)
+	{
+		int size1= labelsDatosComidaEquilibrada.size();
+		int size2= panelsComidaEquilibrada.size();
+		
+		for(int i = 0; i<size1; i++)
+		{
+			labelsDatosComidaEquilibrada.get(i).setText("0");
+		}
+		
+		for(int j = 0; j<size2; j++)
+		{
+			panelsComidaEquilibrada.get(j).setBackground(new Color(153, 255, 255));
+		}
+	}
+	
+	
+	
+	
+	
+	
 
 }

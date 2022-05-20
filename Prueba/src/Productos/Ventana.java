@@ -169,7 +169,7 @@ public class Ventana {
 		panel_Persona.add(Etiqueta_ErrorAltura);
 		
 		//Peso
-		JLabel Etiqueta_Peso = new JLabel("Peso");
+		JLabel Etiqueta_Peso = new JLabel("Peso:");
 		Etiqueta_Peso.setFont(new Font("Tahoma", Font.BOLD, 14));
 		Etiqueta_Peso.setBounds(371, 42, 46, 14);
 		panel_Persona.add(Etiqueta_Peso);
@@ -189,7 +189,7 @@ public class Ventana {
 		panel_Persona.add(Etiqueta_ErrorPeso);	
 		
 		//Actividad
-		JLabel Etiqueta_ActividadFisica = new JLabel("Actividad Fisica");
+		JLabel Etiqueta_ActividadFisica = new JLabel("Actividad Fisica:");
 		Etiqueta_ActividadFisica.setFont(new Font("Tahoma", Font.BOLD, 14));
 		Etiqueta_ActividadFisica.setBounds(457, 42, 125, 14);
 		panel_Persona.add(Etiqueta_ActividadFisica);
@@ -205,9 +205,9 @@ public class Ventana {
 		panel_Persona.add(btn_infoActividad);
 		
 		//IMC
-		JLabel Etiqueta_InformativaIMC = new JLabel("IMC");
+		JLabel Etiqueta_InformativaIMC = new JLabel("IMC:");
 		Etiqueta_InformativaIMC.setFont(new Font("Tahoma", Font.BOLD, 14));
-		Etiqueta_InformativaIMC.setBounds(702, 44, 36, 14);
+		Etiqueta_InformativaIMC.setBounds(691, 42, 36, 14);
 		panel_Persona.add(Etiqueta_InformativaIMC);
 		
 		JLabel Etiqueta_IMC = new JLabel("0");
@@ -920,22 +920,22 @@ public class Ventana {
 		
 		textField_CantidadGramosIntroducido = new JTextField();
 		textField_CantidadGramosIntroducido.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		textField_CantidadGramosIntroducido.setBounds(221, 35, 70, 23);
+		textField_CantidadGramosIntroducido.setBounds(209, 37, 70, 23);
 		panel_Ingesta.add(textField_CantidadGramosIntroducido);
 
 		//Etiqueta Gramos
 		JLabel Etiqueta_Gramos = new JLabel("Gr");
 		Etiqueta_Gramos.setFont(new Font("Tahoma", Font.BOLD, 15));
-		Etiqueta_Gramos.setBounds(317, 42, 20, 17);
+		Etiqueta_Gramos.setBounds(297, 43, 20, 17);
 		panel_Ingesta.add(Etiqueta_Gramos);
 
 		//Boton Agregar
-		JButton Boton_AgregarProducto = new JButton("Agregar");
-		Boton_AgregarProducto.setBounds(351, 26, 106, 41);
+		JButton Boton_AgregarProducto = new JButton("Agregar a tu Dieta");
+		Boton_AgregarProducto.setBounds(326, 26, 143, 41);
 		panel_Ingesta.add(Boton_AgregarProducto);
 
 		JButton boton_BorrarProducto = new JButton("Borrar Producto");
-		boton_BorrarProducto.setBounds(468, 26, 131, 41);
+		boton_BorrarProducto.setBounds(482, 26, 128, 41);
 		panel_Ingesta.add(boton_BorrarProducto);
 		
 		JComboBox Desplegable_Catalogo = new JComboBox();
@@ -972,8 +972,8 @@ public class Ventana {
 		
 		ArrayListaProductos.insertarProducto(new Producto("Leche Semidesnatada",1.6,1.1,4.8,4.8,3.1,0.13,46));
 		ArrayListaProductos.insertarProducto(new Producto("Tomate Frito",3.5,0.3,9.5,6.9,1.5,1,77));
-		ArrayListaProductos.insertarProducto(new Producto("At�n claro en aceite de oliva",31,4.6,0.9,0.5,19,0.9,357));
-		ArrayListaProductos.insertarProducto(new Producto("Galletas Mar�a",15,9.1,71,20,7,1,452));
+		ArrayListaProductos.insertarProducto(new Producto("Atun claro en aceite de oliva",31,4.6,0.9,0.5,19,0.9,357));
+		ArrayListaProductos.insertarProducto(new Producto("Galletas Maria",15,9.1,71,20,7,1,452));
 		ArrayListaProductos.insertarProducto(new Producto("Zumo de Manzana",0.1,0,11.3,10.5,0.1,0,44));
 		ArrayListaProductos.insertarProducto(new Producto("Patatas fritas Lay's",29.2,3.7,52.7,0.7,6.3,1.2,509));
 		ArrayListaProductos.insertarProducto(new Producto("Coca-Cola",0,0,10.6,10.6,0,0,42));
@@ -1009,6 +1009,20 @@ public class Ventana {
 		labelsUsuario.add(Etiqueta_Total_Calorias_Usuario);
 
 		
+		
+		//Array que guarda labels de ComidaEquilibrada
+		ArrayList<JLabel> labelsDatosComidaEquilibrada=new ArrayList<JLabel>();
+		labelsDatosComidaEquilibrada.add(Etiqueta_calculo_requeridas);
+		labelsDatosComidaEquilibrada.add(Etiqueta_calculo_consumidas);
+		labelsDatosComidaEquilibrada.add(Etiqueta_ConsumoGrasas);
+		labelsDatosComidaEquilibrada.add(Etiqueta_ConsumoSal);
+		labelsDatosComidaEquilibrada.add(Etiqueta_ConsumoAzucar);
+		
+		//Array que guarda panels de ComidaEquilibrada
+		ArrayList<JPanel> panelsComidaEquilibrada=new ArrayList<JPanel>();
+		panelsComidaEquilibrada.add(panel_ColorConsumoAzucar);
+		panelsComidaEquilibrada.add(panel_ColorConsumoGrasas);
+		panelsComidaEquilibrada.add(panel_ColorConsumoSal);
 		
 		// ++++ Eventos panel_Ingesta ++++
 		
@@ -1097,13 +1111,13 @@ public class Ventana {
 		
 		
 		
-		
 
+		//Boton Agregar Producto a la dieta
 		Boton_AgregarProducto.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Etiqueta_Alerta_Dieta.setText("");
-				
+
 				//Si el campo de los gramos esta vacio o a 0 no introduce producto
 				if(textField_CantidadGramosIntroducido.getText().equals("") || textField_CantidadGramosIntroducido.getText().equals("0")) {
 					Etiqueta_Alerta_Ingesta.setText("El campo no agregarse como vacio o 0");;
@@ -1131,6 +1145,13 @@ public class Ventana {
 					ing.insertarProducto(PrAgregado, CantidadGramosConsumido);
 
 					/**
+					* Resetea los campos enviados a valores por defecto 
+					* Pone a 0 los labels y a color por defecto a los panels
+					* @param param1 ArrayList de los Labels de Datos de ComidaEquilibrada
+					* @param param2 ArrayList de los Panels de Colores de ComidaEquilibrada					
+					*/
+					Metodos.resetearLabelsColoresComidaEquilibrada(labelsDatosComidaEquilibrada, panelsComidaEquilibrada);
+					/**
 					* Le pasa el array list de la dieta para que se vea visualmente el producto agregado
 					* @param param1 ArrayList de la dieta/ingesta
 					* @param param2 Panel donde añadiremos visualmente el producto agregado
@@ -1142,32 +1163,38 @@ public class Ventana {
 		});
 		
 		//Boton Borrar Producto del Catalogo
-		
 		boton_BorrarProducto.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Etiqueta_Alerta_Dieta.setText("");
-				
+
 				if(Desplegable_Catalogo.getItemCount()>1)
 				{
 					Etiqueta_Alerta_Ingesta.setText("");
-				//Primero coge el indice del Producto de Catalogo
-				Integer NumeroLista = Desplegable_Catalogo.getSelectedIndex();
-				//Coge el nombre
-				String cat = Desplegable_Catalogo.getSelectedItem().toString();
-				//Lo borra del Catalogo
-				Desplegable_Catalogo.removeItemAt(NumeroLista);
-				//Borra el primer Producto que coincida con el nombre del Array de los Productos
-				ArrayListaProductos.eliminarProducto(cat);
+					//Primero coge el indice del Producto de Catalogo
+					Integer NumeroLista = Desplegable_Catalogo.getSelectedIndex();
+					//Coge el nombre
+					String cat = Desplegable_Catalogo.getSelectedItem().toString();
+					//Lo borra del Catalogo
+					Desplegable_Catalogo.removeItemAt(NumeroLista);
+					//Borra el primer Producto que coincida con el nombre del Array de los Productos
+					ArrayListaProductos.eliminarProducto(cat);
 				}
 				else
 					Etiqueta_Alerta_Ingesta.setText("No puedes tener 0 Productos");
 			}
 		});
+
+		
+		
+		// ++++ FIN Eventos panel_Ingesta ++++
 		
 		
 		
-		//Array de Etiquetas a�adir Productos 
+		
+		// ++++ Eventos panel_AgregarProducto ++++
+		
+		//Array de TextFields de Agregar Producto al Catalogo 
 		ArrayList<JTextField> fieldsAgregarProducto=new ArrayList<JTextField>();
 		fieldsAgregarProducto.add(textField_NombreAgregarProducto);
 		fieldsAgregarProducto.add(textField_MacrosCadaAgregarProducto);
@@ -1179,6 +1206,7 @@ public class Ventana {
 		fieldsAgregarProducto.add(textField_SalAgregarProducto);
 		fieldsAgregarProducto.add(textField_TotalCaloriasAgregarProducto);
 		
+		//Array de Labels de alerta "!" individual de Agregar Producto al Catalogo 
 		ArrayList<JLabel> labelsAlertaAgregarProducto=new ArrayList<JLabel>();
 		labelsAlertaAgregarProducto.add(ErrorNombreAlimento);
 		labelsAlertaAgregarProducto.add(ErrorMacrosCadaAlimento);
@@ -1191,9 +1219,7 @@ public class Ventana {
 		labelsAlertaAgregarProducto.add(ErrorTotalCalorias);
 		
 		
-		//Boton para agregar un nuevo producto
-		
-		
+		//Boton para agregar un nuevo producto al Catalogo
 		botonAgregarProductoCatalogo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1246,8 +1272,13 @@ public class Ventana {
 			}
 		});
 		
+		// ++++ FIN Eventos panel_AgregarProducto ++++
 		
 		
+		
+		
+		
+		// ++++ Eventos panel_dieta ++++
 		
 		
 		boton_BorrarProductoDieta.addMouseListener(new MouseAdapter() {
@@ -1255,15 +1286,13 @@ public class Ventana {
 			public void mouseClicked(MouseEvent e) {
 				
 				//Borrar Etiquetas de dieta
-				Etiqueta_calculo_requeridas.setText("0");
-				Etiqueta_calculo_consumidas.setText("0");
-				Etiqueta_ConsumoGrasas.setText("0");
-				Etiqueta_ConsumoSal.setText("0");
-				Etiqueta_ConsumoAzucar.setText("0");
-				
-				panel_ColorConsumoAzucar.setBackground(new Color(153, 255, 255));
-				panel_ColorConsumoGrasas.setBackground(new Color(153, 255, 255));
-				panel_ColorConsumoSal.setBackground(new Color(153, 255, 255));
+				/**
+				* Resetea los campos enviados a valores por defecto 
+				* Pone a 0 los labels y a color por defecto a los panels
+				* @param param1 ArrayList de los Labels de Datos de ComidaEquilibrada
+				* @param param2 ArrayList de los Panels de Colores de ComidaEquilibrada					
+				*/
+				Metodos.resetearLabelsColoresComidaEquilibrada(labelsDatosComidaEquilibrada, panelsComidaEquilibrada);
 				
 				if(ing.dieta.size()>0)
 				{
@@ -1292,6 +1321,13 @@ public class Ventana {
 			}
 		});
 		
+		// ++++ FIN Eventos panel_dieta ++++
+		
+		
+		
+		
+		
+		// ++++ Eventos panel_persona ++++
 		
 		textField_Edad.addCaretListener(new CaretListener() {
 			public void caretUpdate(CaretEvent arg0) {
@@ -1388,10 +1424,8 @@ public class Ventana {
 				}
 			}
 		});
-		/*
-		 * CALCULAR IMC y TMC
-		 */
 		
+		//Boton para calcular el IMC y el TMB
 		btnCalcIMC_TMB.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1464,16 +1498,53 @@ public class Ventana {
 					resultado = Math.round(((tmb * actividad) + (tmb * actividad) * 0.15)*100.00)/100.00;
 					Etiqueta_calculo_engordar.setText(String.valueOf(resultado));
 					
+					/**
+					* Resetea los campos enviados a valores por defecto 
+					* Pone a 0 los labels y a color por defecto a los panels
+					* @param param1 ArrayList de los Labels de Datos de ComidaEquilibrada
+					* @param param2 ArrayList de los Panels de Colores de ComidaEquilibrada					
+					*/
+					Metodos.resetearLabelsColoresComidaEquilibrada(labelsDatosComidaEquilibrada, panelsComidaEquilibrada);
+					
 					personaRegistrada = true;
 				}
 				
 			}
 		});
 		
-		/*
-		 * CALCULO DIETA EQUILIBRADA
-		 */
-		//Llamamos al boton Boton_CalcularDieta
+		
+		btn_infoActividad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JOptionPane.showMessageDialog(
+						frame, "Poco --> poco o ningun ejercicio \n"
+								+ "Ligero --> 1 - 3 dias a la semana \n"
+								+ "Moderado --> 3 - 5 dias a la semana \n"
+								+ "Intenso --> 6 - 7 dias a la semana \n"
+								+ "Muy intenso --> 2 veces al dia",
+						"Actividad Fisica",
+					   	JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		
+		
+		btn_infoIMC.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Icon icono = new ImageIcon(getClass().getResource("/img/IMC.png"));
+				
+				JOptionPane.showMessageDialog(
+						frame, icono, 
+						"IMC",
+					   	JOptionPane.PLAIN_MESSAGE);
+			}
+		});
+		
+		// ++++ FIN Eventos panel_persona ++++
+		
+		
+		
+		
+		
+		// ++++ Eventos panel_ComidaEquilibrada ++++
 		
 		Boton_CalcularDieta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -1521,30 +1592,6 @@ public class Ventana {
 			}
 		});
 
-		btn_infoActividad.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				JOptionPane.showMessageDialog(
-						frame, "Poco --> poco o ningun ejercicio \n"
-								+ "Ligero --> 1 - 3 dias a la semana \n"
-								+ "Moderado --> 3 - 5 dias a la semana \n"
-								+ "Intenso --> 6 - 7 dias a la semana \n"
-								+ "Muy intenso --> 2 veces al dia",
-						"Actividad Fisica",
-					   	JOptionPane.INFORMATION_MESSAGE);
-			}
-		});
-		
-		btn_infoIMC.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Icon icono = new ImageIcon(getClass().getResource("/img/IMC.png"));
-				
-				JOptionPane.showMessageDialog(
-						frame, icono, 
-						"IMC",
-					   	JOptionPane.PLAIN_MESSAGE);
-			}
-		});
-		
 		btn_infoColores.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JOptionPane.showMessageDialog(
@@ -1555,6 +1602,8 @@ public class Ventana {
 					   	JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
+		
+		// ++++ FIN Eventos panel_ComidaEquilibrada ++++
 		
 	}
 }
