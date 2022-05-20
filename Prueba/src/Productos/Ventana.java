@@ -661,13 +661,6 @@ public class Ventana {
 		panel_Ingesta.setBounds(401, 279, 622, 583);
 		frame.getContentPane().add(panel_Ingesta);
 		panel_Ingesta.setLayout(null);
-
-		//Titulo
-		JLabel Etiqueta_QueHasComido = new JLabel("¿Que has comido?");
-		Etiqueta_QueHasComido.setHorizontalAlignment(SwingConstants.CENTER);
-		Etiqueta_QueHasComido.setFont(new Font("Dialog", Font.BOLD, 17));
-		Etiqueta_QueHasComido.setBounds(209, 0, 172, 21);
-		panel_Ingesta.add(Etiqueta_QueHasComido);
 		
 		JLabel Etiqueta_Grasas = new JLabel("Grasas:");
 		Etiqueta_Grasas.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -920,32 +913,32 @@ public class Ventana {
 		
 		textField_CantidadGramosIntroducido = new JTextField();
 		textField_CantidadGramosIntroducido.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		textField_CantidadGramosIntroducido.setBounds(209, 37, 70, 23);
+		textField_CantidadGramosIntroducido.setBounds(314, 37, 70, 23);
 		panel_Ingesta.add(textField_CantidadGramosIntroducido);
 
 		//Etiqueta Gramos
 		JLabel Etiqueta_Gramos = new JLabel("Gr");
 		Etiqueta_Gramos.setFont(new Font("Tahoma", Font.BOLD, 15));
-		Etiqueta_Gramos.setBounds(297, 43, 20, 17);
+		Etiqueta_Gramos.setBounds(402, 43, 20, 17);
 		panel_Ingesta.add(Etiqueta_Gramos);
 
 		//Boton Agregar
 		JButton Boton_AgregarProducto = new JButton("Agregar a tu Dieta");
-		Boton_AgregarProducto.setBounds(326, 26, 143, 41);
+		Boton_AgregarProducto.setBounds(467, 29, 143, 41);
 		panel_Ingesta.add(Boton_AgregarProducto);
 
 		JButton boton_BorrarProducto = new JButton("Borrar Producto");
-		boton_BorrarProducto.setBounds(482, 26, 128, 41);
+		boton_BorrarProducto.setBounds(12, 29, 128, 41);
 		panel_Ingesta.add(boton_BorrarProducto);
 		
 		JComboBox Desplegable_Catalogo = new JComboBox();
-		Desplegable_Catalogo.setBounds(42, 33, 124, 26);
+		Desplegable_Catalogo.setBounds(164, 34, 124, 26);
 		panel_Ingesta.add(Desplegable_Catalogo);
 		
 		JLabel Etiqueta_Catalogo = new JLabel("Catalogo");
 		Etiqueta_Catalogo.setHorizontalAlignment(SwingConstants.CENTER);
 		Etiqueta_Catalogo.setFont(new Font("Dialog", Font.BOLD, 17));
-		Etiqueta_Catalogo.setBounds(22, 4, 172, 21);
+		Etiqueta_Catalogo.setBounds(130, 4, 172, 21);
 		panel_Ingesta.add(Etiqueta_Catalogo);
 		
 		// **** FIN CONTENIDO JPANEL panel_Ingesta ****
@@ -1007,6 +1000,13 @@ public class Ventana {
 		labelsUsuario.add(Etiqueta_GramosProteinasUsuario);
 		labelsUsuario.add(Gramos_Sal_Usuario);
 		labelsUsuario.add(Etiqueta_Total_Calorias_Usuario);
+		
+				//Titulo
+				JLabel Etiqueta_QueHasComido = new JLabel("¿Que has comido?");
+				Etiqueta_QueHasComido.setBounds(314, 4, 172, 21);
+				panel_Ingesta.add(Etiqueta_QueHasComido);
+				Etiqueta_QueHasComido.setHorizontalAlignment(SwingConstants.CENTER);
+				Etiqueta_QueHasComido.setFont(new Font("Dialog", Font.BOLD, 17));
 
 		
 		
@@ -1443,40 +1443,19 @@ public class Ventana {
 					
 					
 					//Sacamos que sexo ha sido seleccionado y guardamos el valor indicado para usar más tarde en la formula
-					int sexo;
-					if(Desplegable_Sexo.getSelectedIndex()==0)
-						sexo = -161;
-					else
-						sexo = 5;
+					int sexo = Metodos.devolverSexoTMB(Desplegable_Sexo.getSelectedIndex());
+					
 					
 					//Sacamos que nivel de actividad fisica ha sido seleccionado y lo guardamos para calcular mas tarde
-					double actividad = 1;
-					int index_desplegable_actividad = Desplegable_Actividad.getSelectedIndex();
-					switch(index_desplegable_actividad) {
-						case 0:
-							actividad = 1.2;
-							break;
-						case 1:
-							actividad = 1.375;
-							break;
-						case 2:
-							actividad = 1.55;
-							break;
-						case 3:
-							actividad = 1.725;
-							break;
-						case 4:
-							actividad = 1.9;
-							break;
-						
-					}
+					double actividad = Metodos.devolverActividadFisicaTMB(Desplegable_Actividad.getSelectedIndex());
+					
 					
 					//Calcular y mostrar IMC
 					double resultadoIMC=peso/Math.pow(altura, 2);
-					
 					resultadoIMC=Math.round(resultadoIMC*100.00)/100.00;
 					
 					Etiqueta_IMC.setText(String.valueOf(resultadoIMC));
+					
 					
 					//Calcular y mostrar TMB
 					double tmb = (10 * peso) + (6.25 * alturaCm) - (5 * edad) + sexo;
@@ -1486,13 +1465,16 @@ public class Ventana {
 					double resultado = Math.round(tmb*100.00)/100.00;
 					Etiqueta_calculo_basal.setText(String.valueOf(resultado));
 					
+					
 					//Mantener peso
 					resultado = Math.round((tmb * actividad)*100.00)/100.00;
 					Etiqueta_calculo_mantener.setText(String.valueOf(resultado));
 					
+					
 					//Adelgazar
 					resultado = Math.round(((tmb * actividad) * 0.85)*100.00)/100.00;
 					Etiqueta_calculo_adelgazar.setText(String.valueOf(resultado));
+					
 					
 					//Engordar
 					resultado = Math.round(((tmb * actividad) + (tmb * actividad) * 0.15)*100.00)/100.00;

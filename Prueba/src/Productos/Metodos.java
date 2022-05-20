@@ -247,8 +247,41 @@ public class Metodos {
 		}
 	}
 	
+	//Metodos para refactorizar el calculo del IMC y TMB en la clase Ventana
+	//-----------------------------------------------------------------------------
+	public static double devolverActividadFisicaTMB(int index) {
+		double actividad = 1;
+
+		switch(index) {
+		case 0:
+			actividad = 1.2;
+			break;
+		case 1:
+			actividad = 1.375;
+			break;
+		case 2:
+			actividad = 1.55;
+			break;
+		case 3:
+			actividad = 1.725;
+			break;
+		case 4:
+			actividad = 1.9;
+			break;
+		}
+		return actividad;
+	}
 	
-	
+	public static int devolverSexoTMB(int index) {
+		
+		if(index==0)
+			return -161;
+		else
+			return 5;
+		
+	}
+	//-----------------------------------------------------------------------------
+
 	
 	
 	
