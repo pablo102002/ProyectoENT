@@ -1,5 +1,10 @@
 package Productos;
 
+/**
+* En esta clase se definen productos
+* @author Johann
+*/
+
 public class Producto {
 
 	//Atributos

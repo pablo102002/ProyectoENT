@@ -1,5 +1,11 @@
 package Productos;
 
+/**
+* En esta clase se almacena un array list de productos que sirve para calcular,
+* lo que una persona come durante el día y si es una dieta saludable 
+* @author Gabriel
+*/
+
 import java.awt.Color;
 import java.util.ArrayList;
 
@@ -41,20 +47,8 @@ public class Ingesta {
 
 
 
-	public void setTotal_grasas(double total_grasas) {
-		this.total_grasas = total_grasas;
-	}
-
-
-
 	public double getTotal_grasas_saturadas() {
 		return total_grasas_saturadas;
-	}
-
-
-
-	public void setTotal_grasas_saturadas(double total_grasas_saturadas) {
-		this.total_grasas_saturadas = total_grasas_saturadas;
 	}
 
 
@@ -65,20 +59,8 @@ public class Ingesta {
 
 
 
-	public void setTotal_hidratos_carbono(double total_hidratos_carbono) {
-		this.total_hidratos_carbono = total_hidratos_carbono;
-	}
-
-
-
 	public double getTotal_azucar() {
 		return total_azucar;
-	}
-
-
-
-	public void setTotal_azucar(double total_azucar) {
-		this.total_azucar = total_azucar;
 	}
 
 
@@ -89,20 +71,8 @@ public class Ingesta {
 
 
 
-	public void setTotal_proteinas(double total_proteinas) {
-		this.total_proteinas = total_proteinas;
-	}
-
-
-
 	public double getTotal_sal() {
 		return total_sal;
-	}
-
-
-
-	public void setTotal_sal(double total_sal) {
-		this.total_sal = total_sal;
 	}
 
 
@@ -111,17 +81,21 @@ public class Ingesta {
 		return total_calorias;
 	}
 
-
-
-	public void setTotal_calorias(double total_calorias) {
-		this.total_calorias = total_calorias;
-	}
 	
 	
 	//Metodos
 	
 	//Metodos insertar y eliminar productos a la dieta
 
+	/**
+	  * Se recibe un objeto y la cantidad en gramos.
+	  * Se calcula la cantidad de nutrientes haciendo una regla de tres,
+	  * se guarda en un nuevo objeto y se inserta en el arraylist
+	  *
+	  * @param prod Recibe un objeto producto.
+	  * @param gramos y la cantidad en gramos de el producto recibido
+	  */
+	
 	public void insertarProducto(Producto prod, double gramos) {
 
 		//Calculamos la cantidad de nutrientes y lo guardamos en variables
@@ -152,7 +126,11 @@ public class Ingesta {
 
 	}
 
-	
+	/**
+	  * Se elimina un producto del arraylist recibiendo su índice
+	  *
+	  * @param index La posición en el arraylist del producto que queremos borrar
+	  */
 
 	public void eliminarProducto(int index) {
 
@@ -173,10 +151,20 @@ public class Ingesta {
 
 	
 	//Calcular si la dieta es saludable
+	/**
+	  * Este método coge el total de nutrientes de todos los productos y lo devuelve
+	  *
+	  */
 	
 		public double total() {
 			return Math.round((total_grasas + total_grasas_saturadas + total_hidratos_carbono + total_azucar + total_proteinas + total_sal)*100.00)/100.00;
 		}
+		
+		
+		/**
+		 * Este método recive el total de grasas y el total de nutrintes.
+		 * Devuelve un porcentaje con la cantidad total de grasas que hay en la dieta
+		 */
 		
 		public double consumo_grasas() {
 			return Math.round((100 * total_grasas / total())*100.00)/100.00;
@@ -187,18 +175,35 @@ public class Ingesta {
 		}
 		*/
 		
+		
+		/**
+		 * Este método recive el total de azucar y el total de nutrintes.
+		 * Devuelve un porcentaje con la cantidad total de azucar que hay en la dieta
+		 */
+		
 		public double consumo_azucar() {
 			return Math.round((100 * total_azucar / total())*100.00)/100.00;
 		}
+		
+		
+		/**
+		 * Este método recive el total de sal y el total de nutrintes.
+		 * Devuelve un porcentaje con la cantidad total de sal que hay en la dieta
+		 */
 		
 		public double consumo_Sal() {
 			return Math.round((100 * total_sal / total())*100.00)/100.00;
 		}
 		
 		
-		//Comprobar que sea una dieta saludale calculando que las grasas no superen el 30%
-		//Que el azucar sea menos del 10%
-		//Menos de 5 gramos de sal
+		
+		
+		/**
+		 * Comprobar que sea una dieta saludale
+		 * Calculando que las grasas no superen el 30%, que el azucar sea menos del 10% y menos de 5 gramos de sal
+		 */
+		
+		//---------------------------------------------------------------
 		
 		public boolean consumo_grasas_saludable() {
 			
@@ -208,6 +213,7 @@ public class Ingesta {
 				return false;
 			
 		}
+		
 		public void consumo_azucar_saludable(JPanel color) {
 			if(this.consumo_azucar() <= 10) {
 				if(this.consumo_azucar() <= 5) {
@@ -229,5 +235,7 @@ public class Ingesta {
 			else
 				return false;
 		}
+		
+		//---------------------------------------------------------------
 		
 }
