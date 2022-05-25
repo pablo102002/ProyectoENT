@@ -1082,9 +1082,11 @@ public class Ventana {
 					//Sino, realizara los calculos para mostrarlos en las macros consumidas por el usuario
 					if(!Valido) {
 						Etiqueta_Alerta_Ingesta.setText("Valor erroneo, tienes que introducir un numero positivo");
+						Boton_AgregarProducto.setEnabled(false);
 					}
 					else
 					{
+						Boton_AgregarProducto.setEnabled(true);
 						//convertimos el JTextField en un Double para hacer los calculos
 						String texto = textField_CantidadGramosIntroducido.getText();
 						double cantidadGramos=Double.parseDouble(texto);
@@ -1119,7 +1121,7 @@ public class Ventana {
 				Etiqueta_Alerta_Dieta.setText("");
 
 				//Si el campo de los gramos esta vacio o a 0 no introduce producto
-				if(textField_CantidadGramosIntroducido.getText().equals("") || textField_CantidadGramosIntroducido.getText().equals("0")) {
+				if(textField_CantidadGramosIntroducido.getText().equals("") || textField_CantidadGramosIntroducido.getText().equals("0") || !Etiqueta_Alerta_Ingesta.getText().isEmpty()) {
 					Etiqueta_Alerta_Ingesta.setText("El campo no agregarse como vacio o 0");;
 				}else {
 					//Sirve para poner todos Label de usuario 
