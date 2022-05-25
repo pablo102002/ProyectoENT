@@ -1,5 +1,11 @@
 package Productos;
 
+/**
+* Clase para probar un metodo en especifico que esta en la clase Metodos   
+* @author Johann
+* @version 0.1, 2022/05/15
+*/
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import javax.swing.JTextField;

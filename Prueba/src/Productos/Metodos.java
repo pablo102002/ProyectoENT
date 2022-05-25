@@ -1,5 +1,10 @@
 package Productos;
 
+/**
+* Aqui se definiran los metodos para las funciones de la ventana, para no saturararla de codigo 
+* @author Johann / Pablo / Gabriel
+*/
+
 import java.awt.Color;
 import java.util.ArrayList;
 

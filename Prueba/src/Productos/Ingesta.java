@@ -169,11 +169,6 @@ public class Ingesta {
 		public double consumo_grasas() {
 			return Math.round((100 * total_grasas / total())*100.00)/100.00;
 		}
-		/*
-		public double consumo_hidratos() {
-			return 100 * (total_hidratos_carbono + total_azucar) / total();
-		}
-		*/
 		
 		
 		/**

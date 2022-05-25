@@ -1,5 +1,10 @@
 package Productos;
 
+/**
+* Esta clase guardara todos los Productos que se añadan al catalogo  
+* @author Johann
+*/
+
 import java.util.ArrayList;
 
 public class ListadoProductos {
